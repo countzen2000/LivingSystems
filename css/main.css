@@ -1,0 +1,443 @@
+/*******Global******/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+
+body
+{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+.center_align
+{
+    margin-right: auto;
+    margin-left: 0;
+}
+h1
+{
+    font-size: 40px;
+}
+
+/**** Header/Menu ****/
+.page-header
+{
+    z-index: 999999;
+
+    display: static;
+
+    width: 100%;
+    height: 36px;
+}
+
+.page-header #menu-icon
+{
+    position: absolute;
+    top: 40px;
+    right: 30px;
+
+    display: block;
+
+    width: 36px;
+    height: 21px;
+
+    cursor: hand;
+    vertical-align: middle;
+
+    background-image: url(../resources/images/menu_icon.png);
+}
+
+.page-header #logo
+{
+    font-size: 30px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    margin-right: auto;
+    margin-left: 30px;
+
+    color: gray;
+}
+
+.page-header #hiddenMenu
+{
+    position: absolute;
+    top: 40px;
+    right: 30px;
+
+    display: none;
+
+    width: initial;
+}
+
+.page-header #hiddenMenu span
+{
+    font-size: 20px;
+    line-height: 20px;
+
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.page-header #hiddenMenu span:hover
+{
+    text-decoration: underline;
+}
+
+
+.vertical-align
+{
+    position: relative;
+    top: 50%;
+
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+div.text-wrap
+{
+    display: block;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    color: white;
+}
+.section1 div.text-wrap
+{
+    font-size: 60px;
+
+    width: 400px;
+}
+
+.section2 div.text-wrap
+{
+    font-size: 50px;
+
+    width: 600px;
+}
+
+.section3 div.text-wrap
+{
+    font-size: 50px;
+
+    width: 600px;
+}
+
+div.text-wrap p
+{
+    width: 100%;
+    margin: 0;
+
+    text-align: center;
+}
+
+section
+{
+    height: 100vh;
+    min-height: 600px;
+
+    color: black;
+}
+
+.section1
+{
+    z-index: 999;
+
+    background-image: url(../resources/images/back1.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+}
+.section2
+{
+    position: relative;
+    z-index: 888;
+    bottom: 100vh;
+    left: 0;
+
+    width: 100%;
+
+    background-image: url(../resources/images/back2.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+}
+.section3
+{
+    position: relative;
+    z-index: 777;
+    bottom: 200vh;
+    left: 0;
+
+    width: 100%;
+
+    background-image: url(../resources/images/back3.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+}
+.section4
+{
+    z-index: 999999;
+
+    height: 100vh;
+
+    text-align: center;
+
+    color: black;
+    background-color: white;
+}
+
+.section4 h1
+{
+    font-size: 40px;
+
+    margin: 20px;
+}
+
+.section4 #Section4Description
+{
+    font-size: 20px;
+
+    color: gray;
+}
+
+.section5
+{
+    z-index: 9999;
+
+    height: 100vh;
+    margin: 0;
+    padding-top: 50px;
+
+    text-align: center;
+
+    color: gray;
+    background-image: url(../resources/images/background/works_5.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+}
+.section5 h1
+{
+    margin: 20px;
+}
+
+.section5 #Section5Description
+{
+    font-size: 20px;
+
+    color: gray;
+}
+
+.section6
+{
+    z-index: 999;
+
+    height: 100vh;
+
+    text-align: center;
+
+    color: black;
+    background-color: white;
+}
+
+.section6 h1
+{
+    margin: 20px;
+}
+
+.section6 #Section6Description
+{
+    font-size: 20px;
+
+    color: gray;
+}
+
+.section7
+{
+    z-index: 999;
+
+    height: 100vh;
+
+    text-align: center;
+
+    color: black;
+    background-color: white;
+}
+
+.section7 h1
+{
+    margin: 20px;
+}
+
+.section8
+{
+    z-index: 999;
+
+    height: 100vh;
+
+    text-align: center;
+
+    color: gray;
+    background-color: black;
+}
+
+.section8 h1
+{
+    margin: 20px;
+}
+
+/**GLOBAL**/
+
+.container
+{
+    max-width: 990px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.horizontalDividerSpan
+{
+    width: 54px;
+    height: 1px;
+    margin: 0;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+
+    background-color: black;
+}
+/********?
+
+/*the boxes in section4*/
+
+
+.client-list li
+{
+    float: left;
+
+    width: 30%;
+    height: 140px;
+    margin: 0 10px 10px;
+
+    list-style-type: none;
+}
+.client-list figure
+{
+    top: 50%;
+
+    width: 33.33%;
+    height: 140px;
+    margin: 0 0 10px;
+}
+
+.client-list img
+{
+    position: relative;
+    top: 35%;
+}
+/******/
+
+/*the boxes in section5*/
+.work-list
+{
+    bottom: 0;
+
+    width: 100%;
+    height: 34%;
+    margin: 0;
+    padding: 0;
+
+    background: url(http://ianfarb.com/wp-content/uploads/2013/10/nicholas-hodag.jpg);
+    background-color: black;
+    background-size: cover;
+}
+
+.work-list li
+{
+    float: left;
+
+    width: 25%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+}
+.work-list figure
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.work-list img
+{
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+/******/
+
+.scrollContent
+{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.spacer
+{
+    min-height: 100px;
+
+    text-align: center;
+}
+.spacer.s0
+{
+    min-height: 1px;
+}
+.spacer.s1
+{
+    min-height: 100px;
+}
+.spacer.s2
+{
+    min-height: 200px;
+}
+.spacer.s3
+{
+    min-height: 300px;
+}
+.spacer.s4
+{
+    min-height: 400px;
+}
