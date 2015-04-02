@@ -35,9 +35,9 @@ livingSys = (function() {
 				TweenMax.to("#pin1", 1, {"alpha":0, top: "-=25"})
 			)
 			.add(
-				TweenMax.to("#section1", 1, {transformOrigin: "50% 50% 0", scale: .5, alpha:0})
+				TweenMax.to("#section1", 1, {transformOrigin: "50% 50% 0", scale: .75, alpha:0})
 			).add(
-				TweenMax.from("#section2", 1, {transformOrigin: "50% 50% 0", scale: 1.5, alpha:0})
+				TweenMax.from("#section2", .5, {transformOrigin: "50% 50% 0", scale: 1.5, alpha:0})
 			)
 
 		var fadeOutText1 = new ScrollMagic.Scene({offset: 200, duration: 1500})
@@ -61,9 +61,9 @@ livingSys = (function() {
 				TweenMax.to("#pin2", 1, {"alpha":0, top: "-=25"})
 			)
 			.add(
-				TweenMax.to("#section2", 1, {transformOrigin: "50% 50% 0", scale: .5, "alpha":0})
+				TweenMax.to("#section2", 1, {transformOrigin: "50% 50% 0", scale: .75, "alpha":0})
 			).add(
-				TweenMax.from("#section3", 1, {transformOrigin: "50% 50% 0", scale: 1.5, alpha:0})
+				TweenMax.from("#section3", .5, {transformOrigin: "50% 50% 0", scale: 1.5, alpha:0})
 			)
 
 		var fadeOutText2 = new ScrollMagic.Scene({offset: 1700, duration: 1500})
@@ -86,7 +86,7 @@ livingSys = (function() {
 			.add(
 				TweenMax.to("#pin3", 1, {"alpha":0, top: "-=25"})
 			).add(
-				TweenMax.to("#section3", 1, {transformOrigin: "50% 50% 0", scale: .5, "alpha":0})
+				TweenMax.to("#section3", 1, {"alpha":0})
 			)
 
 		var fadeOutText3 = new ScrollMagic.Scene({offset: 3200, duration: 1500})
