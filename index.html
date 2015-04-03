@@ -1,102 +1,28 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 	<head>
-	<meta charset="utf-8"> 
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Living Systems</title>
-	<!-- Fonts -->
-	<LINK href="css/main.css" rel="stylesheet" type="text/css">
-	<LINK href="css/effects.css" rel="stylesheet" type="text/css">
-	<LINK href="css/form.css" rel="stylesheet" type="text/css">
-	
-
-	<script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
-   	<script src="js/lib/greensock/TweenMax.min.js"></script>
-    <script src="js/lib/jquery.min.js"></script>
-    <script src="js/lib/modernizr.custom.min.js"></script>
-    <script src="js/lib/iscroll-probe.js"></script>
-    <script src="scrollmagic/minified/ScrollMagic.min.js"></script>
-    <script src="scrollmagic/minified/plugins/animation.gsap.min.js"></script>
-    <script src="scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
-  	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.8.4/plugins/ScrollToPlugin.min.js"></script>
-  	<script src="js/forms.js"></script>
-  	<script src="js/livingSys.js"></script>
-  	<script src="js/menuSystem.js"></script>
-	<script>
-
-		$(document).ready(function($) {
-			forms.init();
-			livingSys.init();
-			menuSystem.init();
-		});
+		<meta charset="utf-8"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Living Systems</title>
+		<!-- Fonts -->
+		<LINK href="css/main.css" rel="stylesheet" type="text/css">
+		<LINK href="css/effects.css" rel="stylesheet" type="text/css">
+		<LINK href="css/form.css" rel="stylesheet" type="text/css">
 		
-		//For Sticky Menu
-		$(function(){
-		        var stickyRibbonTop = $('#page-header').offset().top;
 
-		        $(window).scroll(function(){
-		                if( $(window).scrollTop() > stickyRibbonTop ) {
-		                        $('#page-header').css({position: 'fixed', top: '0px'});
-		                } else {
-		                        $('#page-header').css({position: 'static', top: '0px'});
-		                }
-		        });
-		});
-
-		//For Arrow Scroll
-		var currentPosition = 0;
-		var positionArray = [
-			'0',
-			'#section4',
-			'#section5',
-			'#section6',
-			'#section7',
-			'#section8'
-			]
-
-		$(document).keydown(function(e) {
-		    switch(e.which) {
-		        case 38: // up
-		        	gotoPreviousMenu();
-		        	break;
-
-		        case 40: // down
-		        	gotoNextMenu();
-        			break;
-
-		        default: return; // exit this handler for other keys
-		    }
-		    e.preventDefault(); // prevent the default action (scroll / move caret)
-		});
-
-		function gotoNextMenu() {
-			currentPosition++;
-			if (currentPosition > positionArray.length-1)
-			{
-				currentPosition = positionArray.length-1;
-			}
-			livingSys.controller.scrollTo(positionArray[currentPosition]);
-			//console.log(currentPosition)
-			// if supported by the browser we can even update the URL.
-			//if (window.history && window.history.pushState) {
-			//	history.pushState("", document.title, id);
-			//}
-		}
-
-		function gotoPreviousMenu() {
-			currentPosition--;
-			if (currentPosition < 0)
-			{
-				currentPosition = 0;
-			}
-			livingSys.controller.scrollTo(positionArray[currentPosition]);
-			//console.log(currentPosition)
-			// if supported by the browser we can even update the URL.
-			//if (window.history && window.history.pushState) {
-			//	history.pushState("", document.title, id);
-			//}
-		}
-	</script>
+		<script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
+	   	<script src="js/lib/greensock/TweenMax.min.js"></script>
+	    <script src="js/lib/jquery.min.js"></script>
+	    <script src="js/lib/modernizr.custom.min.js"></script>
+	    <script src="js/lib/iscroll-probe.js"></script>
+	    <script src="scrollmagic/minified/ScrollMagic.min.js"></script>
+	    <script src="scrollmagic/minified/plugins/animation.gsap.min.js"></script>
+	    <script src="scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
+	  	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.8.4/plugins/ScrollToPlugin.min.js"></script>
+	  	<script src="js/forms.js"></script>
+	  	<script src="js/livingSys.js"></script>
+	  	<script src="js/menuSystem.js"></script>
+	  	<script src="js/arrowScroll.js"></script>
 
 	</head>
 
@@ -130,7 +56,7 @@
 					</span>
 					<nav id="hiddenMenu">
 						<span id="section4">CLIENTS</span>&nbsp;
-						<span>WORKS</span>&nbsp;
+						<span>WORK</span>&nbsp;
 						<span>SERVICES</span>&nbsp;
 						<span>CONTACT</span>&nbsp;
 						<span>SOCIAL</span>&nbsp;
@@ -183,7 +109,7 @@
 			<section id="section5" class="section5" >
 				<div class="container" >
 					<h1>
-						Our Works
+						Our Work
 					</h1>
 					
 					<div class="horizontalDividerSpan" style="background-color: gray;">
@@ -361,4 +287,10 @@
 
 		</div>
 	</body>
+	<script>
+		forms.init();
+		livingSys.init();
+		menuSystem.init();
+		arrowScroll.init();
+	</script>
 </html>

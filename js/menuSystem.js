@@ -17,6 +17,16 @@ menuSystem = (function() {
 			//$("#hiddenMenu").css({'display':'none'});
 			//$("#menu-icon").css({'display':'block'});
 		});
+
+	   var stickyRibbonTop = $('#page-header').offset().top;
+
+	    $(window).scroll(function(){
+			if( $(window).scrollTop() > stickyRibbonTop ) {
+	        	$('#page-header').css({position: 'fixed', top: '0px'});
+	        } else {
+	        	$('#page-header').css({position: 'static', top: '0px'});
+	        }
+	    });
 	}
 
 	var open = function() {
