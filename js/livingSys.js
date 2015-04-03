@@ -7,10 +7,9 @@ livingSys = (function() {
 		setupAnimation();
 		realign();
 
-		/* Scrolling stuff ========================================================================== */
+		/* Scrolling stuff ======================================================== */
 		controller.scrollTo(function (newpos) {
 			console.log("what in the world?!"+newpos);
-			//TweenMax.to(window, 2, {scrollTo:{y: 4700}});
 			TweenMax.to( window, 1,
 					{
 						scrollTo: { y: newpos },
@@ -18,8 +17,8 @@ livingSys = (function() {
 						autoKill: false
 					}
 				);
-			//$(window).scrollTop(newpos);
 		});
+		/* Scrolling stuff ======================================================== */
 	}
 
 	var setupAnimation = function() {
@@ -95,6 +94,10 @@ livingSys = (function() {
 		fadeOutText3.addIndicators();
 	}
 
+	var resize = function() {
+		
+	}
+
 	var realign = function() {
 		$('#section4').offset({top: 4700});
 		$('#section5').offset({top: $('#section4').offset().top + $('#section5').height()});
@@ -104,8 +107,6 @@ livingSys = (function() {
 		
 		var section4 = $('#section4').offset().top;
 		$('#page-header').offset({top: section4});
-
-
 	}
 	return {
 		init: init,
