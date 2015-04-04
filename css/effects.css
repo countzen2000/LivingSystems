@@ -130,6 +130,10 @@ figure.slide-effect:hover {
 
 /********/
 
+ul.client-list {
+    margin-left: 20%;
+}
+
 .client-list li
 {
     float: left;
@@ -156,8 +160,13 @@ figure.slide-effect:hover {
 }
 
 /*******/
+
+ul.service-list {
+    margin-left: 10%;
+}
 .service-list li
 {
+
     float: left;
 
     width: 19%;
