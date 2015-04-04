@@ -85,8 +85,9 @@ livingSys = (function() {
 		var parent = container.parent();
 
 		container.offset({top:parent.offset().top + parent.height()/2 - container.height()/2- parent.height()*.1});
-		work_container.offset({top:parent.offset().top +parent.height() - 470});
+		work_container.offset({top:parent.offset().top +parent.height() - 450});
 
+		realign();
 	}
 
 	var realign = function() {
