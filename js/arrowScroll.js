@@ -83,7 +83,7 @@ arrowScroll = (function(){
 			case (location > 0 && location <= positionArray[1]):
 				returnValue =  1;
 				break;
-			case (location >= positionArray[1] && location <= positionArray[2]):
+			case (location >= positionArray[1]-20 && location <= positionArray[2]):
 				returnValue =  2;
 				break;
 			case (location >= positionArray[2] && location <= $(positionArray[3]).offset().top):

@@ -191,7 +191,7 @@ section
 .section6
 {
     
-
+z-index: 999;
     text-align: center;
 
     color: black;
@@ -269,84 +269,8 @@ section
 
     background-color: black;
 }
-/********?
-
-/*the boxes in section4*/
 
 
-.client-list li
-{
-    float: left;
-
-    width: 45%;
-    height: 140px;
-    margin: 0 10px 10px;
-
-    list-style-type: none;
-}
-.client-list figure
-{
-    top: 50%;
-
-    width: 33.33%;
-    height: 140px;
-    margin: 0 0 10px;
-}
-
-.client-list img
-{
-    position: relative;
-    top: 35%;
-}
-/******/
-
-/*the boxes in section5*/
-
-.work-list
-{
-    position: relative;
-
-    bottom: 0;
-
-    width: 100%;
-    height: 34%;
-    margin: 0;
-    padding: 0;
-
-    background: url(http://ianfarb.com/wp-content/uploads/2013/10/nicholas-hodag.jpg);
-    background-color: black;
-    background-size: cover;
-}
-
-.work-list li
-{
-    float: left;
-
-    width: 25%;
-    height: 50%;
-    margin: 0;
-    padding: 0;
-
-    list-style-type: none;
-}
-.work-list figure
-{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.work-list img
-{
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-/******/
 
 .scrollContent
 {

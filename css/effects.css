@@ -17,6 +17,25 @@ figure.zoom-effect:hover {
     /*background-color: #CCCCCC;*/
 }
 
+figure.slide-effect {
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all .35s ease; /* Safari and Chrome */
+    -moz-transition: all .35s ease; /* Firefox */
+    -o-transition: all .35s ease; /* IE 9 */
+    -ms-transition: all .35s ease; /* Opera */
+    transition: all .35s ease;
+    background-color: white;
+}
+figure.slide-effect:hover {
+    -webkit-transform:translateY(-100%); /* Safari and Chrome */
+    -moz-transform:translateY(-100%); /* Firefox */
+    -ms-transform:translateY(-100%); /* IE 9 */
+    -o-transform:translateY(-100%); /* Opera */
+     transform:translateY(-100%);
+    /*background-color: #CCCCCC;*/
+}
+
 .works-effect {
 	overflow: hidden;
 	width: 100%;
@@ -57,4 +76,145 @@ figure.zoom-effect:hover {
 
 .overlay:hover {
 	opacity:1;
+}
+
+/******/
+
+/*the boxes in section5*/
+
+.work-list
+{
+    position: relative;
+
+    bottom: 0;
+
+    width: 100%;
+    height: 34%;
+    margin: 0;
+    padding: 0;
+
+    background: url(http://ianfarb.com/wp-content/uploads/2013/10/nicholas-hodag.jpg);
+    background-color: black;
+    background-size: cover;
+}
+
+.work-list li
+{
+    float: left;
+
+    width: 25%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+}
+.work-list figure
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.work-list img
+{
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+/******/
+
+/********/
+
+.client-list li
+{
+    float: left;
+
+    width: 45%;
+    height: 140px;
+    margin: 0 10px 10px;
+
+    list-style-type: none;
+}
+.client-list figure
+{
+    top: 50%;
+
+    width: 33.33%;
+    height: 140px;
+    margin: 0 0 10px;
+}
+
+.client-list img
+{
+    position: relative;
+    top: 35%;
+}
+
+/*******/
+.service-list li
+{
+    float: left;
+
+    width: 19%;
+    height: 140px;
+    margin: 0 10px 10px;
+
+    list-style-type: none;
+}
+.service-list figure
+{
+    top: 50%;
+
+    width: 33.33%;
+    height: 140px;
+    margin: 0 0 10px;
+}
+
+.service-list img
+{
+    position: relative;
+    top: 35%;
+}
+
+#architecture {
+    -webkit-clip-path: inset(1% 0 50% 0);
+    clip-path: inset(1% 0 50% 0);
+}
+
+#branding {
+    -webkit-clip-path: inset(0 0 50% 0);
+    clip-path: inset(50% 0 50% 0);
+}
+
+#consulting {
+    -webkit-clip-path: inset(0 0 50% 0);
+    clip-path: inset(50% 0 50% 0);
+}
+
+#design {
+    -webkit-clip-path: inset(0 0 50% 0);
+    clip-path: inset(50% 0 50% 0);
+}
+#sales {
+    -webkit-clip-path: inset(0 0 50% 0);
+    clip-path: inset(50% 0 50% 0);
+}
+#engineering {
+    -webkit-clip-path: inset(0 0 50% 0);
+    clip-path: inset(50% 0 50% 0);
+}
+
+#marketing {
+    -webkit-clip-path: inset(0 0 50% 0);
+    clip-path: inset(50% 0 50% 0);
+}
+
+#marketing {
+    -webkit-clip-path: inset(0 0 50% 0);
+    clip-path: inset(50% 0 50% 0);
 }

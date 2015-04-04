@@ -84,14 +84,14 @@ livingSys = (function() {
 		var work_container = $("#work-list-container");
 		var parent = container.parent();
 
-		container.offset({top:parent.offset().top + parent.height()/2 - container.height()/2-50});
+		container.offset({top:parent.offset().top + parent.height()/2 - container.height()/2- parent.height()*.1});
 		work_container.offset({top:parent.offset().top +parent.height() - 470});
 
 	}
 
 	var realign = function() {
 		//$('#section6').height($('#section6').height() + 50);
-
+		//$('#section8').height(600);
 		$('#section4').offset({top: 18200});
 		$('#section5').offset({top: $('#section4').offset().top + $('#section5').height()});
 		$('#section6').offset({top: $('#section5').offset().top + $('#section6').height()+50});
