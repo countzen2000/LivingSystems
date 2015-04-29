@@ -125,6 +125,8 @@ livingSys = (function() {
 
 		$(window).resize(onResize);
 		onResize();
+
+		
 	}
 
 	return {

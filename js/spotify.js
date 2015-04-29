@@ -9,6 +9,10 @@ spotify = (function() {
 	var _id = "1c7cda79c2d41559568af011418c5a1";
 	var _secret = "d160ab20a20f41038fe8c6dac3ba30e5";
 
+	var _authorize = function() {
+		var authroizeURL = "https://accounts.spotify.com/authorize/?client_id="+_id+"&response_type=code&redirect_uri=google.com&scope=user-read-private%20user-read-email"
+	}
+
 /*************************************************************
 	Public
 *************************************************************/
@@ -30,6 +34,8 @@ spotify = (function() {
 	};
 
 	
+
+
 	return {
 		songSearch:songSearch
 	}

@@ -9,6 +9,7 @@
 		<LINK href="css/effects.css" rel="stylesheet" type="text/css">
 		<LINK href="css/form.css" rel="stylesheet" type="text/css">
 		<LINK href="css/menu.css" rel="stylesheet" type="text/css">
+		<LINK href="css/twitter.css" rel="stylesheet" type="text/css">
 		
 
 		<script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
@@ -20,10 +21,15 @@
 	    <script src="scrollmagic/minified/plugins/animation.gsap.min.js"></script>
 	    <script src="scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
 	  	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.8.4/plugins/ScrollToPlugin.min.js"></script>
+	  	<script src="js/twitterFetcher.js"></script>
 	  	<script src="js/forms.js"></script>
 	  	<script src="js/livingSys.js"></script>
 	  	<script src="js/menuSystem.js"></script>
 	  	<script src="js/arrowScroll.js"></script>
+	  	<script src="js/twitter.js"></script>
+
+	  	<script src="//use.typekit.net/uja3max.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
 
 	</head>
 
@@ -190,44 +196,45 @@
 					</p>
 					<ul class="service-list center-align">
 						<li>
-							<figure class="slide-effect">
-								<img id="architecture" src="resources/images/logos/icons/architecture.svg" width="120" alt="architecture">
-							</figure>
+							<div class="clippy">
+								<img id="architecture" class="slide-effect" src="resources/images/logos/icons/architecture.svg" alt="architecture">
+								<img class="fade_effect" src="resources/images/button_assets/architecture.jpg">
+							</div>
 						</li>
 						<li>
-							<figure class="slide-effect">
-								<img  class="slide-effect-image" id="branding" width="120" src="resources/images/logos/icons/branding.svg" alt="brandind">
-							</figure>
+							<div class="clippy">
+								<img class="slide-effect" id="branding" width="120" src="resources/images/logos/icons/branding.svg" alt="brandind">
+							</div>
 						</li>
 						<li>
-							<figure class="slide-effect">
-								<img id="consulting"  width="120" src="resources/images/logos/icons/consulting.svg" alt="Consulting">
-							</figure>
+							<div class="clippy">
+								<img id="consulting" class="slide-effect" src="resources/images/logos/icons/consulting.svg" alt="Consulting">
+							</div>
 						</li>
 						<li>
-							<figure class="slide-effect">
-								<img id="contracting" src="resources/images/logos/icons/contracting.svg" width="120" alt="Contracting">
-							</figure>
+							<div class="clippy">
+								<img id="contracting" class="slide-effect" src="resources/images/logos/icons/contracting.svg" width="120" alt="Contracting">
+							</div>
 						</li>
 						<li>
-							<figure class="slide-effect">
-								<img width="120" id="marketing" src="resources/images/logos/icons/marketing.svg" alt="marketing">
-							</figure>
+							<div class="clippy">
+								<img width="120" id="marketing" class="slide-effect" src="resources/images/logos/icons/marketing.svg" alt="marketing">
+							</div>
 						</li>
 						<li>
-							<figure class="slide-effect">
-								<img width="120" id="engineering" src="resources/images/logos/icons/engineering.svg" alt="Engineer">
-							</figure>
+							<div class="clippy">
+								<img width="120" id="engineering" class="slide-effect" src="resources/images/logos/icons/engineering.svg" alt="Engineer">
+							</div>
 						</li>
 						<li>
-							<figure class="slide-effect">
-								<img id="sales" width="120" src="resources/images/logos/icons/sales.svg" alt="sales">
-							</figure>
+							<div class="clippy">
+								<img id="sales" class="slide-effect" src="resources/images/logos/icons/sales.svg" alt="sales">
+							</div>
 						</li>
 						<li>
-							<figure class="slide-effect">
-								<img id="design" width="120" src="resources/images/logos/icons/design.svg" alt="design">
-							</figure>
+							<div class="clippy">
+								<img id="design" class="slide-effect"  src="resources/images/logos/icons/design.svg" alt="design">
+							</div>
 						</li>
 					</ul>
 				</div>
@@ -273,11 +280,13 @@
 						Lately on Social
 					</h1>
 					<div class="horizontalDividerSpan" style="top: -140px; position: relative;"></div>
-					<div class="center-align" style="top: -100px; position: relative;">
-						<img src="resources/images/social_temp.png">
+					<div class="center-align" style="top: 00px; position: relative;">
+    					<div id="TweetContainer">...</div>
 					</div>
+					<div style="height: 50px; width: 100%;"></div>
 					<div class="center-align">
 						<img src="resources/images/footer.png">
+						
 					</div>
 					
 				</div>
@@ -291,5 +300,7 @@
 		livingSys.init();
 		menuSystem.init();
 		arrowScroll.init();
+		twitter.getSomeTweets();
 	</script>
+	
 </html>
