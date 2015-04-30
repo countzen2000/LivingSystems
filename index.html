@@ -11,6 +11,8 @@
 		<LINK href="css/menu.css" rel="stylesheet" type="text/css">
 		<LINK href="css/twitter.css" rel="stylesheet" type="text/css">
 		
+		<script src="//use.typekit.net/uja3max.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
 
 		<script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
 	   	<script src="js/lib/greensock/TweenMax.min.js"></script>
@@ -27,10 +29,6 @@
 	  	<script src="js/menuSystem.js"></script>
 	  	<script src="js/arrowScroll.js"></script>
 	  	<script src="js/twitter.js"></script>
-
-	  	<script src="//use.typekit.net/uja3max.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
-
 	</head>
 
 	<body>
@@ -60,14 +58,23 @@
 						<p>livingSystems</p>
 					</div>
 					<span id="menu-icon">
+						
 					</span>
 					<nav id="hiddenMenu">
-						<span id="section4">CLIENTS</span>&nbsp;
-						<span>WORK</span>&nbsp;
-						<span>SERVICES</span>&nbsp;
-						<span>CONTACT</span>&nbsp;
-						<span>SOCIAL</span>&nbsp;
-						<span id="closeMenu">CLOSE</span>
+						<ul>
+							<li><span id="clients_menu">CLIENTS</span></li>
+							<li><span id="work_menu">WORK</span></li>
+							<li><span id="services_menu">SERVICES</span></li>
+							<li><span id="contact_menu">CONTACT</span></li>
+							<li><span id="social_menu">SOCIAL</span></li>
+							<li id="closeMenu">
+									<ul class="rotate">
+										<li></li>
+										<li></li>
+										<li></li>
+									</ul>
+							</li>
+						</ul>
 					</nav>
 				</div>
 				<div class="container">
@@ -305,8 +312,8 @@
 	<script>
 		forms.init();
 		livingSys.init();
-		menuSystem.init();
 		arrowScroll.init();
+		menuSystem.init();
 		twitter.getSomeTweets();
 	</script>
 	

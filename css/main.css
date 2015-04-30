@@ -1,9 +1,8 @@
 /*******Global******/
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
 
 body
 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'proxima-nova',sans-serif;
     font-weight: 300;
 
     height: 100%;
@@ -190,8 +189,8 @@ section
 
 .section6
 {
-    
-z-index: 999;
+    z-index: 999;
+
     text-align: center;
 
     color: black;
@@ -251,11 +250,11 @@ z-index: 999;
     margin-right: auto;
     margin-left: auto;
 
-    -o-transform:translateY(-o-calc(-50% - 150px));    
-    -ms-transform:translateY(c-ms-alc(-50% - 150px));
-    -moz-transform:translateY(-moz-calc(-50% - 150px));
-    -webkit-transform:translateY(-webkit-calc(-50% - 150px));
-    transform:translateY(calc(-50% - 150px));
+    -webkit-transform: translateY(-webkit-calc(-50% - 150px));
+       -moz-transform: translateY(-moz-calc(-50% - 150px));
+        -ms-transform: translateY(c-ms-alc(-50% - 150px));
+         -o-transform: translateY(-o-calc(-50% - 150px));
+            transform: translateY(calc(-50% - 150px));
 }
 
 .horizontalDividerSpan
