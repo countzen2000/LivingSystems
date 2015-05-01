@@ -58,8 +58,6 @@ menuSystem = (function() {
 	}
 
 	var handleScroll = function() {
-		
-
 		if( $(window).scrollTop() > stickyRibbonTop ) {
         	$('#page-header').css({position: 'fixed', top: '0px'});
         } else {

@@ -11,6 +11,8 @@ body
 
     background-color: #000;
 
+    overflow: hidden;
+
     -webkit-font-smoothing: antialiased;
 }
 
@@ -241,16 +243,36 @@ section
 /****
 Works
 *****/
-.work-flex-container {
-    display: flex;
+#work-flex-container
+{
+    display: -webkit-box;
+    display:    -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display:         flex;
+            flex-direction: row;
 
-    align-items: flex-start;
+    margin: 0;
+    padding: 0;
 
-    -webkit-flex: 1; /* Safari 6.1+ */
-    -ms-flex: 1; /* IE 10 */ 
-    flex: 1;
+    -webkit-flex-direction: row;
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-align-content: center;
+            align-content: center;
+    -webkit-justify-content: center;
+            justify-content: center;
 }
 
+.work-flex
+{
+    width: 25%;
+    min-width: 10%;
+    max-width: 420px;
+
+    margin: 0;
+    padding: 0;
+}
 
 /**GLOBAL**/
 

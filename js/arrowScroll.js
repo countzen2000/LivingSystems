@@ -12,7 +12,6 @@ arrowScroll = (function(){
 		]
 
 	var gotoNextMenu = function () {
-		console.log(currentPosition);
 		currentPosition++;
 		if (currentPosition > positionArray.length-1)
 		{
@@ -33,7 +32,6 @@ arrowScroll = (function(){
 	}
 
 	var gotoPreviousMenu = function() {
-		console.log(currentPosition);
 		currentPosition--;
 		if (currentPosition < 0)
 		{

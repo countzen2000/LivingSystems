@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Living Systems</title>
 
+		<LINK href="css/preloader.css" rel="stylesheet" type="text/css">
 		<LINK href="css/main.css" rel="stylesheet" type="text/css">
 		<LINK href="css/effects.css" rel="stylesheet" type="text/css">
 		<LINK href="css/form.css" rel="stylesheet" type="text/css">
@@ -14,14 +15,13 @@
 		<script src="http://use.typekit.net/uja3max.js"></script>
 		<script>try{Typekit.load();}catch(e){}</script>
 
-		<script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
-	   	<script src="js/lib/greensock/TweenMax.min.js"></script>
+		<script src="js/lib/greensock/TweenMax.min.js"></script>
 	    <script src="js/lib/jquery.min.js"></script>
-	    <script src="js/lib/modernizr.custom.min.js"></script>
+	    <!--<script src="js/lib/modernizr.custom.min.js"></script>-->
 	    <script src="js/lib/iscroll-probe.js"></script>
 	    <script src="scrollmagic/minified/ScrollMagic.min.js"></script>
 	    <script src="scrollmagic/minified/plugins/animation.gsap.min.js"></script>
-	    <script src="scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
+	    <!--<script src="scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>-->
 	  	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.8.4/plugins/ScrollToPlugin.min.js"></script>
 	  	<script src="js/twitterFetcher.js"></script>
 	  	<script src="js/forms.js"></script>
@@ -30,8 +30,28 @@
 	  	<script src="js/arrowScroll.js"></script>
 	  	<script src="js/twitter.js"></script>
 	</head>
-
+	
+	<!-- Preloader -->
+	<script type="text/javascript">
+		//<![CDATA[
+			$(window).load(function() { // makes sure the whole site is loaded
+				forms.init();
+				livingSys.init();
+				arrowScroll.init();
+				menuSystem.init();
+				twitter.getSomeTweets();
+				$('#status').fadeOut(); // will first fade out the loading animation
+				$('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+				$('body').delay(350).css({'overflow':'visible'});
+			})
+		//]]>
+	</script>
+	
 	<body>
+	<!-- Preloader -->
+	<div id="preloader">
+	    <div id="status">&nbsp;</div>
+	</div>
 
 		<div class="scrollContent">
 		
@@ -130,71 +150,64 @@
 					</p>
 				</div>
 				<div id="work-list-container" style="width: 100%;">
-					<ul class="work-list" style="width: 100%;">
-						<li>
-							<div class="works-effect work-flex">
+					<ul class="work-list" id="work-flex-container" style="width: 100%;">
+						<li class="works-effect work-flex">
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-
-							</div>
+								<img src="resources/images/works/1.jpg" alt="Phone"/>
 						</li>
-						<li>
-							<div class="works-effect work-flex">
+						<li class="works-effect work-flex">
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
+								<img src="resources/images/works/2.jpg" alt="Phone"/>
 						</li>
-						<li>
-							<div class="works-effect work-flex">
+						<li class="works-effect work-flex">
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
 								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
 						</li>
-						<li>
-							<div class="works-effect work-flex">
+						<li class="works-effect work-flex">
+							
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
+								<img src="resources/images/works/3.jpg" alt="Phone"/>
+							
 						</li>
-						<li>
-							<div class="works-effect work-flex">
+						<li class="works-effect work-flex">
+							
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
+								<img src="resources/images/works/4.jpg" alt="Phone"/>
+							
 						</li>
-						<li>
-							<div class="works-effect work-flex">
+						<li class="works-effect work-flex">
+							
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
+								<img src="resources/images/works/5.jpg" alt="Phone"/>
+							
 						</li>
-						<li>
-							<div class="works-effect work-flex">
+						<li class="works-effect work-flex">
+							
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
+								<img src="resources/images/works/6.jpg" alt="Phone"/>
+							
 						</li>
-						<li>
-							<div class="works-effect work-flex">
+						<li class="works-effect work-flex">
+							
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
+								<img src="resources/images/works/7.jpg" alt="Phone"/>
+							
 						</li>
 					</ul>
 				</div>
@@ -318,11 +331,7 @@
 		</div>
 	</body>
 	<script>
-		forms.init();
-		livingSys.init();
-		arrowScroll.init();
-		menuSystem.init();
-		twitter.getSomeTweets();
+
 	</script>
 	
 </html>
