@@ -19,9 +19,9 @@ forms = (function() {
 				helper = btn.children('.helper'),
 				height;
 			if (event == 'mouseenter' || event == 'mouseup') {
-				height = btn.outerWidth() * .71;
+				height = btn.outerWidth() * 1;
 			} else if (event == 'mousedown') {
-				height = btn.outerWidth() * .85;
+				height = btn.outerWidth() * 1;
 			} else if (event == 'mouseleave') {
 				height = 0;
 			}

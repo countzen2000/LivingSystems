@@ -1,106 +1,57 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 	<head>
-	<meta charset="utf-8"> 
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Living Systems</title>
-	<!-- Fonts -->
-	<LINK href="css/main.css" rel="stylesheet" type="text/css">
-	<LINK href="css/effects.css" rel="stylesheet" type="text/css">
-	<LINK href="css/form.css" rel="stylesheet" type="text/css">
-	
+		<meta charset="utf-8"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Living Systems</title>
 
-	<script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
-   	<script src="js/lib/greensock/TweenMax.min.js"></script>
-    <script src="js/lib/jquery.min.js"></script>
-    <script src="js/lib/modernizr.custom.min.js"></script>
-    <script src="js/lib/iscroll-probe.js"></script>
-    <script src="scrollmagic/minified/ScrollMagic.min.js"></script>
-    <script src="scrollmagic/minified/plugins/animation.gsap.min.js"></script>
-    <script src="scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
-  	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.8.4/plugins/ScrollToPlugin.min.js"></script>
-  	<script src="js/forms.js"></script>
-  	<script src="js/livingSys.js"></script>
-  	<script src="js/menuSystem.js"></script>
-	<script>
-
-		$(document).ready(function($) {
-			forms.init();
-			livingSys.init();
-			menuSystem.init();
-		});
+		<LINK href="css/preloader.css" rel="stylesheet" type="text/css">
+		<LINK href="css/main.css" rel="stylesheet" type="text/css">
+		<LINK href="css/effects.css" rel="stylesheet" type="text/css">
+		<LINK href="css/form.css" rel="stylesheet" type="text/css">
+		<LINK href="css/menu.css" rel="stylesheet" type="text/css">
+		<LINK href="css/twitter.css" rel="stylesheet" type="text/css">
 		
-		//For Sticky Menu
-		$(function(){
-		        var stickyRibbonTop = $('#page-header').offset().top;
+		<script src="http://use.typekit.net/uja3max.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
 
-		        $(window).scroll(function(){
-		                if( $(window).scrollTop() > stickyRibbonTop ) {
-		                        $('#page-header').css({position: 'fixed', top: '0px'});
-		                } else {
-		                        $('#page-header').css({position: 'static', top: '0px'});
-		                }
-		        });
-		});
-
-		//For Arrow Scroll
-		var currentPosition = 0;
-		var positionArray = [
-			'0',
-			'#section4',
-			'#section5',
-			'#section6',
-			'#section7',
-			'#section8'
-			]
-
-		$(document).keydown(function(e) {
-		    switch(e.which) {
-		        case 38: // up
-		        	gotoPreviousMenu();
-		        	break;
-
-		        case 40: // down
-		        	gotoNextMenu();
-        			break;
-
-		        default: return; // exit this handler for other keys
-		    }
-		    e.preventDefault(); // prevent the default action (scroll / move caret)
-		});
-
-		function gotoNextMenu() {
-			currentPosition++;
-			if (currentPosition > positionArray.length-1)
-			{
-				currentPosition = positionArray.length-1;
-			}
-			livingSys.controller.scrollTo(positionArray[currentPosition]);
-			//console.log(currentPosition)
-			// if supported by the browser we can even update the URL.
-			//if (window.history && window.history.pushState) {
-			//	history.pushState("", document.title, id);
-			//}
-		}
-
-		function gotoPreviousMenu() {
-			currentPosition--;
-			if (currentPosition < 0)
-			{
-				currentPosition = 0;
-			}
-			livingSys.controller.scrollTo(positionArray[currentPosition]);
-			//console.log(currentPosition)
-			// if supported by the browser we can even update the URL.
-			//if (window.history && window.history.pushState) {
-			//	history.pushState("", document.title, id);
-			//}
-		}
-	</script>
-
+		<script src="js/lib/greensock/TweenMax.min.js"></script>
+	    <script src="js/lib/jquery.min.js"></script>
+	    <!--<script src="js/lib/modernizr.custom.min.js"></script>-->
+	    <script src="js/lib/iscroll-probe.js"></script>
+	    <script src="scrollmagic/minified/ScrollMagic.min.js"></script>
+	    <script src="scrollmagic/minified/plugins/animation.gsap.min.js"></script>
+	    <!--<script src="scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>-->
+	  	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.8.4/plugins/ScrollToPlugin.min.js"></script>
+	  	<script src="js/twitterFetcher.js"></script>
+	  	<script src="js/forms.js"></script>
+	  	<script src="js/livingSys.js"></script>
+	  	<script src="js/menuSystem.js"></script>
+	  	<script src="js/arrowScroll.js"></script>
+	  	<script src="js/twitter.js"></script>
 	</head>
-
+	
+	<!-- Preloader -->
+	<script type="text/javascript">
+		//<![CDATA[
+			$(window).load(function() { // makes sure the whole site is loaded
+				forms.init();
+				livingSys.init();
+				arrowScroll.init();
+				setTimeout(menuSystem.init, 500);
+				twitter.getSomeTweets();
+				$('#status').fadeOut(); // will first fade out the loading animation
+				$('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+				$('body').delay(350).css({'overflow':'visible'});
+			})
+		//]]>
+	</script>
+	
 	<body>
+	<!-- Preloader -->
+	<div id="preloader">
+	    <div id="status">&nbsp;</div>
+	</div>
 
 		<div class="scrollContent">
 		
@@ -124,17 +75,26 @@
 			<section id="section4" class="section4" >
 				<div id="page-header" class="page-header" style="z-index:9999;">
 					<div id="logo">
-						<p>livingSystems</p>
+						<p class="logo" >livingsystems</p>
 					</div>
 					<span id="menu-icon">
+						
 					</span>
 					<nav id="hiddenMenu">
-						<span id="section4">CLIENTS</span>&nbsp;
-						<span>WORKS</span>&nbsp;
-						<span>SERVICES</span>&nbsp;
-						<span>CONTACT</span>&nbsp;
-						<span>SOCIAL</span>&nbsp;
-						<span id="closeMenu">CLOSE</span>
+						<ul>
+							<li><span id="clients_menu">CLIENTS</span></li>
+							<li><span id="work_menu">WORK</span></li>
+							<li><span id="services_menu">SERVICES</span></li>
+							<li><span id="contact_menu">CONTACT</span></li>
+							<li><span id="social_menu">SOCIAL</span></li>
+							<li id="closeMenu" class="rotate">
+									<ul>
+										<li></li>
+										<li></li>
+										<li></li>
+									</ul>
+							</li>
+						</ul>
 					</nav>
 				</div>
 				<div class="container">
@@ -148,32 +108,30 @@
 					<ul class="client-list">
 						<li>
 							<figure class="zoom-effect">
-								<img src="resources/images/logos/adidas.png" alt="Adidas">
+								<a href="sub/partners.html" target="_blank">
+									<img src="resources/images/logos/bijou/bijou.svg" width="114" height="79" alt="Bijou">
+								</a>
 							</figure>
 						</li>
 						<li>
 							<figure class="zoom-effect">
-								<img src="resources/images/logos/nike.png" alt="Adidas">
+								<a href="sub/partners.html" target="_blank">
+									<img src="resources/images/logos/bijou/EdgeLofts.svg" width="114" height="79" alt="Edge Lofts">
+								</a>
 							</figure>
 						</li>
 						<li>
 							<figure class="zoom-effect">
-								<img src="resources/images/logos/redbull.png" alt="Adidas">
+								<a href="sub/partners.html" target="_blank">
+									<img src="resources/images/logos/bijou/hudson_table.svg" width="114" height="79" alt="Hudson">
+								</a>
 							</figure>
 						</li>
 						<li>
 							<figure class="zoom-effect">
-								<img src="resources/images/logos/espn.png" alt="Adidas">
-							</figure>
-						</li>
-						<li>
-							<figure class="zoom-effect">
-								<img src="resources/images/logos/bofa.png" alt="Adidas">
-							</figure>
-						</li>
-						<li>
-							<figure class="zoom-effect">
-								<img src="resources/images/logos/starbucks.png" alt="Adidas">
+								<a href="sub/partners.html" target="_blank">
+									<img src="resources/images/logos/bijou/Pino.svg" width="150" height="100" alt="Pino">
+								</a>
 							</figure>
 						</li>
 					</ul>
@@ -181,84 +139,75 @@
 			</section>
 
 			<section id="section5" class="section5" >
-				<div class="container" >
+				<div id="section5_top" class="container" >
 					<h1>
-						Our Works
+						Our Work
 					</h1>
-					
 					<div class="horizontalDividerSpan" style="background-color: gray;">
 					</div>
 					<p id="Section5Description">
 						We’ve partnered with the most notable contractors, home builders & architects in the industry. With collaboration and teamwork, our focus is to develop green, sustainable, elegant living systems for the modern homeowners of tomorrow.
 					</p>
 				</div>
-				<div id="trigger1" class="spacer s0"></div>
-				<div class="container" style="width: 100%; max-width: 100%;">
-					<ul class="work-list">
-						<li>
-							<div class="works-effect">
+				<div id="work-list-container" style="width: 100%;">
+					<ul class="work-list" id="work-flex-container" style="width: 100%;">
+						<li class="works-effect work-flex">
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-
-							</div>
+								<img src="resources/images/works/1.jpg" alt="Phone"/>
 						</li>
-						<li>
-							<div class="works-effect">
+						<li class="works-effect work-flex">
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
+								<img src="resources/images/works/2.jpg" alt="Phone"/>
 						</li>
-						<li>
-							<div class="works-effect">
+						<li class="works-effect work-flex">
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
 								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
 						</li>
-						<li>
-							<div class="works-effect">
+						<li class="works-effect work-flex">
+							
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
+								<img src="resources/images/works/3.jpg" alt="Phone"/>
+							
 						</li>
-						<li>
-							<div class="works-effect">
+						<li class="works-effect work-flex">
+							
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
+								<img src="resources/images/works/4.jpg" alt="Phone"/>
+							
 						</li>
-						<li>
-							<div class="works-effect">
+						<li class="works-effect work-flex">
+							
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
+								<img src="resources/images/works/5.jpg" alt="Phone"/>
+							
 						</li>
-						<li>
-							<div class="works-effect">
+						<li class="works-effect work-flex">
+							
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
+								<img src="resources/images/works/6.jpg" alt="Phone"/>
+							
 						</li>
-						<li>
-							<div class="works-effect">
+						<li class="works-effect work-flex">
+							
 								<div class="overlay">
 									<span>HERRO</span>
 								</div>
-								<img src="resources/images/works/phone.png" alt="Phone"/>
-							</div>
+								<img src="resources/images/works/7.jpg" alt="Phone"/>
+							
 						</li>
 					</ul>
 				</div>
@@ -273,36 +222,54 @@
 					<p id="Section6Description">
 						We offer our clients a full portfolio of services in Architecture, Interior Architecture, Branding, Industrial Design, Store Planning, Hospitality, Visual Merchandising, and Retail
 					</p>
-					<ul class="client-list">
+					<ul class="service-list center-align">
 						<li>
-							<figure class="zoom-effect">
-								<img src="resources/images/logos/adidas.png" alt="Adidas">
-							</figure>
+							<div class="clippy ">
+								<img id="architecture" class="slide-effect" src="resources/images/logos/icons/architecture.svg" alt="architecture">
+								<img id="architecture_bg" class="fade_effect">
+							</div>
 						</li>
 						<li>
-							<figure class="zoom-effect">
-								<img src="resources/images/logos/nike.png" alt="Adidas">
-							</figure>
+							<div class="clippy">
+								<img class="slide-effect" id="branding" width="120" src="resources/images/logos/icons/branding.svg" alt="brandind">
+								<img id="architecture_bg" class="fade_effect">
+							</div>
 						</li>
 						<li>
-							<figure class="zoom-effect">
-								<img src="resources/images/logos/redbull.png" alt="Adidas">
-							</figure>
+							<div class="clippy">
+								<img id="consulting" class="slide-effect" src="resources/images/logos/icons/consulting.svg" alt="Consulting">
+								<img id="architecture_bg" class="fade_effect">
+							</div>
 						</li>
 						<li>
-							<figure class="zoom-effect">
-								<img src="resources/images/logos/espn.png" alt="Adidas">
-							</figure>
+							<div class="clippy">
+								<img id="contracting" class="slide-effect" src="resources/images/logos/icons/contracting.svg" width="120" alt="Contracting">
+								<img id="architecture_bg" class="fade_effect">
+							</div>
 						</li>
 						<li>
-							<figure class="zoom-effect">
-								<img src="resources/images/logos/bofa.png" alt="Adidas">
-							</figure>
+							<div class="clippy">
+								<img width="120" id="marketing" class="slide-effect" src="resources/images/logos/icons/marketing.svg" alt="marketing">
+								<img id="architecture_bg" class="fade_effect">
+							</div>
 						</li>
 						<li>
-							<figure class="zoom-effect">
-								<img src="resources/images/logos/starbucks.png" alt="Adidas">
-							</figure>
+							<div class="clippy">
+								<img width="120" id="engineering" class="slide-effect" src="resources/images/logos/icons/engineering.svg" alt="Engineer">
+								<img id="architecture_bg" class="fade_effect">
+							</div>
+						</li>
+						<li>
+							<div class="clippy">
+								<img id="sales" class="slide-effect" src="resources/images/logos/icons/sales.svg" alt="sales">
+								<img id="architecture_bg" class="fade_effect">
+							</div>
+						</li>
+						<li>
+							<div class="clippy">
+								<img id="design" class="slide-effect"  src="resources/images/logos/icons/design.svg" alt="design">
+								<img id="architecture_bg" class="fade_effect">
+							</div>
 						</li>
 					</ul>
 				</div>
@@ -343,16 +310,18 @@
 			</section>
 
 			<section id="section8" class="section8" >
-				<div class="container">
-					<h1>
+				<div class="container" >
+					<h1 style="top: -150px; position: relative;">
 						Lately on Social
 					</h1>
-					<div class="center-align">
-						<img src="resources/images/social_temp.png">
+					<div class="horizontalDividerSpan" style="top: -140px; position: relative;"></div>
+					<div class="center-align" style="top: 00px; position: relative;">
+    					<div id="TweetContainer">...</div>
 					</div>
-					<div id="trigger1" class="spacer s0"></div>
+					<div style="height: 50px; width: 100%;"></div>
 					<div class="center-align">
 						<img src="resources/images/footer.png">
+						
 					</div>
 					
 				</div>
@@ -361,4 +330,8 @@
 
 		</div>
 	</body>
+	<script>
+
+	</script>
+	
 </html>

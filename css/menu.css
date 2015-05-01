@@ -1,0 +1,138 @@
+/**** Header/Menu ****/
+.page-header
+{
+    z-index: 999999;
+
+    display: static;
+
+    width: 100%;
+    height: 95px;
+
+    background-color: rgba(255, 255, 255, .85);
+}
+
+.page-header #logo
+{
+    font-size: 30px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    margin-right: auto;
+    margin-left: 30px;
+
+    color: gray;
+}
+
+.page-header #hiddenMenu
+{
+    position: absolute;
+    top: 40px;
+    right: 30px;
+
+    display: none;
+
+    width: initial;
+}
+
+.page-header #hiddenMenu span
+{
+    font-size: 20px;
+    line-height: 20px;
+
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.page-header #hiddenMenu span:hover
+{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#hiddenMenu {
+}
+
+#hiddenMenu {
+    white-space: nowrap;
+}
+
+#hiddenMenu li {
+     list-style-type: none;
+     float: left;
+     margin-left: 5px;
+}
+
+/**********
+Menu icon
+**********/
+#closeMenu li
+{
+    display: block;
+
+    width: 23px;
+    height: 3px;
+    margin: 2px;
+
+    list-style-type: none;
+
+    background-color: black;
+}
+
+#closeMenu ul
+{
+    width: 30px;
+    margin: 0px;
+    padding: 0px;
+}
+
+span#closeMenu
+{
+    cursor: hand;
+    
+}
+
+.rotate li{
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+}
+
+.rotate:hover > ul > li:nth-child(1) {
+    -webkit-transform: translateY(7px) rotate(-45deg);
+    -moz-transform: translateY(7px) rotate(-45deg);
+    -o-transform: translateY(7px) rotate(-45deg);
+    -ms-transform: translateY(7px) rotate(-45deg);
+    transform: translateY(7px) rotate(-45deg);
+}
+
+.rotate:hover > ul > li:nth-child(3) {
+    -webkit-transform: translateY(-7px) rotate(45deg);
+    -moz-transform: translateY(-7px) rotate(45deg);
+    -o-transform: translateY(-7px) rotate(45deg);
+    -ms-transform: translateY(-7px) rotate(45deg);
+    transform: translateY(-7px) rotate(45deg)
+}
+
+.rotate:hover > ul > li:nth-child(2) {
+    opacity: 0
+}
+
+.page-header #menu-icon
+{
+    position: absolute;
+    top: 40px;
+    right: 30px;
+
+    display: block;
+
+    width: 36px;
+    height: 21px;
+
+    cursor: hand;
+    vertical-align: middle;
+
+    background-image: url(../resources/images/menu_icon.png);
+}
