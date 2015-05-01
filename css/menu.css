@@ -28,12 +28,13 @@
 .page-header #hiddenMenu
 {
     position: absolute;
-    top: 40px;
     right: 30px;
 
     display: none;
 
     width: initial;
+
+    white-space: nowrap;
 }
 
 .page-header #hiddenMenu span
@@ -51,12 +52,6 @@
     text-decoration: none;
 }
 
-#hiddenMenu {
-}
-
-#hiddenMenu {
-    white-space: nowrap;
-}
 
 #hiddenMenu li {
      list-style-type: none;

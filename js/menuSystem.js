@@ -19,7 +19,7 @@ menuSystem = (function() {
 	}
 
 	var open = function() {
-			TweenLite.to($('#hiddenMenu') , 1, {autoAlpha: 1, ease: Bounce.easeOut, top: "40px", display:'block'});
+			TweenLite.to($('#hiddenMenu') , 1, {autoAlpha: 1, ease: Bounce.easeOut, top: "20px", display:'block'});
 			TweenLite.to($('#menu-icon') , 1, {autoAlpha: 0, ease: Bounce.easeOut, right: "-100px", display:'none'});
 			//$("#hiddenMenu").css({'display':'block'});
 			//$("#menu-icon").css({'display':'none'});
