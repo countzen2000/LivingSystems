@@ -90,7 +90,7 @@ livingSys = (function() {
 		$('#section5').offset({top: $('#section4').offset().top + $('#section5').height()});
 		$('#section6').offset({top: $('#section5').offset().top + $('#section6').height()+50});
 		$('#section7').offset({top: $('#section6').offset().top + $('#section7').height()});
-		$('#section8').offset({top: $('#section7').offset().top + $('#section8').height()});
+		$('#section8').offset({top: $('#section7').offset().top + $('#section8').height() + 50});
 		
 		//var section4 = $('#section4').offset().top;
 		//$('#page-header').offset({top: section4});

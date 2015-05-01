@@ -38,7 +38,7 @@
 				forms.init();
 				livingSys.init();
 				arrowScroll.init();
-				menuSystem.init();
+				setTimeout(menuSystem.init, 500);
 				twitter.getSomeTweets();
 				$('#status').fadeOut(); // will first fade out the loading animation
 				$('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
@@ -75,7 +75,7 @@
 			<section id="section4" class="section4" >
 				<div id="page-header" class="page-header" style="z-index:9999;">
 					<div id="logo">
-						<p>livingSystems</p>
+						<p class="logo" >livingsystems</p>
 					</div>
 					<span id="menu-icon">
 						
