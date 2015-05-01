@@ -1,9 +1,10 @@
 menuSystem = (function() {
-	
-
+	var stickyRibbonTop;
 
 	var init = function() {
 		//For Hidden menu
+		stickyRibbonTop = $('#page-header').offset().top; 
+
 		$('#hiddenMenu').css("top", "-40px");
 		$("#menu-icon").click(open);
 		$("#closeMenu").click(close);
@@ -32,7 +33,6 @@ menuSystem = (function() {
 	}
 
 	var clicked = function(event) {
-		console.log(event);
 		switch (event.target.id) {
 			case "clients_menu":
 				scrollTo(arrowScroll.positionArray[3]);
@@ -58,7 +58,7 @@ menuSystem = (function() {
 	}
 
 	var handleScroll = function() {
-		var stickyRibbonTop = $('#page-header').offset().top;
+		
 
 		if( $(window).scrollTop() > stickyRibbonTop ) {
         	$('#page-header').css({position: 'fixed', top: '0px'});

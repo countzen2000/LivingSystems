@@ -100,7 +100,7 @@ span#closeMenu
     transition: .5s;
 }
 
-.rotate:hover > li:nth-child(1) {
+.rotate:hover > ul > li:nth-child(1) {
     -webkit-transform: translateY(7px) rotate(-45deg);
     -moz-transform: translateY(7px) rotate(-45deg);
     -o-transform: translateY(7px) rotate(-45deg);
@@ -108,7 +108,7 @@ span#closeMenu
     transform: translateY(7px) rotate(-45deg);
 }
 
-.rotate:hover > li:nth-child(3) {
+.rotate:hover > ul > li:nth-child(3) {
     -webkit-transform: translateY(-7px) rotate(45deg);
     -moz-transform: translateY(-7px) rotate(45deg);
     -o-transform: translateY(-7px) rotate(45deg);
@@ -116,7 +116,7 @@ span#closeMenu
     transform: translateY(-7px) rotate(45deg)
 }
 
-.rotate:hover > li:nth-child(2) {
+.rotate:hover > ul > li:nth-child(2) {
     opacity: 0
 }
 
