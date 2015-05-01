@@ -3,7 +3,9 @@
 body
 {
     font-family: 'proxima-nova',sans-serif;
-    font-weight: 300;
+    font-weight: 100;
+
+    -webkit-font-smoothing: antialiased;
 
     height: 100%;
     margin: 0;
@@ -13,7 +15,6 @@ body
 
     overflow: hidden;
 
-    -webkit-font-smoothing: antialiased;
 }
 
 .center_align

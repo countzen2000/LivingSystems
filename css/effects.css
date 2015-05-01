@@ -75,7 +75,7 @@ figure.zoom-effect:hover
     width: 100%;
     height: 100%;
 
-    background-image: url(../resources/images/button_assets/architecture.jpg);
+    /*background-image: url(../resources/images/button_assets/architecture.jpg);*/
 }
 
 .works-effect
@@ -91,13 +91,15 @@ figure.zoom-effect:hover
 
 .works-effect span
 {
-    font-size: 35px;
+    font-size: 20px;
     font-weight: 700;
 
     position: relative;
-    top: 40%;
+    top: 45%;
 
     text-align: center;
+    color: white;
+    letter-spacing: -1px;
 }
 
 .works-effect > .overlay
