@@ -17,21 +17,19 @@
 
 		<script src="js/lib/greensock/TweenMax.min.js"></script>
 	    <script src="js/lib/jquery.min.js"></script>
-	    <!--<script src="js/lib/modernizr.custom.min.js"></script>-->
 	    <script src="js/lib/iscroll-probe.js"></script>
 	    <script src="scrollmagic/minified/ScrollMagic.min.js"></script>
 	    <script src="scrollmagic/minified/plugins/animation.gsap.min.js"></script>
-	    <!--<script src="scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>-->
-	  	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.8.4/plugins/ScrollToPlugin.min.js"></script>
+	  	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
 	  	<script src="js/twitterFetcher.js"></script>
 	  	<script src="js/forms.js"></script>
 	  	<script src="js/livingSys.js"></script>
 	  	<script src="js/menuSystem.js"></script>
 	  	<script src="js/arrowScroll.js"></script>
 	  	<script src="js/twitter.js"></script>
+	  	<script src="https://raw.githubusercontent.com/inuyaksa/jquery.nicescroll/master/jquery.nicescroll.min.js"></script>
 	</head>
 	
-	<!-- Preloader -->
 	<script type="text/javascript">
 		//<![CDATA[
 			$(window).load(function() { // makes sure the whole site is loaded
@@ -40,34 +38,31 @@
 				arrowScroll.init();
 				setTimeout(menuSystem.init, 500);
 				twitter.getSomeTweets();
-				$('#status').fadeOut(); // will first fade out the loading animation
-				$('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-				$('body').delay(350).css({'overflow':'visible'});
-			})
+				$("html").niceScroll();
+			});
 		//]]>
 	</script>
 	
 	<body>
-	<!-- Preloader -->
-	<div id="preloader">
-	    <div id="status">&nbsp;</div>
-	</div>
 
 		<div class="scrollContent">
 		
 			<section id= "section1" class="section1">
 				<div id="pin1" class="text-wrap vertical-align">
-					<p>Creativity & Technology & Teamwork</p>
+					<img class="animation_logo" src="resources/images/system/logo_animation.png">
+					<p>Creativity, Technology & Teamwork.</p>
 				</div>
 				<div id="trigger1" class="spacer s0"></div>
 			</section>
 			<section id= "section2"  class="section2">
 				<div id="pin2" class="text-wrap vertical-align">
-					<p>We are a space where designers, engineers, architacts & builders</p>
+					<img class="animation_logo" src="resources/images/system/logo_animation.png">
+					<p>We are a space where designers, engineers, architects & craftsmen</p>
 				</div>
 			</section>
 			<section id= "section3"  class="section3">
 				<div id="pin3" class="text-wrap vertical-align">
+					<img class="animation_logo" src="resources/images/system/logo_animation.png">
 					<p>collaborate to create machines for living.</p>
 				</div>
 			</section>
@@ -75,7 +70,7 @@
 			<section id="section4" class="section4" >
 				<div id="page-header" class="page-header" style="z-index:9999;">
 					<div id="logo">
-						<p class="logo" >livingsystems</p>
+						<img class="logo" src="resources/images/system/logo_menu.png">
 					</div>
 					<span id="menu-icon">
 						
@@ -98,13 +93,14 @@
 					</nav>
 				</div>
 				<div class="container">
-					<h1>
+					<p class="section_titles">
 						Our Clients
-					</h1>
+					</p>
 					<div class="horizontalDividerSpan"></div>
 					<p id="Section4Description">
 						We offer our clients a full portfolio of services in Architecture, Interior Architecture, Branding, Industrial Design, Store Planning, Hospitality, Visual Merchandising, and Retail
 					</p>
+					<p id="Section4Description_next">Lorem Empium stuff  etc. etc. etc. etc. etc. etc. etc.</p>
 					<ul class="client-list">
 						<li>
 							<figure class="zoom-effect">
@@ -140,9 +136,9 @@
 
 			<section id="section5" class="section5" >
 				<div id="section5_top" class="container" >
-					<h1>
+					<p class="section_titles">
 						Our Work
-					</h1>
+					</p>
 					<div class="horizontalDividerSpan" style="background-color: gray;">
 					</div>
 					<p id="Section5Description">
@@ -215,9 +211,9 @@
 			</section>
 			<section id="section6" class="section6" >
 				<div class="container">
-					<h1>
+					<p class="section_titles">
 						What We Offer
-					</h1>
+					</p>
 					<div class="horizontalDividerSpan"></div>
 					<p id="Section6Description">
 						We offer our clients a full portfolio of services in Architecture, Interior Architecture, Branding, Industrial Design, Store Planning, Hospitality, Visual Merchandising, and Retail
@@ -277,9 +273,9 @@
 
 			<section id="section7" class="section7" >
 				<div class="container">
-					<h1>
+					<p class="section_titles">
 						Say Hello
-					</h1>
+					</p>
 					<div class="form-container">
 						<form action="/" class="contact-form" data-finish-message="We got it!" method="post" novalidate="">
 			                <p class="field name">
@@ -311,9 +307,9 @@
 
 			<section id="section8" class="section8" >
 				<div class="container" >
-					<h1 style="top: -150px; position: relative;">
+					<p class="section_titles" style="top: -150px; position: relative;">
 						Lately on Social
-					</h1>
+					</p>
 					<div class="horizontalDividerSpan" style="top: -140px; position: relative;"></div>
 					<div class="center-align" style="top: 00px; position: relative;">
     					<div id="TweetContainer">...</div>

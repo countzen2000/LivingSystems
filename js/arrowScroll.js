@@ -1,9 +1,9 @@
 arrowScroll = (function(){
 	var currentPosition = 0;
 	var positionArray = [
-		'0',
-		'7000',
-		'13000',
+		0,
+		4000,
+		10000,
 		'#section4',
 		'#section5',
 		'#section6',
@@ -12,44 +12,32 @@ arrowScroll = (function(){
 		]
 
 	var gotoNextMenu = function () {
-		currentPosition++;
-		if (currentPosition > positionArray.length-1)
-		{
-			currentPosition = positionArray.length-1;
-		}
-		//livingSys.controller.scrollTo(positionArray[currentPosition]);
-		//console.log(currentPosition);
+		
+		currentPosition = Math.min(whereAreYou()+1, 7);
+		
 		var targetPos = positionArray[currentPosition];
-		if (isNaN(targetPos))
+		if (typeof targetPos  != 'number')
 		{
-			targetPos = $(targetPos).offset().top;
-		}
-		if (currentPosition < 2) {
-			TweenMax.to(window, 2, {scrollTo:{y:targetPos}, ease:Power2.easeOut});
+			target = $(targetPos).offset().top;
 		} else {
-			TweenMax.to(window, 1, {scrollTo:{y:targetPos}, ease:Power2.easeOut});
+			target = targetPos;
 		}
+		console.log(target)
+
+		$('html, body').animate({ scrollTop: target }, 750);
 	}
 
 	var gotoPreviousMenu = function() {
-		currentPosition--;
-		if (currentPosition < 0)
-		{
-			currentPosition = 0;
-		}
-		//livingSys.controller.scrollTo(positionArray[currentPosition]);
-		//console.log(currentPosition);
+		
+		currentPosition = Math.max(whereAreYou()-1, 0);
+		
 		var targetPos = positionArray[currentPosition];
-		if (isNaN(targetPos))
+		if (typeof targetPos  != 'number')
 		{
-			targetPos = $(targetPos).offset().top;
+			target = $(targetPos).offset().top;
 		}
 
-		if (currentPosition < 2) {
-			TweenMax.to(window, 2, {scrollTo:{y:targetPos}, ease:Power2.easeOut});
-		} else {
-			TweenMax.to(window, 1, {scrollTo:{y:targetPos}, ease:Power2.easeOut});
-		}
+		$('html, body').animate({ scrollTop: target }, 750);
 	}
 
 	var init = function() {
@@ -74,32 +62,27 @@ arrowScroll = (function(){
 		var location = $(window).scrollTop();
 		console.log(location)
 		var returnValue;
-		switch (true) {
-			case (location == 0):
-				returnValue = 0;
-				break;
-			case (location > 0 && location <= positionArray[1]):
-				returnValue =  1;
-				break;
-			case (location >= positionArray[1]-20 && location <= positionArray[2]):
-				returnValue =  2;
-				break;
-			case (location >= positionArray[2] && location <= $(positionArray[3]).offset().top):
-				returnValue = 3;
-				break;
-			case (location >= $(positionArray[3]).offset().top && location <= $(positionArray[4]).offset().top):
-				returnValue = 4;
-				break;
-			case (location >= $(positionArray[4]).offset().top && location <= $(positionArray[5]).offset().top):
-				returnValue = 5;
-				break;
-			case (location >= $(positionArray[5]).offset().top && location <= $(positionArray[6]).offset().top):
-				returnValue = 6;
-				break;
-			case (location >= $(positionArray[6]).offset().top):
-				returnValue = 7;
-				break;
+		//if (location <= 0) {
+	//		returnValue = 0;
+		//} else if (location <= positionArray[1]) {
+		if (location <= positionArray[1]) {
+			returnValue = 0;
+		} else if (location <= positionArray[2]) {
+			returnValue = 1;
+		} else if (location <= $(positionArray[3]).offset().top) {
+			returnValue = 2;
+		} else if (location <= $(positionArray[4]).offset().top) {
+			returnValue = 3;
+		}  else if (location <= $(positionArray[5]).offset().top) {
+			returnValue = 4;
+		} else if (location <= $(positionArray[6]).offset().top) {
+			returnValue = 5;
+		} else {
+			returnValue = 6;
 		}
+
+		console.log(returnValue)
+
 		return returnValue;
 	}
 

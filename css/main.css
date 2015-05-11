@@ -1,3 +1,9 @@
+/*****
+Resets
+******/
+
+
+
 /*******Global******/
 
 body
@@ -5,7 +11,7 @@ body
     font-family: 'proxima-nova',sans-serif;
     font-weight: 100;
 
-    -webkit-font-smoothing: antialiased;
+    overflow: visibl;
 
     height: 100%;
     margin: 0;
@@ -13,8 +19,7 @@ body
 
     background-color: #000;
 
-    overflow: hidden;
-
+    -webkit-font-smoothing: antialiased;
 }
 
 .center_align
@@ -44,27 +49,44 @@ div.text-wrap
     margin-right: auto;
     margin-left: auto;
 
-    color: white;
+    color: black;
+    ;
 }
+
+/*** Animation Section ***/
+.animation_logo
+{
+    display: block;
+
+    margin: auto auto;
+    margin-bottom: 40px;
+}
+
 .section1 div.text-wrap
 {
-    font-size: 60px;
+    font-size: 80px;
+    font-weight: 100;
+    line-height: 100px;
 
-    width: 400px;
+    width: 500px;
 }
 
 .section2 div.text-wrap
 {
-    font-size: 50px;
+    font-size: 80px;
+    font-weight: 100;
+    line-height: 100px;
 
-    width: 600px;
+    width: 800px;
 }
 
 .section3 div.text-wrap
 {
-    font-size: 50px;
+    font-size: 80px;
+    font-weight: 100;
+    line-height: 100px;
 
-    width: 600px;
+    width: 800px;
 }
 
 div.text-wrap p
@@ -74,6 +96,7 @@ div.text-wrap p
 
     text-align: center;
 }
+/************************/
 
 section
 {
@@ -81,6 +104,12 @@ section
     min-height: 600px;
 
     color: black;
+    background-color: white;
+}
+
+.section_titles
+{
+    font-size: 40px;
 }
 
 .section1
@@ -145,16 +174,24 @@ section
     background-color: white;
 }
 
-.section4 h1
-{
-    font-size: 40px;
-
-    margin: 20px;
-}
-
 .section4 #Section4Description
 {
     font-size: 20px;
+
+    position: relative;
+
+    height: 100px;
+
+    color: gray;
+}
+
+.section4 #Section4Description_next
+{
+    font-size: 20px;
+
+    position: relative;
+
+    display: none;
 
     color: gray;
 }
@@ -165,6 +202,7 @@ section
 
     margin: 0;
     padding-top: 50px;
+    padding-bottom: 50px;
 
     text-align: center;
 
@@ -190,9 +228,26 @@ section
     color: gray;
 }
 
+.section5 #section5_top
+{
+    -webkit-transform: translateY(-webkit-calc(-50% - 300px));
+       -moz-transform: translateY(-moz-calc(-50% - 300px));
+        -ms-transform: translateY(c-ms-alc(-50% - 300px));
+         -o-transform: translateY(-o-calc(-50% - 300px));
+            transform: translateY(calc(-50% - 300px));
+}
+
+.section5 #work-list-container
+{
+    position: absolute;
+    bottom: 0;
+}
+
 .section6
 {
     z-index: 999;
+
+    padding-top: 100px;
 
     text-align: center;
 
@@ -215,6 +270,8 @@ section
 .section7
 {
     z-index: 999;
+
+    padding-top: 100px;
 
     text-align: center;
 
@@ -270,16 +327,15 @@ Works
     width: 25%;
     min-width: 10%;
     max-width: 420px;
-
     margin: 0;
     padding: 0;
 }
 
 /**GLOBAL**/
-.logo {
-    color: black;
-    font-weight: black;
-    letter-spacing: -1px;
+.logo
+{
+    position: relative;
+    top: 30px;
 }
 
 .container
