@@ -1,16 +1,13 @@
 livingSys = (function() {
 	
 	var controller = new ScrollMagic.Controller();
-	var scrollTime = 2.0;
-	var scrollDistance = 170;
-
+	
 	var setupAnimation = function() {
 
 		// build scene
 		var PinText1 = new ScrollMagic.Scene({})
 						.setPin("#section1")
 						.addTo(controller);
-		//PinText1.addIndicators();
 
 		var tween1 = new TimelineMax()
 			.add(
@@ -25,12 +22,10 @@ livingSys = (function() {
 		var fadeOutText1 = new ScrollMagic.Scene({offset: 200, duration: 3000})
 						.setTween(tween1)
 						.addTo(controller);
-		//fadeOutText1.addIndicators();
 
 		var PinScene2 = new ScrollMagic.Scene({})
 					.setPin("#section2")
 					.addTo(controller);
-		//PinScene2.addIndicators();
 
 		var tween2 = new TimelineMax()
 			.add(
@@ -51,12 +46,10 @@ livingSys = (function() {
 		var fadeOutText2 = new ScrollMagic.Scene({offset: 3200, duration: 6000})
 						.setTween(tween2)
 						.addTo(controller);
-		//fadeOutText2.addIndicators();
 
 		var PinScene3 = new ScrollMagic.Scene()
 					.setPin("#section3")
 					.addTo(controller);
-		//PinScene3.addIndicators();
 
 		var tween3 = new TimelineMax()
 			.add(
@@ -74,7 +67,6 @@ livingSys = (function() {
 		var fadeOutText3 = new ScrollMagic.Scene({offset: 9200, duration: 2000})
 						.setTween(tween3)
 						.addTo(controller);
-		//fadeOutText3.addIndicators();
 
 	}
 
@@ -105,16 +97,15 @@ livingSys = (function() {
 	}
 
 	var realign = function() {
-		//$('#section6').height($('#section6').height() + 50);
-		//$('#section8').height(600);
+
 		$('#section4').offset({top: 11200});
 		$('#section5').offset({top: $('#section4').offset().top + $('#section5').height()});
 		$('#section6').offset({top: $('#section5').offset().top + $('#section6').height()});
 		$('#section7').offset({top: $('#section6').offset().top + $('#section7').height()});
+		//Change this use Viewport height
 		$('#section8').offset({top: $('#section7').offset().top + $('#section8').height() + 300});
 		
-		//var section4 = $('#section4').offset().top;
-		//$('#page-header').offset({top: section4});
+
 	}
 
 	var redraw = function() {
@@ -130,37 +121,11 @@ livingSys = (function() {
 		target.height(source.height() * .99);
 		target.width(source.width());
 
-		//Fix for section 5
-		//var container = $("#section5_top");
-		//var work_container = $("#work-list-container");
-
-		//var parent = container.parent();
-
-		//container.offset({top:parent.offset().top + parent.height()/2 - container.height()/2- parent.height()*.1});
-		//work_container.offset({top:parent.offset().top + parent.height() - work_container.height()*.8});
-
-
 	}
 
 /******public functioncs *****/
 	var init = function() {
-		setupAnimation();
-
-		/*$(window).on("mousewheel DOMMouseScroll", function(event){
-
-			event.preventDefault();	
-
-			var delta = event.originalEvent.wheelDelta/120 || -event.originalEvent.detail/3;
-			var scrollTop = $(window).scrollTop();
-			var finalScroll = scrollTop - parseInt(delta*scrollDistance);
-
-			TweenMax.to($(window), scrollTime, {
-				scrollTo : { y: finalScroll, autoKill:true },
-					ease: Power1.easeOut,
-					overwrite: 5							
-				});
-
-		});*/
+		setupAnimation()
 
 		/**Mouse over stuff **/
 		//$(".client-list img").mouseover(onSection4MouseOver);

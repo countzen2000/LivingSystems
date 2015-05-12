@@ -54,7 +54,7 @@
         //log("45","animateLoop","animateLoop", "",stop);
     }
     var onWheel = function (e) {
-        e.preventDefault();
+        //e.preventDefault();
         var evt = e.originalEvent;
        
         var delta = evt.detail ? evt.detail * -1 : evt.wheelDelta / 40;

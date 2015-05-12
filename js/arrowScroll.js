@@ -1,5 +1,6 @@
 arrowScroll = (function(){
 	var currentPosition = 0;
+
 	var positionArray = [
 		0,
 		4000,
@@ -10,34 +11,48 @@ arrowScroll = (function(){
 		'#section7',
 		'#section8'
 		]
+		var firstHack = true;
 
 	var gotoNextMenu = function () {
-		
-		currentPosition = Math.min(whereAreYou()+1, 7);
-		
-		var targetPos = positionArray[currentPosition];
-		if (typeof targetPos  != 'number')
-		{
-			target = $(targetPos).offset().top;
-		} else {
-			target = targetPos;
-		}
-		console.log(target)
 
-		$('html, body').animate({ scrollTop: target }, 750);
+		arrowScroll.currentPosition = Math.min(arrowScroll.currentPosition+1, 7);
+		var targetPos = positionArray[arrowScroll.currentPosition];
+
+		if (typeof targetPos  == 'number')
+		{
+			target = targetPos;
+		} else {
+			target = $(targetPos).offset().top;
+			if (arrowScroll.currentPosition == 4) {
+				target= target+40;
+			} else if (arrowScroll.currentPosition == 5) {
+				target= target + 100;
+			}
+
+		}
+		console.log(targetPos)
+		console.log(target)
+		$('html, body').stop().animate({ scrollTop: target }, 2000);
 	}
 
 	var gotoPreviousMenu = function() {
 		
-		currentPosition = Math.max(whereAreYou()-1, 0);
-		
-		var targetPos = positionArray[currentPosition];
-		if (typeof targetPos  != 'number')
+		arrowScroll.currentPosition = Math.max(arrowScroll.currentPosition-1, 0);
+		console.log("currentPosition:"+ arrowScroll.currentPosition);
+		var targetPos = positionArray[arrowScroll.currentPosition];
+		if (typeof targetPos  == 'number')
 		{
+			target = targetPos;
+		} else {
 			target = $(targetPos).offset().top;
-		}
+			if (arrowScroll.currentPosition == 4) {
+				target= target+40;
+			} else if (arrowScroll.currentPosition == 5) {
+				target= target + 100;
+			}
 
-		$('html, body').animate({ scrollTop: target }, 750);
+		}
+		$('html, body').stop().animate({ scrollTop: target }, 2000);
 	}
 
 	var init = function() {
@@ -56,39 +71,39 @@ arrowScroll = (function(){
 		    }
 		    e.preventDefault(); // prevent the default action (scroll / move caret)
 		});
+
+		//Keep Track of where I am
+		$(window).scroll(whereAreYou);
 	}
 
-	var whereAreYou = function() {
+	var whereAreYou = function(event) {
 		var location = $(window).scrollTop();
-		console.log(location)
-		var returnValue;
-		//if (location <= 0) {
-	//		returnValue = 0;
-		//} else if (location <= positionArray[1]) {
-		if (location <= positionArray[1]) {
-			returnValue = 0;
-		} else if (location <= positionArray[2]) {
-			returnValue = 1;
-		} else if (location <= $(positionArray[3]).offset().top) {
-			returnValue = 2;
-		} else if (location <= $(positionArray[4]).offset().top) {
-			returnValue = 3;
-		}  else if (location <= $(positionArray[5]).offset().top) {
-			returnValue = 4;
-		} else if (location <= $(positionArray[6]).offset().top) {
-			returnValue = 5;
+		console.log("location:"+ location);
+		if (location < positionArray[1]) {
+			arrowScroll.currentPosition = 0;
+		} else if (location < positionArray[2]) {
+			arrowScroll.currentPosition = 1;
+		} else if (location < $(positionArray[3]).offset().top) {
+			arrowScroll.currentPosition = 2;
+		} else if (location < $(positionArray[4]).offset().top) {
+			arrowScroll.currentPosition = 3;
+		}  else if (location < $(positionArray[5]).offset().top) {
+			arrowScroll.currentPosition = 4;
+		} else if (location < $(positionArray[6]).offset().top) {
+			arrowScroll.currentPosition = 5;
 		} else {
-			returnValue = 6;
+			arrowScroll.currentPosition = 6;
 		}
 
-		console.log(returnValue)
+		console.log("currentPosition:"+ arrowScroll.currentPosition);
+		//event.preventDefault();
 
-		return returnValue;
 	}
 
 		return {
 			init:init,
 			positionArray:positionArray,
-			whereAreYou:whereAreYou
+			whereAreYou:whereAreYou,
+			currentPosition:currentPosition
 		}
 }())

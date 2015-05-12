@@ -172,6 +172,11 @@ section
 
     color: black;
     background-color: white;
+
+}
+
+.section4 .container {
+    top: 40vh;
 }
 
 .section4 #Section4Description
@@ -255,9 +260,9 @@ section
     background-color: white;
 }
 
-.section6 h1
+.section6 .container
 {
-    margin: 20px;
+    top: 40vh;
 }
 
 .section6 #Section6Description

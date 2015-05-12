@@ -194,7 +194,7 @@ ul.client-list
 ul.service-list
 {
     margin-left: 10%;
-    padding-top: 50px;
+    padding-top: 5vh;
 }
 
 .service-list li
@@ -203,7 +203,7 @@ ul.service-list
 
     width: 19%;
     height: 140px;
-    margin: 0 10px 10px;
+    margin: 0 1vh 1vh 1vh;
 
     list-style-type: none;
 }
