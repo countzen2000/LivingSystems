@@ -78,7 +78,7 @@ arrowScroll = (function(){
 
 	var whereAreYou = function(event) {
 		var location = $(window).scrollTop();
-		console.log("location:"+ location);
+		
 		if (location < positionArray[1]) {
 			arrowScroll.currentPosition = 0;
 		} else if (location < positionArray[2]) {
@@ -95,8 +95,9 @@ arrowScroll = (function(){
 			arrowScroll.currentPosition = 6;
 		}
 
-		console.log("currentPosition:"+ arrowScroll.currentPosition);
-		//event.preventDefault();
+		if (event) {
+			event.preventDefault();
+		}
 
 	}
 

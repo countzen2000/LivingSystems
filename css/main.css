@@ -172,10 +172,10 @@ section
 
     color: black;
     background-color: white;
-
 }
 
-.section4 .container {
+.section4 .container
+{
     top: 40vh;
 }
 
@@ -206,8 +206,6 @@ section
     z-index: 9999;
 
     margin: 0;
-    padding-top: 50px;
-    padding-bottom: 50px;
 
     text-align: center;
 
@@ -235,11 +233,14 @@ section
 
 .section5 #section5_top
 {
+    top: 40vh;
+    /*
     -webkit-transform: translateY(-webkit-calc(-50% - 300px));
        -moz-transform: translateY(-moz-calc(-50% - 300px));
         -ms-transform: translateY(c-ms-alc(-50% - 300px));
          -o-transform: translateY(-o-calc(-50% - 300px));
             transform: translateY(calc(-50% - 300px));
+            */
 }
 
 .section5 #work-list-container
@@ -284,24 +285,39 @@ section
     background-color: white;
 }
 
-.section7 h1
-{
-    margin: 20px;
-}
-
 .section8
 {
+    padding-top: 100px;
+
     z-index: 999;
 
     text-align: center;
 
     color: gray;
+}
+
+.section8 .section_titles
+{
+    position: relative;
+}
+
+.section8 .horizontalDidverSpan
+{
+    position: relative;
+}
+
+.section8 #back {
+    z-index: -1;
+    position: absolute;
+    bottom: 0px;
+    height: 80vh;
+    width: 100%;
+
     background-color: black;
 }
 
-.section8 h1
-{
-    margin: 20px;
+.section8 .container {
+
 }
 /****
 Works

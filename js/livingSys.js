@@ -103,7 +103,7 @@ livingSys = (function() {
 		$('#section6').offset({top: $('#section5').offset().top + $('#section6').height()});
 		$('#section7').offset({top: $('#section6').offset().top + $('#section7').height()});
 		//Change this use Viewport height
-		$('#section8').offset({top: $('#section7').offset().top + $('#section8').height() + 300});
+		$('#section8').offset({top: $('#section7').offset().top + $('#section8').height()});
 		
 
 	}

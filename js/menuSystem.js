@@ -54,7 +54,13 @@ menuSystem = (function() {
 
 	var scrollTo = function(target) {
 		targetPos = $(target).offset().top;
-		TweenMax.to(window, 1, {scrollTo:{y:targetPos}, ease:Power2.easeOut});
+		if (arrowScroll.currentPosition == 4) {
+			targetPos= targetPos+40;
+		} else if (arrowScroll.currentPosition == 5) {
+			targetPos= targetPos + 100;
+		}
+		
+		$('html, body').stop().animate({ scrollTop: targetPos }, 2000);
 	}
 
 	var handleScroll = function() {
