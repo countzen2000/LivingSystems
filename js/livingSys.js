@@ -123,12 +123,32 @@ livingSys = (function() {
 
 	}
 
+	var initQuotes = function() {
+		var quotes = $('.quote');
+		var clientList = $('.client-list li');
+
+		clientList.each(function() {
+			$(this).on('mouseenter touchend', function(e) {
+				
+				var index = $(this).index();
+				var incomingQuote = quotes.eq(index);
+				if (incomingQuote.css("opacity") == 0) {
+					TweenMax.fromTo(incomingQuote, 0.35, { opacity: 0, top: 100 }, { opacity: 1, top: 0 });
+					TweenMax.to(incomingQuote.siblings(), 0.35, { opacity: 0, top: -70 });
+				}
+			});
+		});
+
+		quotes.first().css("opacity", 1);
+	}
+
 /******public functioncs *****/
 	var init = function() {
 		setupAnimation()
 
 		/**Mouse over stuff **/
 		//$(".client-list img").mouseover(onSection4MouseOver);
+		initQuotes();
 
 		/*** resizing stuff **/
 		$(window).resize(onResize);
