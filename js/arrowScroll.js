@@ -3,8 +3,8 @@ arrowScroll = (function(){
 
 	var positionArray = [
 		0,
-		4000,
-		10000,
+		5700,
+		11500,
 		'#section4',
 		'#section5',
 		'#section6',
@@ -36,9 +36,7 @@ arrowScroll = (function(){
 	}
 
 	var gotoPreviousMenu = function() {
-		
 		arrowScroll.currentPosition = Math.max(arrowScroll.currentPosition-1, 0);
-		console.log("currentPosition:"+ arrowScroll.currentPosition);
 		var targetPos = positionArray[arrowScroll.currentPosition];
 		if (typeof targetPos  == 'number')
 		{
@@ -101,10 +99,10 @@ arrowScroll = (function(){
 
 	}
 
-		return {
-			init:init,
-			positionArray:positionArray,
-			whereAreYou:whereAreYou,
-			currentPosition:currentPosition
-		}
-}())
+	return {
+		init:init,
+		positionArray:positionArray,
+		whereAreYou:whereAreYou,
+		currentPosition:currentPosition
+	}
+}());

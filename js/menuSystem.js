@@ -27,7 +27,7 @@ menuSystem = (function() {
 
 	var close = function() {
 			TweenLite.to($('#hiddenMenu') , 1, {autoAlpha: 0, ease: Bounce.easeOut, top: "-40px", display:'none'});
-			TweenLite.to($('#menu-icon') , 1, {right: "30px", ease: Bounce.easeOut, autoAlpha: 1, display:'block'});
+			TweenLite.to($('#menu-icon') , 1, {right: "70px", ease: Bounce.easeOut, autoAlpha: 1, display:'block'});
 			//$("#hiddenMenu").css({'display':'none'});
 			//$("#menu-icon").css({'display':'block'});
 	}

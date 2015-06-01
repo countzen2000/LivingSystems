@@ -169,8 +169,8 @@ ul.client-list
 {
     float: left;
 
-    width: 20%;
-    margin: 0 10px 10px;
+    width: 30%;
+    margin: 10px 10px 10px;
 
     list-style-type: none;
 }
@@ -181,12 +181,6 @@ ul.client-list
     width: 150px;
     padding-bottom: 20px;
     margin-top: 40px;
-}
-
-.client-list img
-{
-    position: relative;
-    top: 35%;
 }
 
 /*******/
@@ -218,47 +212,33 @@ ul.service-list
     height: 120px;
 }
 
-img#architecture
-{
-    width: 120px;
-    height: 260px;
+
+.client-list > li > div.clippy {
+    position: relative;
+
+    overflow: hidden;
+
+    width: 211px;
+    height: 138px;   
 }
 
-img#branding
+.client-list img
 {
-    width: 120px;
-    height: 260px;
+    position: relative;
+    /* top: 35%; */
+    width: 211px;
+    height: 276px;   
+
 }
 
-img#consulting
-{
-    width: 120px;
-    height: 260px;
-}
 
-img#design
-{
-    width: 120px;
-    height: 260px;
-}
-img#sales
-{
-    width: 120px;
-    height: 260px;
-}
-
-img#engineering
-{
-    width: 120px;
-    height: 260px;
-}
-
-img#marketing
-{
-    width: 120px;
-    height: 260px;
-}
-
+img#architecture,
+img#branding,
+img#consulting,
+img#design,
+img#sales,
+img#engineering,
+img#marketing,
 img#contracting
 {
     width: 120px;

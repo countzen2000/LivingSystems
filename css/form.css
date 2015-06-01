@@ -1,11 +1,13 @@
 
 .form-input
 {
-    font-size: 40px;
+    font-size: 24px;
     font-weight: 100;
     line-height: 1;
 
     box-sizing: border-box;
+    width: 100%;
+    min-height: 40px;
     padding: 0;
 
     border: none;
@@ -25,9 +27,25 @@
     width: 100%;
 }
 
-.form-input
-{
-    width: 100%;
+.name:after,
+.email:after {
+  content: "*";
+  color: rgb(26, 202, 88);
+  float: right;
+  position: relative;
+  top: -12px;
+  font-size: 28px;
+  line-height: 1px;
+}
+
+.message:after {
+  content: "*";
+  color: rgb(26, 202, 88);
+  float: right;
+  position: relative;
+  top: -130px;
+  font-size: 28px;
+  line-height: 1px;
 }
 
 .form-input#name,
@@ -40,19 +58,22 @@
 
 .form-input#message
 {
+    height: 150px;
+
     resize: none;
+
+    background-repeat: repeat;
+}
+
+.form-input#message:focus
+{
+    line-height: 50px;
 }
 
 .form-container
 {
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
-}
-
-p.action
-{
-    margin-left: 25%; /*Bacup*/
-    margin-left: calc(50% - 150px);
 }
 
 .button
@@ -69,10 +90,9 @@ p.action
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
-    width: 300px;
+    width: 170px;
     height: 50px;
-    height: 50px;
-    margin: 0 auto;
+    margin-left: calc(50% - 85px);
     padding: 0 2.5em;
 
     -webkit-user-select: none;

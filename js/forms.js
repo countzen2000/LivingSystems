@@ -27,6 +27,14 @@ forms = (function() {
 			}
 			helper.height(height);
 		});
+
+		$('.form-input#message').focus(function(){
+		   $(this).data('placeholder',$(this).attr('placeholder'))
+		   $(this).attr('placeholder','');
+		});
+		$('.form-input#message').blur(function(){
+		   $(this).attr('placeholder',$(this).data('placeholder'));
+		});
 	};
 
 	var send = function() {

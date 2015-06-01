@@ -15,10 +15,9 @@ twitter = (function() {
 	    var element = document.getElementById('TweetContainer');
 	    var html = '<ul class="tweets">';
 	    while(n < x) {
-			user = tweets[n]
-			console.log(user)
-			html += '<li class="tweets"><div>' + tweets[n] + '</div></li>';
-			console.log(tweets[n])
+			user = tweets[n];
+			html += '<li class="tweets"><div>'+
+			'<div class="image_holder"><img width=290 height=260 src="resources/images/twitter/placeholder.jpg"></div><div>' + tweets[n] + '</div></div></li>';
 			n++;
 	    }
 	    html += '</ul>';

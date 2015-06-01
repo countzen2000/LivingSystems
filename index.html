@@ -14,20 +14,12 @@
 		
 		<script src="http://use.typekit.net/uja3max.js"></script>
 		<script>try{Typekit.load();}catch(e){}</script>
-
+		
+		
 		<script src="js/lib/greensock/TweenMax.min.js"></script>
 	    <script src="js/lib/jquery.min.js"></script>
-	    <script src="js/lib/iscroll-probe.js"></script>
-	    <script src="scrollmagic/minified/ScrollMagic.min.js"></script>
-	    <script src="scrollmagic/minified/plugins/animation.gsap.min.js"></script>
-	  	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
-	  	<script src="js/twitterFetcher.js"></script>
-	  	<script src="js/forms.js"></script>
-	  	<script src="js/livingSys.js"></script>
-	  	<script src="js/menuSystem.js"></script>
-	  	<script src="js/arrowScroll.js"></script>
-	  	<script src="js/twitter.js"></script>
-	  	<script src="js/jquery.smoothwheel.js"></script>
+	    <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+	    <script src="js/build/production.js"></script>
 	</head>
 	
 	<script type="text/javascript">
@@ -48,22 +40,24 @@
 		<div class="scrollContent">
 		
 			<section id= "section1" class="section1">
-				<div id="pin1" class="text-wrap vertical-align">
+				<div id="pin1" class="text-wrap vertical-align section_text">
 					<img class="animation_logo" src="resources/images/system/logo_animation.png">
-					<p>Creativity, Technology & Teamwork.</p>
+					<p id="text_1">Creativity, Technology & Teamwork.</p>
 				</div>
-				<div id="trigger1" class="spacer s0"></div>
 			</section>
+
 			<section id= "section2"  class="section2">
-				<div id="pin2" class="text-wrap vertical-align">
+				<div id="pin2" class="text-wrap vertical-align section_text">
 					<img class="animation_logo" src="resources/images/system/logo_animation.png">
-					<p>We are a space where designers, engineers, architects & craftsmen</p>
+					<p id="text_2">We are a space where designers, engineers, architects & craftsmen</p>
 				</div>
+
 			</section>
+
 			<section id= "section3"  class="section3">
-				<div id="pin3" class="text-wrap vertical-align">
+				<div id="pin3" class="text-wrap vertical-align section_text">
 					<img class="animation_logo" src="resources/images/system/logo_animation.png">
-					<p>collaborate to create machines for living.</p>
+					<p id="text_3">collaborate to create machines for living.</p>
 				</div>
 			</section>
 			
@@ -72,8 +66,12 @@
 					<div id="logo">
 						<img class="logo" src="resources/images/system/logo_menu.png">
 					</div>
-					<span id="menu-icon">
-						
+					<span id="menu-icon" class="slide-open">
+						<ul id="openMenu" style="padding: 0px">
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
 					</span>
 					<nav id="hiddenMenu">
 						<ul>
@@ -115,32 +113,19 @@
 					</div>
 					<ul class="client-list">
 						<li>
-							<figure class="zoom-effect">
-								<a href="sub/partners.html" target="_blank">
-									<img src="resources/images/logos/bijou/bijou.svg" width="114" height="79" alt="Bijou">
-								</a>
-							</figure>
+							<div class="clippy">
+								<img id="pino" class="slide-effect" src="resources/images/clients/pino.png" alt="Pino">
+							</div>
 						</li>
 						<li>
-							<figure class="zoom-effect">
-								<a href="sub/partners.html" target="_blank">
-									<img src="resources/images/logos/bijou/EdgeLofts.svg" width="114" height="79" alt="Edge Lofts">
-								</a>
-							</figure>
+							<div class="clippy">
+								<img id="pino" class="slide-effect" src="resources/images/clients/bijou.png" alt="Bijou">
+							</div>
 						</li>
 						<li>
-							<figure class="zoom-effect">
-								<a href="sub/partners.html" target="_blank">
-									<img src="resources/images/logos/bijou/hudson_table.svg" width="114" height="79" alt="Hudson">
-								</a>
-							</figure>
-						</li>
-						<li>
-							<figure class="zoom-effect">
-								<a href="sub/partners.html" target="_blank">
-									<img src="resources/images/logos/bijou/Pino.svg" width="150" height="100" alt="Pino">
-								</a>
-							</figure>
+							<div class="clippy">
+								<img id="pino" class="slide-effect" src="resources/images/clients/hudson.png" alt="Hudson">
+							</div>
 						</li>
 					</ul>
 				</div>
@@ -234,49 +219,41 @@
 						<li>
 							<div class="clippy ">
 								<img id="architecture" class="slide-effect" src="resources/images/logos/icons/architecture.svg" alt="architecture">
-								<img id="architecture_bg" class="fade_effect">
 							</div>
 						</li>
 						<li>
 							<div class="clippy">
 								<img class="slide-effect" id="branding" width="120" src="resources/images/logos/icons/branding.svg" alt="brandind">
-								<img id="architecture_bg" class="fade_effect">
 							</div>
 						</li>
 						<li>
 							<div class="clippy">
 								<img id="consulting" class="slide-effect" src="resources/images/logos/icons/consulting.svg" alt="Consulting">
-								<img id="architecture_bg" class="fade_effect">
 							</div>
 						</li>
 						<li>
 							<div class="clippy">
 								<img id="contracting" class="slide-effect" src="resources/images/logos/icons/contracting.svg" width="120" alt="Contracting">
-								<img id="architecture_bg" class="fade_effect">
 							</div>
 						</li>
 						<li>
 							<div class="clippy">
 								<img width="120" id="marketing" class="slide-effect" src="resources/images/logos/icons/marketing.svg" alt="marketing">
-								<img id="architecture_bg" class="fade_effect">
 							</div>
 						</li>
 						<li>
 							<div class="clippy">
-								<img width="120" id="engineering" class="slide-effect" src="resources/images/logos/icons/engineering.svg" alt="Engineer">
-								<img id="architecture_bg" class="fade_effect">
+								<img width="120" id="engineering" class="slide-effect" src="resources/images/logos/icons/engineering_2.svg" alt="Engineer">
 							</div>
 						</li>
 						<li>
 							<div class="clippy">
 								<img id="sales" class="slide-effect" src="resources/images/logos/icons/sales.svg" alt="sales">
-								<img id="architecture_bg" class="fade_effect">
 							</div>
 						</li>
 						<li>
 							<div class="clippy">
 								<img id="design" class="slide-effect"  src="resources/images/logos/icons/design.svg" alt="design">
-								<img id="architecture_bg" class="fade_effect">
 							</div>
 						</li>
 					</ul>
@@ -337,12 +314,6 @@
 					
 				</div>
 			</section>
-
-
 		</div>
-	</body>
-	<script>
-
-	</script>
-	
+	</body>	
 </html>

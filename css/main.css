@@ -61,30 +61,20 @@ div.text-wrap
     margin-bottom: 40px;
 }
 
-.section1 div.text-wrap
+.section_text
 {
     font-size: 80px;
     font-weight: 100;
     line-height: 100px;
-
+}
+.section1 div.text-wrap
+{
     width: 500px;
 }
 
-.section2 div.text-wrap
-{
-    font-size: 80px;
-    font-weight: 100;
-    line-height: 100px;
-
-    width: 800px;
-}
-
+.section2 div.text-wrap,
 .section3 div.text-wrap
 {
-    font-size: 80px;
-    font-weight: 100;
-    line-height: 100px;
-
     width: 800px;
 }
 
@@ -171,28 +161,28 @@ section
 
     color: black;
     background-color: white;
-
 }
 
 .section4 .container
 {
     top: 40vh;
+
     max-width: 990px;
 }
 
-.section4 .quotes_wrapper {
-    height: 100px;
+.section4 .quotes_wrapper
+{
     position: relative;
+
+    height: 100px;
 }
 
 .section4 .quotes
 {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-
-    
+    top: 0;
+    right: 0;
+    left: 0;
 
     color: gray;
 }
@@ -200,8 +190,11 @@ section
 .section4 .quote
 {
     font-size: 20px;
+
     position: absolute;
+
     text-align: center;
+
     opacity: 0;
 }
 
@@ -287,7 +280,7 @@ section
     text-align: center;
 
     color: black;
-    background-color: white;
+    background-color: #fcfafa;
 }
 
 .section8
