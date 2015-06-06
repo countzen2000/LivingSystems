@@ -1,3 +1,7 @@
+.tweetHolder {
+    height: 100px;
+}
+
 ul.tweets
 {
     position: relative;

@@ -1,4 +1,4 @@
-arrowScroll = (function(){
+var arrowScroll = (function(){
 	var currentPosition = 0;
 
 	var positionArray = [
@@ -10,14 +10,14 @@ arrowScroll = (function(){
 		'#section6',
 		'#section7',
 		'#section8'
-		]
-		var firstHack = true;
-
+		];
+  
 	var gotoNextMenu = function () {
 
 		arrowScroll.currentPosition = Math.min(arrowScroll.currentPosition+1, 7);
 		var targetPos = positionArray[arrowScroll.currentPosition];
-
+		var target;
+    
 		if (typeof targetPos  == 'number')
 		{
 			target = targetPos;
@@ -30,14 +30,14 @@ arrowScroll = (function(){
 			}
 
 		}
-		console.log(targetPos)
-		console.log(target)
-		$('html, body').stop().animate({ scrollTop: target }, 2000);
-	}
+
+    $('html, body').stop().animate({ scrollTop: target }, 2000);
+	};
 
 	var gotoPreviousMenu = function() {
 		arrowScroll.currentPosition = Math.max(arrowScroll.currentPosition-1, 0);
 		var targetPos = positionArray[arrowScroll.currentPosition];
+    var target;
 		if (typeof targetPos  == 'number')
 		{
 			target = targetPos;
@@ -51,7 +51,7 @@ arrowScroll = (function(){
 
 		}
 		$('html, body').stop().animate({ scrollTop: target }, 2000);
-	}
+	};
 
 	var init = function() {
 		$(document).keydown(function(e) {
@@ -72,7 +72,7 @@ arrowScroll = (function(){
 
 		//Keep Track of where I am
 		$(window).scroll(whereAreYou);
-	}
+	};
 
 	var whereAreYou = function(event) {
 		var location = $(window).scrollTop();
@@ -97,12 +97,12 @@ arrowScroll = (function(){
 			event.preventDefault();
 		}
 
-	}
+	};
 
 	return {
 		init:init,
 		positionArray:positionArray,
 		whereAreYou:whereAreYou,
 		currentPosition:currentPosition
-	}
+	};
 }());

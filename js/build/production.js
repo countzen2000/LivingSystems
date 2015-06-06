@@ -2362,7 +2362,7 @@ if ( typeof module != 'undefined' && module.exports ) {
 })(window, document, Math);
 /*! ScrollMagic v2.0.0 | (c) 2015 Jan Paepke (@janpaepke) | license & info: http://janpaepke.github.io/ScrollMagic */
 !function(e,n){"function"==typeof define&&define.amd?define(["ScrollMagic","TweenMax","TimelineMax"],n):n(e.ScrollMagic||e.jQuery&&e.jQuery.ScrollMagic,e.TweenMax||e.TweenLite,e.TimelineMax||e.TimelineLite)}(this,function(e,n,t){"use strict";e.Scene.addOption("tweenChanges",!1,function(e){return!!e}),e.Scene.extend(function(){var e,r=this;r.on("progress.plugin_gsap",function(){i()}),r.on("destroy.plugin_gsap",function(e){r.removeTween(e.reset)});var i=function(){if(e){var n=r.progress(),t=r.state();e.repeat&&-1===e.repeat()?"DURING"===t&&e.paused()?e.play():"DURING"===t||e.paused()||e.pause():n!=e.progress()&&(0===r.duration()?n>0?e.play():e.reverse():r.tweenChanges()&&e.tweenTo?e.tweenTo(n*e.duration()):e.progress(n).pause())}};r.setTween=function(o,a,s){var u;arguments.length>1&&(arguments.length<3&&(s=a,a=1),o=n.to(o,a,s));try{u=t?new t({smoothChildTiming:!0}).add(o):o,u.pause()}catch(p){return r}return e&&r.removeTween(),e=u,o.repeat&&-1===o.repeat()&&(e.repeat(-1),e.yoyo(o.yoyo())),i(),r},r.removeTween=function(n){return e&&(n&&e.progress(0).pause(),e.kill(),e=void 0),r}})});
-arrowScroll = (function(){
+var arrowScroll = (function(){
 	var currentPosition = 0;
 
 	var positionArray = [
@@ -2374,14 +2374,14 @@ arrowScroll = (function(){
 		'#section6',
 		'#section7',
 		'#section8'
-		]
-		var firstHack = true;
-
+		];
+  
 	var gotoNextMenu = function () {
 
 		arrowScroll.currentPosition = Math.min(arrowScroll.currentPosition+1, 7);
 		var targetPos = positionArray[arrowScroll.currentPosition];
-
+		var target;
+    
 		if (typeof targetPos  == 'number')
 		{
 			target = targetPos;
@@ -2394,14 +2394,14 @@ arrowScroll = (function(){
 			}
 
 		}
-		console.log(targetPos)
-		console.log(target)
-		$('html, body').stop().animate({ scrollTop: target }, 2000);
-	}
+
+    $('html, body').stop().animate({ scrollTop: target }, 2000);
+	};
 
 	var gotoPreviousMenu = function() {
 		arrowScroll.currentPosition = Math.max(arrowScroll.currentPosition-1, 0);
 		var targetPos = positionArray[arrowScroll.currentPosition];
+    var target;
 		if (typeof targetPos  == 'number')
 		{
 			target = targetPos;
@@ -2415,7 +2415,7 @@ arrowScroll = (function(){
 
 		}
 		$('html, body').stop().animate({ scrollTop: target }, 2000);
-	}
+	};
 
 	var init = function() {
 		$(document).keydown(function(e) {
@@ -2436,7 +2436,7 @@ arrowScroll = (function(){
 
 		//Keep Track of where I am
 		$(window).scroll(whereAreYou);
-	}
+	};
 
 	var whereAreYou = function(event) {
 		var location = $(window).scrollTop();
@@ -2461,14 +2461,14 @@ arrowScroll = (function(){
 			event.preventDefault();
 		}
 
-	}
+	};
 
 	return {
 		init:init,
 		positionArray:positionArray,
 		whereAreYou:whereAreYou,
 		currentPosition:currentPosition
-	}
+	};
 }());
 forms = (function() {
 	
@@ -2516,6 +2516,17 @@ forms = (function() {
 	return {
 		init:init
 	}
+}());
+var imageScraper = (function() {
+	var scrape = function(stringToSeartchThrough) {
+		//Gets a string
+		//Search through it for URL to image ????
+		//returns that string
+	};
+
+	return {
+		scrape:scrape
+	};
 }());
 /**
  * Created by IntelliJ IDEA.
@@ -3017,7 +3028,7 @@ twitter = (function() {
 	    while(n < x) {
 			user = tweets[n];
 			html += '<li class="tweets"><div>'+
-			'<div class="image_holder"><img width=290 height=260 src="resources/images/twitter/placeholder.jpg"></div><div>' + tweets[n] + '</div></div></li>';
+			'<div class="image_holder"><img width=290 height=260 src="resources/images/twitter/placeholder.jpg"></div><div class="tweetHolder">' + tweets[n] + '</div></div></li>';
 			n++;
 	    }
 	    html += '</ul>';

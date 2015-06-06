@@ -17,7 +17,7 @@ twitter = (function() {
 	    while(n < x) {
 			user = tweets[n];
 			html += '<li class="tweets"><div>'+
-			'<div class="image_holder"><img width=290 height=260 src="resources/images/twitter/placeholder.jpg"></div><div>' + tweets[n] + '</div></div></li>';
+			'<div class="image_holder"><img width=290 height=260 src="resources/images/twitter/placeholder.jpg"></div><div class="tweetHolder">' + tweets[n] + '</div></div></li>';
 			n++;
 	    }
 	    html += '</ul>';
