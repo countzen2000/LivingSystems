@@ -98,7 +98,6 @@ livingSys = (function() {
 
     var onResize = function() {
 
-        realign();
         redraw();
         realign();
     }
@@ -117,7 +116,7 @@ livingSys = (function() {
         $('#section7').offset({
             top: $('#section6').offset().top + $('#section7').height()
         });
-        //Change this use Viewport height
+
         $('#section8').offset({
             top: $('#section7').offset().top + $('#section8').height()
         });
@@ -138,7 +137,7 @@ livingSys = (function() {
         target.height(source.height() * .99);
         target.width(source.width());
 
-    }
+    }  
 
     var initQuotes = function() {
         var quotes = $('.quote');
@@ -148,6 +147,12 @@ livingSys = (function() {
             $(this).on('mouseenter touchend', function(e) {
 
                 var index = $(this).index();
+                if (index === 2) {
+                    index = 1;
+                }
+                if (index === 4) {
+                    index = 2;
+                }
                 var incomingQuote = quotes.eq(index);
                 if (incomingQuote.css("opacity") == 0) {
                     TweenMax.fromTo(incomingQuote, 0.35, {

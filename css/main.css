@@ -201,6 +201,10 @@ section
 
 .section5
 {
+    will-change:top;
+
+    height: 101vh !important;
+
     z-index: 9999;
 
     margin: 0;

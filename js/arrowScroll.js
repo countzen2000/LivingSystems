@@ -67,7 +67,7 @@ var arrowScroll = (function(){
 
 		        default: return; // exit this handler for other keys
 		    }
-		    e.preventDefault(); // prevent the default action (scroll / move caret)
+		    //e.preventDefault(); // prevent the default action (scroll / move caret)
 		});
 
 		//Keep Track of where I am
@@ -94,7 +94,7 @@ var arrowScroll = (function(){
 		}
 
 		if (event) {
-			event.preventDefault();
+			//event.preventDefault();
 		}
 
 	};

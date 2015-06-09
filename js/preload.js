@@ -1,3 +1,3 @@
-preload = (function() {
+var preload = (function() {
 	
-}())
+}());
