@@ -480,63 +480,123 @@ forms = (function() {
 	}
 }());
 var imageScraper = (function() {
-	var scrape = function(stringToSeartchThrough, returnCall, location) {
-		var regex = /https?:\/\/t.co\/\w*/;
+	//Lets use Promises.
 
-		var twitter_links = regex.exec(stringToSeartchThrough);
+	var scrape = function(stringToSeartchThrough) {
+		var promise = 
+			firstAjax(stringToSeartchThrough)
+			.then(parseURLresults, failure)
+			.then(secondScrape, failure)
+			.then(returnImage, failure)
+			.catch(failure);
 
-		$.ajaxPrefilter( function (options) {
-		  if (options.crossDomain && jQuery.support.cors) {
-		    var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
-		    options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
-		    //options.url = "https://cors.corsproxy.io/url=" + options.url;
-		  }
+		return promise;
+	};
+
+	var returnImage = function(result) {
+
+		var promise = new Promise(function(resolve, reject) {
+			if (result === null || typeof result == undefined) {
+				reject("Bad Result!");
+			} else {
+				resolve(result);
+				console.log("returnImage", result);
+			}
 		});
 
-		if (twitter_links !== null) {
-			$.ajax({
-			    url: twitter_links,
-			    dataType: 'text',
-			    success: function(data) {
-			    	//lets check if this has a instagram link
-			    	console.log(data);
-			    	var instagramRegex = /https?:\/\/instagram.com\/.*\/.*(?="><)/;
-			    	var instagramLink = instagramRegex.exec(data);
-			    	if (instagramLink !== null) {
-			    		returnCall(instagramLink+"media", location);
-			    		return;
-			    	}
-			    	var noScriptLink = /https?:\/\/twitter.com\/.+\/.+\/.+\/.+\/[0-9]+(?="><)/;
-			      	var noScriptLinkUrl = noScriptLink.exec(data);
-			      	//console.log("noScriptLinkUrl: "+noScriptLinkUrl);
-			      	if (noScriptLinkUrl === null) {
-			      		returnCall(null, location);
-			      	} else {
-				    	secondScrape(noScriptLinkUrl, returnCall, location);
-				    }
-			    },
-			    error: function(e) {
-			    	console.log(e);
-			    }
-			});
+		return promise;
+	};
+
+	var failure = function(error) {
+		console.log("At image scraper:", error);
+	};
+
+
+	var parseURLresults = function(data) {
+		//lets check if this has a instagram link
+		var instagramRegex = /https?:\/\/instagram.com\/.*\/.*(?="><)/;
+		var instagramLink = instagramRegex.exec(data);
+		if (instagramLink !== null) {
+			return instagramLink + "media";
+		}
+		//Else this is from twitter
+		var noScriptLink = /https?:\/\/twitter.com\/.+\/.+\/.+\/.+\/[0-9]+(?="><)/;
+		var noScriptLinkUrl = noScriptLink.exec(data);
+		
+		if (noScriptLinkUrl === null) {
+			return null;
+		} else {
+			//Oh gawd this goes deeper for twitter
+			return noScriptLinkUrl;
 		}
 	};
 
-	var secondScrape = function(secondURL, returnCall, location) {
-		$.ajax({
-		    url: secondURL,
-		    dataType: 'text',
-		    success: function(data) {
-		      	var imageRegEx = /https?:\/\/pbs.twimg.com\/.*\.jpg/;
-		      	var imageLink = imageRegEx.exec(data);
-		      	returnCall(imageLink[0], location);
-		    }
+	var firstAjax = function(stringToSeartchThrough) {
+		var promise = new Promise(function(resolve, reject) {
+			var regex_for_twitter_links = /https?:\/\/t.co\/\w*/;
 
+			var twitter_links = regex_for_twitter_links.exec(stringToSeartchThrough);
+			if (twitter_links !== null) {
+				$.ajax({
+					url: twitter_links,
+					dataType: 'text',
+					async: true,
+					success: function(data) {
+						console.log('firstSuccess');
+						resolve(data);
+					},
+					error: function(e) {
+						reject(e);
+					}
+				});
+			} else {
+				reject(new Error("No twitter links!"));
+			}
 		});
+
+		return promise;
+	};
+
+	var secondScrape = function(secondURL) {	
+		var promise =  new Promise(function(resolve, reject) {
+			if (secondURL == null) {
+				resolve ("");
+			} else if (secondURL.indexOf("media") > 0) {
+				resolve(secondURL);
+			} else {
+				$.ajax({
+					url: secondURL,
+					dataType: 'text',
+					async: true,
+					success: function(data) {
+						var imageRegEx = /https?:\/\/pbs.twimg.com\/.*\.jpg/;
+						var imageLink = imageRegEx.exec(data);
+						console.log("2ndSuccess?", secondURL);
+						resolve(imageLink[0]);
+					},
+					error: function(e) {
+						reject(e);
+					}
+				});
+			}
+		});
+
+		return promise;
 	}
 
+	var init = function() {
+		$.ajaxPrefilter(function(options) {
+			if (options.crossDomain && jQuery.support.cors) {
+				var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+				options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+				//options.url = "https://cors.corsproxy.io/url=" + options.url;
+			}
+		});
+	};
+
 	return {
-		scrape:scrape
+		scrape: scrape,
+		init:init
 	};
 }());
 /*
@@ -568,13 +628,28 @@ livingSys = (function() {
 
         var tween1 = new TimelineMax();
         tween1.add([
-           // TweenMax.fromTo("#flash1", .5, { "alpha": 0, top: "50%"}, {delay: 3, "alpha": 0 }),
-            TweenMax.to("#text_1", 2, {  "alpha": 0 }), //Move and fades opening words out
-            TweenMax.to("#pin1", 2, {  top: "-=100", delay: .2 }), //Move and fades opening words out
-            TweenMax.to("#section1", 1.5, {delay: .5, transformOrigin: "50% 50% 0", scale: .75, alpha: 0 }), //Scales and fades out the iniital screen
-            TweenMax.from("#section2", .75, { delay: 1.3, transformOrigin: "50% 50% 0", scale: 1.5, alpha: 0})
+            // TweenMax.fromTo("#flash1", .5, { "alpha": 0, top: "50%"}, {delay: 3, "alpha": 0 }),
+            TweenMax.to("#text_1", 2, {
+                "alpha": 0
+            }), //Move and fades opening words out
+            TweenMax.to("#pin1", 2, {
+                top: "-=100",
+                delay: .2
+            }), //Move and fades opening words out
+            TweenMax.to("#section1", 1.5, {
+                delay: .5,
+                transformOrigin: "50% 50% 0",
+                scale: .75,
+                alpha: 0
+            }), //Scales and fades out the iniital screen
+            TweenMax.from("#section2", .75, {
+                delay: 1.3,
+                transformOrigin: "50% 50% 0",
+                scale: 1.5,
+                alpha: 0
+            })
         ]);
-        
+
         var fadeOutText1 = new ScrollMagic.Scene({
                 offset: 200,
                 duration: 3000
@@ -587,14 +662,35 @@ livingSys = (function() {
             .addTo(controller);
 
         var tween2 = new TimelineMax();
-        tween2.add( [
+        tween2.add([
             //TweenMax.fromTo("#flash2", 1, { alpha: 0, top: "50%"}, {delay: 5, alpha: 1, top: "50%" }),
-            TweenMax.from("#pin2", 2, {  top: "-=100", delay:.2 }),
-            TweenMax.from("#text_2", 2, { "alpha": 0}),
-            TweenMax.to("#pin2", 2, {  delay: 4.2, top: "-=100" }),
-            TweenMax.to("#text_2", 2, { delay: 4, alpha: 0}),
-            TweenMax.to("#section2", 1.5, { delay: 4, transformOrigin: "50% 50% 0", scale: .75, alpha: 0 }),
-            TweenMax.from("#section3", .75, {delay: 5,  transformOrigin: "50% 50% 0", scale: 1.5, alpha: 0 })
+            TweenMax.from("#pin2", 2, {
+                top: "-=100",
+                delay: .2
+            }),
+            TweenMax.from("#text_2", 2, {
+                "alpha": 0
+            }),
+            TweenMax.to("#pin2", 2, {
+                delay: 4.2,
+                top: "-=100"
+            }),
+            TweenMax.to("#text_2", 2, {
+                delay: 4,
+                alpha: 0
+            }),
+            TweenMax.to("#section2", 1.5, {
+                delay: 4,
+                transformOrigin: "50% 50% 0",
+                scale: .75,
+                alpha: 0
+            }),
+            TweenMax.from("#section3", .75, {
+                delay: 5,
+                transformOrigin: "50% 50% 0",
+                scale: 1.5,
+                alpha: 0
+            })
         ]);
 
         var fadeOutText2 = new ScrollMagic.Scene({
@@ -609,14 +705,29 @@ livingSys = (function() {
             .addTo(controller);
 
         var tween3 = new TimelineMax()
-        tween3.add( [
-            TweenMax.fromTo("#pin3", 2, { top: "-=100" }, { delay: .2, top: "50%" }),
-            TweenMax.fromTo("#text_3", 2, { "alpha": 0 }, { "alpha": 1 })
-        ]);
-        tween3.add( TweenMax.to("#pin3", 2, {}) );
         tween3.add([
-            TweenMax.to("#pin3", 1.5, { "alpha": 0, top: "-=100" }),
-            TweenMax.to("#section3", .75, { delay: 1, "alpha": 0 })
+            TweenMax.fromTo("#pin3", 2, {
+                top: "-=100"
+            }, {
+                delay: .2,
+                top: "50%"
+            }),
+            TweenMax.fromTo("#text_3", 2, {
+                "alpha": 0
+            }, {
+                "alpha": 1
+            })
+        ]);
+        tween3.add(TweenMax.to("#pin3", 2, {}));
+        tween3.add([
+            TweenMax.to("#pin3", 1.5, {
+                "alpha": 0,
+                top: "-=100"
+            }),
+            TweenMax.to("#section3", .75, {
+                delay: 1,
+                "alpha": 0
+            })
         ]);
 
 
@@ -695,7 +806,7 @@ livingSys = (function() {
         target.height(source.height() * .99);
         target.width(source.width());
 
-    }  
+    }
 
     var initQuotes = function() {
         var quotes = $('.quote');
@@ -751,6 +862,17 @@ livingSys = (function() {
         init: init,
         controller: controller
     };
+}());
+var preLoader = (function() {
+	var itemsToLoad = [];
+	//array promises! promises.all and promise.reduce
+
+	var startLoading = function() {
+
+	};
+
+	return
+		startLoading:startLoading
 }());
 menuSystem = (function() {
 	var stickyRibbonTop;
@@ -907,28 +1029,25 @@ var twitter = (function() {
 	var handleTweets = function(tweets) {
 	    var x = tweets.length;
 	    var n = 0;
-	   
+		var promiseArray = [];
+	    
 	    while(n < x) {
-			counter++;
-
-			imageScraper.scrape(tweets[n], returnCall, n);
-			tweetsArray.push(tweets[n]);
+	    	tweetsArray.push(tweets[n]);
+	    	promiseArray.push(imageScraper.scrape(tweets[n]));
 			n++;
 	    }
-	  
+	    
+	    Promise.all(promiseArray).then(returnCall);
 	};
 
-	var returnCall = function (image, location) {
-		console.log(image);
-		if (image === null) {
-			image = "resources/images/twitter/placeholder.jpg";
-		}
-		imagesArray[location] = image;
-		counter--;
-		if (counter === 0) {
-			build();
-		}
+	var returnCall = function (images) {
+		console.log("returnCall", images);
+		imagesArray = images;
+	
+		build();
 	};
+
+	//var individualBuild = function 
 
 	var build = function() {
 		//console.log('build');
@@ -943,13 +1062,17 @@ var twitter = (function() {
 	    element.innerHTML = html;
 	};
 
+	var onErr = function(error) {
+		console.log("Error in twitter.js", error);
+	}
+
 /*************************************************************
 	Public
 *************************************************************/
 
 
 	var getSomeTweets = function() {
-		var config1 = {
+		var config = {
 			"id": _widget,
 			"maxTweets": 3,
 			"enableLinks": true,
@@ -960,7 +1083,8 @@ var twitter = (function() {
 			"customCallback": handleTweets,
 			"showInteraction": false
 		};
-		twitterFetcher.fetch(config1);
+		
+		twitterFetcher.fetch(config);		
 	};
 
 	return {

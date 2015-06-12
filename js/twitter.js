@@ -16,28 +16,25 @@ var twitter = (function() {
 	var handleTweets = function(tweets) {
 	    var x = tweets.length;
 	    var n = 0;
-	   
+		var promiseArray = [];
+	    
 	    while(n < x) {
-			counter++;
-
-			imageScraper.scrape(tweets[n], returnCall, n);
-			tweetsArray.push(tweets[n]);
+	    	tweetsArray.push(tweets[n]);
+	    	promiseArray.push(imageScraper.scrape(tweets[n]));
 			n++;
 	    }
-	  
+	    
+	    Promise.all(promiseArray).then(returnCall);
 	};
 
-	var returnCall = function (image, location) {
-		console.log(image);
-		if (image === null) {
-			image = "resources/images/twitter/placeholder.jpg";
-		}
-		imagesArray[location] = image;
-		counter--;
-		if (counter === 0) {
-			build();
-		}
+	var returnCall = function (images) {
+		console.log("returnCall", images);
+		imagesArray = images;
+	
+		build();
 	};
+
+	//var individualBuild = function 
 
 	var build = function() {
 		//console.log('build');
@@ -52,13 +49,17 @@ var twitter = (function() {
 	    element.innerHTML = html;
 	};
 
+	var onErr = function(error) {
+		console.log("Error in twitter.js", error);
+	}
+
 /*************************************************************
 	Public
 *************************************************************/
 
 
 	var getSomeTweets = function() {
-		var config1 = {
+		var config = {
 			"id": _widget,
 			"maxTweets": 3,
 			"enableLinks": true,
@@ -69,7 +70,8 @@ var twitter = (function() {
 			"customCallback": handleTweets,
 			"showInteraction": false
 		};
-		twitterFetcher.fetch(config1);
+		
+		twitterFetcher.fetch(config);		
 	};
 
 	return {

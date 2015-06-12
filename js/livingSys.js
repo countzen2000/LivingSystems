@@ -10,13 +10,28 @@ livingSys = (function() {
 
         var tween1 = new TimelineMax();
         tween1.add([
-           // TweenMax.fromTo("#flash1", .5, { "alpha": 0, top: "50%"}, {delay: 3, "alpha": 0 }),
-            TweenMax.to("#text_1", 2, {  "alpha": 0 }), //Move and fades opening words out
-            TweenMax.to("#pin1", 2, {  top: "-=100", delay: .2 }), //Move and fades opening words out
-            TweenMax.to("#section1", 1.5, {delay: .5, transformOrigin: "50% 50% 0", scale: .75, alpha: 0 }), //Scales and fades out the iniital screen
-            TweenMax.from("#section2", .75, { delay: 1.3, transformOrigin: "50% 50% 0", scale: 1.5, alpha: 0})
+            // TweenMax.fromTo("#flash1", .5, { "alpha": 0, top: "50%"}, {delay: 3, "alpha": 0 }),
+            TweenMax.to("#text_1", 2, {
+                "alpha": 0
+            }), //Move and fades opening words out
+            TweenMax.to("#pin1", 2, {
+                top: "-=100",
+                delay: .2
+            }), //Move and fades opening words out
+            TweenMax.to("#section1", 1.5, {
+                delay: .5,
+                transformOrigin: "50% 50% 0",
+                scale: .75,
+                alpha: 0
+            }), //Scales and fades out the iniital screen
+            TweenMax.from("#section2", .75, {
+                delay: 1.3,
+                transformOrigin: "50% 50% 0",
+                scale: 1.5,
+                alpha: 0
+            })
         ]);
-        
+
         var fadeOutText1 = new ScrollMagic.Scene({
                 offset: 200,
                 duration: 3000
@@ -29,14 +44,35 @@ livingSys = (function() {
             .addTo(controller);
 
         var tween2 = new TimelineMax();
-        tween2.add( [
+        tween2.add([
             //TweenMax.fromTo("#flash2", 1, { alpha: 0, top: "50%"}, {delay: 5, alpha: 1, top: "50%" }),
-            TweenMax.from("#pin2", 2, {  top: "-=100", delay:.2 }),
-            TweenMax.from("#text_2", 2, { "alpha": 0}),
-            TweenMax.to("#pin2", 2, {  delay: 4.2, top: "-=100" }),
-            TweenMax.to("#text_2", 2, { delay: 4, alpha: 0}),
-            TweenMax.to("#section2", 1.5, { delay: 4, transformOrigin: "50% 50% 0", scale: .75, alpha: 0 }),
-            TweenMax.from("#section3", .75, {delay: 5,  transformOrigin: "50% 50% 0", scale: 1.5, alpha: 0 })
+            TweenMax.from("#pin2", 2, {
+                top: "-=100",
+                delay: .2
+            }),
+            TweenMax.from("#text_2", 2, {
+                "alpha": 0
+            }),
+            TweenMax.to("#pin2", 2, {
+                delay: 4.2,
+                top: "-=100"
+            }),
+            TweenMax.to("#text_2", 2, {
+                delay: 4,
+                alpha: 0
+            }),
+            TweenMax.to("#section2", 1.5, {
+                delay: 4,
+                transformOrigin: "50% 50% 0",
+                scale: .75,
+                alpha: 0
+            }),
+            TweenMax.from("#section3", .75, {
+                delay: 5,
+                transformOrigin: "50% 50% 0",
+                scale: 1.5,
+                alpha: 0
+            })
         ]);
 
         var fadeOutText2 = new ScrollMagic.Scene({
@@ -51,14 +87,29 @@ livingSys = (function() {
             .addTo(controller);
 
         var tween3 = new TimelineMax()
-        tween3.add( [
-            TweenMax.fromTo("#pin3", 2, { top: "-=100" }, { delay: .2, top: "50%" }),
-            TweenMax.fromTo("#text_3", 2, { "alpha": 0 }, { "alpha": 1 })
-        ]);
-        tween3.add( TweenMax.to("#pin3", 2, {}) );
         tween3.add([
-            TweenMax.to("#pin3", 1.5, { "alpha": 0, top: "-=100" }),
-            TweenMax.to("#section3", .75, { delay: 1, "alpha": 0 })
+            TweenMax.fromTo("#pin3", 2, {
+                top: "-=100"
+            }, {
+                delay: .2,
+                top: "50%"
+            }),
+            TweenMax.fromTo("#text_3", 2, {
+                "alpha": 0
+            }, {
+                "alpha": 1
+            })
+        ]);
+        tween3.add(TweenMax.to("#pin3", 2, {}));
+        tween3.add([
+            TweenMax.to("#pin3", 1.5, {
+                "alpha": 0,
+                top: "-=100"
+            }),
+            TweenMax.to("#section3", .75, {
+                delay: 1,
+                "alpha": 0
+            })
         ]);
 
 
@@ -137,7 +188,7 @@ livingSys = (function() {
         target.height(source.height() * .99);
         target.width(source.width());
 
-    }  
+    }
 
     var initQuotes = function() {
         var quotes = $('.quote');
