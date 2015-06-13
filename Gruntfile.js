@@ -22,6 +22,21 @@ module.exports = function(grunt) {
 		        dest: 'js/build/production.min.js'
 		    }
 		},
+		imagemin: {
+			dynamic: {
+		        files: [{
+		            expand: true,
+		            cwd: 'resources/images/',
+		            src: ['**/*.{png,jpg,gif}'],
+		            dest: 'build/resources/images/'
+		        },{
+		        	expand: true,
+		            cwd: 'sub/resources/images/',
+		            src: ['**/*.{png,jpg,gif, jpeg}'],
+		            dest: 'sub/build/resources/images/'
+		        }]
+		    }
+		},
 		watch: {
 			scripts: {
 				options: {
@@ -35,8 +50,10 @@ module.exports = function(grunt) {
 		            'js/libs/greensock/*.js',
 		            'js/libs/greensock/easing/*.js',
 		            'js/libs/greensock/plugins/*.js',
-		            'js/libs/greensock/utils/*.js'],
-		        tasks: ['concat', 'uglify'],
+		            'js/libs/greensock/utils/*.js',
+		            'sub/resources/images/*',
+		            'resources/images/*'],
+		        tasks: ['concat', 'uglify', 'imagemin'],
 		        options: {
 		            spawn: false,
 		        },
@@ -47,9 +64,10 @@ module.exports = function(grunt) {
     // 3. Where we tell Grunt we plan to use this plug-in.
     grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['concat', 'uglify', 'watch']);
+    grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'watch']);
 
 };

@@ -1,0 +1,28 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+#right,
+#left
+{
+    float: left;
+
+    margin: 0;
+    padding: 0;
+}
+#right
+{
+    width: 30vw;
+}
+#left
+{
+    width: 70vw;
+    height: 90vh;
+}
+img
+{
+    width: 70vh;
+    height: 90vh;
+}

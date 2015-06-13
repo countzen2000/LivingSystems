@@ -481,14 +481,24 @@ forms = (function() {
 }());
 var imageScraper = (function() {
 	//Lets use Promises.
-
 	var scrape = function(stringToSeartchThrough) {
-		var promise = 
-			firstAjax(stringToSeartchThrough)
-			.then(parseURLresults, failure)
-			.then(secondScrape, failure)
-			.then(returnImage, failure)
-			.catch(failure);
+
+		var regex_for_twitter_links = /https?:\/\/t.co\/\w*/;
+		var twitter_links = regex_for_twitter_links.exec(stringToSeartchThrough);
+		var promise;
+
+		if (twitter_links != undefined) {
+			console.log("twitter_links", twitter_links[0]);
+			promise =
+				firstAjax(twitter_links[0])
+				.then(parseURLresults, failure)
+				.then(secondScrape, failure)
+				.then(returnImage, failure)
+				.catch(failure);
+		} else {
+			console.log("nothing to scrape");
+			promise = Promise.resolve("resources/images/twitter/placeholder.jpg");
+		}
 
 		return promise;
 	};
@@ -519,30 +529,37 @@ var imageScraper = (function() {
 		if (instagramLink !== null) {
 			return instagramLink + "media";
 		}
+
+		var noScriptLink;
 		//Else this is from twitter
-		var noScriptLink = /https?:\/\/twitter.com\/.+\/.+\/.+\/.+\/[0-9]+(?="><)/;
+		if (data.indexOf("<noscript>") > -1) {
+			noScriptLink = /https?:\/\/twitter.com\/.+\/.+\/.+\/.+\/[0-9]+(?="><)/;
+		} else {
+			noScriptLink = /https?:\/\/pbs.twimg.com\/media\/.*(.jpg)/;
+		}
+
 		var noScriptLinkUrl = noScriptLink.exec(data);
-		
+
 		if (noScriptLinkUrl === null) {
 			return null;
 		} else {
-			//Oh gawd this goes deeper for twitter
-			return noScriptLinkUrl;
+			if (Array.isArray(noScriptLinkUrl)) {
+				return noScriptLinkUrl[0];
+			} else {
+				return noScriptLinkUrl;
+			}
+
 		}
 	};
 
 	var firstAjax = function(stringToSeartchThrough) {
 		var promise = new Promise(function(resolve, reject) {
-			var regex_for_twitter_links = /https?:\/\/t.co\/\w*/;
-
-			var twitter_links = regex_for_twitter_links.exec(stringToSeartchThrough);
-			if (twitter_links !== null) {
+			if (stringToSeartchThrough !== null) {
 				$.ajax({
-					url: twitter_links,
+					url: stringToSeartchThrough,
 					dataType: 'text',
-					async: true,
 					success: function(data) {
-						console.log('firstSuccess');
+						console.log('firstSuccess', data);
 						resolve(data);
 					},
 					error: function(e) {
@@ -550,28 +567,29 @@ var imageScraper = (function() {
 					}
 				});
 			} else {
-				reject(new Error("No twitter links!"));
+				reject(new Error("No twitter Image links in: " + stringToSeartchThrough));
 			}
 		});
 
 		return promise;
 	};
 
-	var secondScrape = function(secondURL) {	
-		var promise =  new Promise(function(resolve, reject) {
+	var secondScrape = function(secondURL) {
+		var promise = new Promise(function(resolve, reject) {
 			if (secondURL == null) {
-				resolve ("");
+				console.log("no second URL", secondURL)
+				resolve("");
 			} else if (secondURL.indexOf("media") > 0) {
+				console.log("secondURL is a media", secondURL)
 				resolve(secondURL);
 			} else {
 				$.ajax({
 					url: secondURL,
 					dataType: 'text',
-					async: true,
 					success: function(data) {
 						var imageRegEx = /https?:\/\/pbs.twimg.com\/.*\.jpg/;
 						var imageLink = imageRegEx.exec(data);
-						console.log("2ndSuccess?", secondURL);
+						console.log("2ndSuccess?", imageLink[0], secondURL);
 						resolve(imageLink[0]);
 					},
 					error: function(e) {
@@ -589,14 +607,14 @@ var imageScraper = (function() {
 			if (options.crossDomain && jQuery.support.cors) {
 				var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
 				options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
-				//options.url = "https://cors.corsproxy.io/url=" + options.url;
+				//options.url = "http://crossorigin.me/" + options.url;
 			}
 		});
 	};
 
 	return {
 		scrape: scrape,
-		init:init
+		init: init
 	};
 }());
 /*
@@ -1047,10 +1065,7 @@ var twitter = (function() {
 		build();
 	};
 
-	//var individualBuild = function 
-
 	var build = function() {
-		//console.log('build');
 		var element = document.getElementById('TweetContainer');
 	    var html = '<ul class="tweets">';
 	    var i;

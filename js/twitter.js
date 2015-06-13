@@ -34,10 +34,7 @@ var twitter = (function() {
 		build();
 	};
 
-	//var individualBuild = function 
-
 	var build = function() {
-		//console.log('build');
 		var element = document.getElementById('TweetContainer');
 	    var html = '<ul class="tweets">';
 	    var i;
