@@ -64,21 +64,21 @@ var preLoader = (function() {
 					success: resolve,
 					error: fail
 				});
-			}  else if (image.indexOf('css') >= 0) {
+			} else if (image.indexOf('css') >= 0) {
 				$.ajax({
-		            url:image,
-		            success:function(data){
-		                $('<style type="text/css"></style>')
-      						.html(data)
-      						.appendTo("head");
-		                resolve();
-		            },
-		            error:function(e) {
-		            	console.log(e);
-		            	fail();
-		            }
-		        });
-			}else {
+					url: image,
+					success: function(data) {
+						$('<style type="text/css"></style>')
+							.html(data)
+							.appendTo("head");
+						resolve();
+					},
+					error: function(e) {
+						console.log(e);
+						fail();
+					}
+				});
+			} else {
 				$.ajax({
 					url: image,
 					success: resolve,
