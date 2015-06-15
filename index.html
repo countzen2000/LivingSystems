@@ -24,21 +24,19 @@
 	
 	<script type="text/javascript">
 		//<![CDATA[
-			$(window).load(function() { // makes sure the whole site is loaded
-				forms.init();
-				livingSys.init();
-				arrowScroll.init();
-				setTimeout(menuSystem.init, 500);
-				imageScraper.init();
-				twitter.getSomeTweets();
+			$(window).load(function() {
+				preLoader.startLoading();
 			});
 		//]]>
 	</script>
 	
 	<body>
+		<div id="loader_screen">
+			<div id="barFront"></div>
+			<div id="barBack"></div>
+		</div>
 
-		<div class="scrollContent">
-		
+		<div id="scrollContent">
 			<section id= "section1" class="section1">
 				<div id="pin1" class="text-wrap vertical-align section_text">
 					<img class="animation_logo" src="build/resources/images/system/logo_animation.png">
