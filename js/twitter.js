@@ -40,7 +40,7 @@ var twitter = (function() {
 	    var i;
 	    for (i = 0; i < tweetsArray.length; i++) {
 	    	html += '<li class="tweets"><div>'+
-			'<div class="image_holder"><img width=290 height=260 src="' + imagesArray[i] + '"></div><div class="tweetHolder">' + tweetsArray[i] + '</div></div></li>';
+			'<div class="image_holder"><img width=285 height=260 src="' + imagesArray[i] + '"></div><div class="tweetHolder">' + tweetsArray[i] + '</div></div></li>';
 	    }
 	    html += '</ul>';
 	    element.innerHTML = html;

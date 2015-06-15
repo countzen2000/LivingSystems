@@ -97,6 +97,8 @@ var arrowScroll = (function(){
 			//event.preventDefault();
 		}
 
+		livingSys.refreshBackgrounds('.section5');
+
 	};
 
 	return {

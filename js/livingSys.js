@@ -151,6 +151,7 @@ livingSys = (function() {
 
         redraw();
         realign();
+        refreshBackgrounds('.section5');
     }
 
     var realign = function() {
@@ -171,7 +172,6 @@ livingSys = (function() {
         $('#section8').offset({
             top: $('#section7').offset().top + $('#section8').height()
         });
-
 
     }
 
@@ -224,6 +224,32 @@ livingSys = (function() {
         quotes.first().css("opacity", 1);
     }
 
+    var refreshBackgrounds = function (selector) {
+      // Chrome shim to fix http://groups.google.com/a/chromium.org/group/chromium-bugs/browse_thread/thread/1b6a86d6d4cb8b04/739e937fa945a921
+      // Remove this once Chrome fixes its bug.
+      if (/chrome/.test(navigator.userAgent.toLowerCase())) {
+        $(selector).each(function() {
+          var $this = $(this);
+          if ($this.css("background-image")) {
+            var oldBackgroundImage = $this.css("background-image");
+            setTimeout(function() {
+              $this.css("background-image", oldBackgroundImage);
+            }, 1);
+          }
+        });
+      }
+    };
+
+    var handleWorkClick = function() {
+        $('.works-effect').click(function(e) {
+            if ($(e.target.childNodes[1]).text() == "Hudson") {
+                window.open ('sub/hudson.html');
+            } else {
+                window.open ('sub/edge.html');
+            }
+        });
+    };
+
     /******public functions *****/
     var init = function() {
         setupAnimation()
@@ -238,10 +264,13 @@ livingSys = (function() {
         setTimeout(function() {
             window.scrollTo(0, 0)
         }, 501);
+
+        handleWorkClick();
     }
 
     return {
         init: init,
-        controller: controller
+        controller: controller,
+        refreshBackgrounds:refreshBackgrounds
     };
 }());

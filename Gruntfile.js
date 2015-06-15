@@ -37,6 +37,17 @@ module.exports = function(grunt) {
 		        }]
 		    }
 		},
+		/*cssmin: {
+			  target: {
+			    files: [{
+			      expand: true,
+			      cwd: 'release/css',
+			      src: ['*.css', '!*.min.css'],
+			      dest: 'release/css',
+			      ext: '.min.css'
+			    }]
+			  }
+			},*/
 		watch: {
 			scripts: {
 				options: {
@@ -53,7 +64,7 @@ module.exports = function(grunt) {
 		            'js/libs/greensock/utils/*.js',
 		            'sub/resources/images/*',
 		            'resources/images/*'],
-		        tasks: ['concat', 'uglify', 'imagemin'],
+		        tasks: ['concat', 'uglify'],
 		        options: {
 		            spawn: false,
 		        },
@@ -65,6 +76,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.

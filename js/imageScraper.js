@@ -16,7 +16,7 @@ var imageScraper = (function() {
 				.catch(failure);
 		} else {
 			console.log("nothing to scrape");
-			promise = Promise.resolve("resources/images/twitter/placeholder.jpg");
+			promise = Promise.resolve("build/resources/images/blank_1x1.png");
 		}
 
 		return promise;

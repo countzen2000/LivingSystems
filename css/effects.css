@@ -117,11 +117,29 @@
     background: rgba(118,170,49,.75);
 }
 
-.works-effect > .overlay:hover
+.works-effect:hover > .overlay
 {
     opacity: 1;
 }
 
+.works-effect img
+{
+    overflow: hidden;
+
+    -webkit-transition: all .35s ease; /* Safari and Chrome */
+       -moz-transition: all .35s ease; /* Firefox */
+        -ms-transition: all .35s ease; /* Opera */
+         -o-transition: all .35s ease; /* IE 9 */
+            transition: all .35s ease;
+}
+
+.works-effect:hover img {
+    -webkit-transform: scale(1.2);
+       -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+         -o-transform: scale(1.2);
+            transform: scale(1.2);
+}
 /******/
 /*the boxes in section5*/
 /**** WORKS ****/

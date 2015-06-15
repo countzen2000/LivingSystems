@@ -423,6 +423,8 @@ var arrowScroll = (function(){
 			//event.preventDefault();
 		}
 
+		livingSys.refreshBackgrounds('.section5');
+
 	};
 
 	return {
@@ -497,7 +499,7 @@ var imageScraper = (function() {
 				.catch(failure);
 		} else {
 			console.log("nothing to scrape");
-			promise = Promise.resolve("resources/images/twitter/placeholder.jpg");
+			promise = Promise.resolve("build/resources/images/blank_1x1.png");
 		}
 
 		return promise;
@@ -787,6 +789,7 @@ livingSys = (function() {
 
         redraw();
         realign();
+        refreshBackgrounds('.section5');
     }
 
     var realign = function() {
@@ -807,7 +810,6 @@ livingSys = (function() {
         $('#section8').offset({
             top: $('#section7').offset().top + $('#section8').height()
         });
-
 
     }
 
@@ -860,6 +862,32 @@ livingSys = (function() {
         quotes.first().css("opacity", 1);
     }
 
+    var refreshBackgrounds = function (selector) {
+      // Chrome shim to fix http://groups.google.com/a/chromium.org/group/chromium-bugs/browse_thread/thread/1b6a86d6d4cb8b04/739e937fa945a921
+      // Remove this once Chrome fixes its bug.
+      if (/chrome/.test(navigator.userAgent.toLowerCase())) {
+        $(selector).each(function() {
+          var $this = $(this);
+          if ($this.css("background-image")) {
+            var oldBackgroundImage = $this.css("background-image");
+            setTimeout(function() {
+              $this.css("background-image", oldBackgroundImage);
+            }, 1);
+          }
+        });
+      }
+    };
+
+    var handleWorkClick = function() {
+        $('.works-effect').click(function(e) {
+            if ($(e.target.childNodes[1]).text() == "Hudson") {
+                window.open ('sub/hudson.html');
+            } else {
+                window.open ('sub/edge.html');
+            }
+        });
+    };
+
     /******public functions *****/
     var init = function() {
         setupAnimation()
@@ -874,11 +902,14 @@ livingSys = (function() {
         setTimeout(function() {
             window.scrollTo(0, 0)
         }, 501);
+
+        handleWorkClick();
     }
 
     return {
         init: init,
-        controller: controller
+        controller: controller,
+        refreshBackgrounds:refreshBackgrounds
     };
 }());
 var preLoader = (function() {
@@ -1071,7 +1102,7 @@ var twitter = (function() {
 	    var i;
 	    for (i = 0; i < tweetsArray.length; i++) {
 	    	html += '<li class="tweets"><div>'+
-			'<div class="image_holder"><img width=290 height=260 src="' + imagesArray[i] + '"></div><div class="tweetHolder">' + tweetsArray[i] + '</div></div></li>';
+			'<div class="image_holder"><img width=285 height=260 src="' + imagesArray[i] + '"></div><div class="tweetHolder">' + tweetsArray[i] + '</div></div></li>';
 	    }
 	    html += '</ul>';
 	    element.innerHTML = html;
