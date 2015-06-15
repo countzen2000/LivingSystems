@@ -105,7 +105,7 @@ section
     z-index: 999;
 
     background-color: #000;
-    background-image: url(../build/resources/images/back1.jpg);
+    background-image: url(build/resources/images/back1.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
@@ -124,7 +124,7 @@ section
     width: 100%;
 
     background-color: #000;
-    background-image: url(../build/resources/images/back2.jpg);
+    background-image: url(build/resources/images/back2.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
@@ -143,7 +143,7 @@ section
     width: 100%;
 
     background-color: #000;
-    background-image: url(../build/resources/images/back3.jpg);
+    background-image: url(build/resources/images/back3.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
@@ -208,7 +208,7 @@ section
     text-align: center;
 
     color: gray;
-    background-image: url(../build/resources/images/background/works_5.png);
+    background-image: url(build/resources/images/background/works_5.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
@@ -392,9 +392,7 @@ Works
     width: 100%;
     height: 100%;
     margin: auto;
-    /*
     display:none;
-    */
 }
 
 .spacer

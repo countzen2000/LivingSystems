@@ -7,11 +7,13 @@ module.exports = function(grunt) {
         concat: {   
 		    dist: {
 		        src: [
+		        	'js/lib/greensock/TweenMax.min.js',
+		        	'js/ScrollMagic.min.js',
 		        	'js/twitterFetcher.js',
 		            "js/lib/iscroll-probe.js", // All JS in the libs folder
 		        	'scrollmagic/minified/plugins/animation.gsap.min.js',
-		        	'js/*.js',
-		        
+		        	'!js/preLoader.js',
+		        	'js/*.js'		        
 		        ],
 		        dest: 'js/build/production.js',
 		    }
