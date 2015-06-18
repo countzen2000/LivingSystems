@@ -92,7 +92,7 @@
     font-weight: 700;
 
     position: relative;
-    top: 45%;
+    top: 0%;
 
     text-align: center;
     color: white;
@@ -255,7 +255,6 @@ ul.service-list
     height: 276px;   
 
 }
-
 
 img#architecture,
 img#branding,

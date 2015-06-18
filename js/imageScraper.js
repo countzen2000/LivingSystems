@@ -42,10 +42,12 @@ var imageScraper = (function() {
 
 
 	var parseURLresults = function(data) {
+		
 		//lets check if this has a instagram link
-		var instagramRegex = /https?:\/\/instagram.com\/.*\/.*(?="><)/;
+		var instagramRegex = /https?:\/\/instagram.com\/.*\/.*(?=")/;
 		var instagramLink = instagramRegex.exec(data);
 		if (instagramLink !== null) {
+			console.log("instagramLink", instagramLink)
 			return instagramLink + "media";
 		}
 
@@ -73,6 +75,7 @@ var imageScraper = (function() {
 
 	var firstAjax = function(stringToSeartchThrough) {
 		var promise = new Promise(function(resolve, reject) {
+			console.log(stringToSeartchThrough);
 			if (stringToSeartchThrough !== null) {
 				$.ajax({
 					url: stringToSeartchThrough,
@@ -82,6 +85,7 @@ var imageScraper = (function() {
 						resolve(data);
 					},
 					error: function(e) {
+						console.log("at first scrape err");
 						reject(e);
 					}
 				});
@@ -112,6 +116,7 @@ var imageScraper = (function() {
 						resolve(imageLink[0]);
 					},
 					error: function(e) {
+						console.log("at 2nd scrape err");
 						reject(e);
 					}
 				});

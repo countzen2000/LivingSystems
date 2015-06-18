@@ -39,6 +39,22 @@ module.exports = function(grunt) {
 		        }]
 		    }
 		},
+		svgmin: {
+	        options: {
+	            plugins: [
+	                {
+	                    removeViewBox: false
+	                }, {
+	                    removeUselessStrokeAndFill: false
+	                }
+	            ]
+	        },
+	        dist: {
+	        	expand: true,
+                src: ['resources/images/logos/icons/*.svg', 'resources/images/logos/clients/*.svg'],
+                dest: 'build/'
+	        }
+	    },
 		/*cssmin: {
 			  target: {
 			    files: [{
@@ -78,10 +94,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	//grunt.loadNpmTasks('load-grunt-tasks');
+	grunt.loadNpmTasks('grunt-svgmin');
+	//grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'watch']);
+    grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'svgmin', 'watch']);
 
 };
