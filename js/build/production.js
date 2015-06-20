@@ -557,7 +557,7 @@ var imageScraper = (function() {
 		var noScriptLink;
 		//Else this is from twitter
 		if (data.indexOf("<noscript>") > -1) {
-			noScriptLink = /https?:\/\/twitter.com\/.+\/.+\/.+\/.+\/[0-9]+(?="><)/;
+			noScriptLink = /https?:\/\/twitter.com\/.+\/.+\/.+\/.+\/[0-9]+(?=")/;
 		} else {
 			noScriptLink = /https?:\/\/pbs.twimg.com\/media\/.*(.jpg)/;
 		}
@@ -604,7 +604,7 @@ var imageScraper = (function() {
 		var promise = new Promise(function(resolve, reject) {
 			if (secondURL == null) {
 				console.log("no second URL", secondURL)
-				resolve("");
+				resolve("build/resources/images/blank_1x1.png");
 			} else if (secondURL.indexOf("media") > 0) {
 				console.log("secondURL is a media", secondURL)
 				resolve(secondURL);
