@@ -557,7 +557,7 @@ var imageScraper = (function() {
 		var noScriptLink;
 		//Else this is from twitter
 		if (data.indexOf("<noscript>") > -1) {
-			noScriptLink = /https?:\/\/twitter.com\/.+\/.+\/.+\/.+\/[0-9]+(?=")/;
+			noScriptLink = /https?:\/\/twitter.com\/.+\/.+\/.+\/.+\/[0-9]+(?="><)/;
 		} else {
 			noScriptLink = /https?:\/\/pbs.twimg.com\/media\/.*(.jpg)/;
 		}
@@ -1194,7 +1194,6 @@ var twitter = (function() {
 /*************************************************************
 	Private
 *************************************************************/
-	//var _widget = "592589848784941056"; //billy
 	var _widget = "594215394350649344"; //Matthew
 
 	var tweetsArray = [];
