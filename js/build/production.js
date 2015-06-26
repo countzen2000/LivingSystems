@@ -344,10 +344,10 @@ this._target=t,this._tween=o,this._vars=e,_=e.autoRound,i=!1,s=e.suffixMap||a.su
 
 /*! ScrollMagic v2.0.0 | (c) 2015 Jan Paepke (@janpaepke) | license & info: http://janpaepke.github.io/ScrollMagic */
 !function(e,n){"function"==typeof define&&define.amd?define(["ScrollMagic","TweenMax","TimelineMax"],n):n(e.ScrollMagic||e.jQuery&&e.jQuery.ScrollMagic,e.TweenMax||e.TweenLite,e.TimelineMax||e.TimelineLite)}(this,function(e,n,t){"use strict";e.Scene.addOption("tweenChanges",!1,function(e){return!!e}),e.Scene.extend(function(){var e,r=this;r.on("progress.plugin_gsap",function(){i()}),r.on("destroy.plugin_gsap",function(e){r.removeTween(e.reset)});var i=function(){if(e){var n=r.progress(),t=r.state();e.repeat&&-1===e.repeat()?"DURING"===t&&e.paused()?e.play():"DURING"===t||e.paused()||e.pause():n!=e.progress()&&(0===r.duration()?n>0?e.play():e.reverse():r.tweenChanges()&&e.tweenTo?e.tweenTo(n*e.duration()):e.progress(n).pause())}};r.setTween=function(o,a,s){var u;arguments.length>1&&(arguments.length<3&&(s=a,a=1),o=n.to(o,a,s));try{u=t?new t({smoothChildTiming:!0}).add(o):o,u.pause()}catch(p){return r}return e&&r.removeTween(),e=u,o.repeat&&-1===o.repeat()&&(e.repeat(-1),e.yoyo(o.yoyo())),i(),r},r.removeTween=function(n){return e&&(n&&e.progress(0).pause(),e.kill(),e=void 0),r}})});
-var arrowScroll = (function(){
-	var currentPosition = 0;
+var arrowScroll = (function () {
+    var currentPosition = 0;
 
-	var positionArray = [
+    var positionArray = [
 		0,
 		5700,
 		11500,
@@ -357,293 +357,299 @@ var arrowScroll = (function(){
 		'#section7',
 		'#section8'
 		];
-  
-	var gotoNextMenu = function () {
 
-		arrowScroll.currentPosition = Math.min(arrowScroll.currentPosition+1, 7);
-		var targetPos = positionArray[arrowScroll.currentPosition];
-		var target;
-    
-		if (typeof targetPos  == 'number')
-		{
-			target = targetPos;
-		} else {
-			target = $(targetPos).offset().top;
-			if (arrowScroll.currentPosition == 4) {
-				target= target+40;
-			} else if (arrowScroll.currentPosition == 5) {
-				target= target + 100;
-			}
+    var gotoNextMenu = function () {
 
-		}
+        arrowScroll.currentPosition = Math.min(arrowScroll.currentPosition + 1, 7);
+        var targetPos = positionArray[arrowScroll.currentPosition];
+        var target;
 
-    $('html, body').stop().animate({ scrollTop: target }, 2000);
-	};
+        if (typeof targetPos == 'number') {
+            target = targetPos;
+        } else {
+            target = $(targetPos).offset().top;
+            if (arrowScroll.currentPosition == 4) {
+                target = target + 40;
+            } else if (arrowScroll.currentPosition == 5) {
+                target = target + 100;
+            }
 
-	var gotoPreviousMenu = function() {
-		arrowScroll.currentPosition = Math.max(arrowScroll.currentPosition-1, 0);
-		var targetPos = positionArray[arrowScroll.currentPosition];
-    var target;
-		if (typeof targetPos  == 'number')
-		{
-			target = targetPos;
-		} else {
-			target = $(targetPos).offset().top;
-			if (arrowScroll.currentPosition == 4) {
-				target= target+40;
-			} else if (arrowScroll.currentPosition == 5) {
-				target= target + 100;
-			}
+        }
 
-		}
-		$('html, body').stop().animate({ scrollTop: target }, 2000);
-	};
+        $('html, body').stop().animate({
+            scrollTop: target
+        }, 2000);
+    };
 
-	var init = function() {
-		$(document).keydown(function(e) {
-			currentPosition = whereAreYou();
-		    switch(e.which) {
-		        case 38: // up
-		        	gotoPreviousMenu();
-		        	break;
+    var gotoPreviousMenu = function () {
+        arrowScroll.currentPosition = Math.max(arrowScroll.currentPosition - 1, 0);
+        var targetPos = positionArray[arrowScroll.currentPosition];
+        var target;
+        if (typeof targetPos == 'number') {
+            target = targetPos;
+        } else {
+            target = $(targetPos).offset().top;
+            if (arrowScroll.currentPosition == 4) {
+                target = target + 40;
+            } else if (arrowScroll.currentPosition == 5) {
+                target = target + 100;
+            }
 
-		        case 40: // down
-		        	gotoNextMenu();
-        			break;
+        }
+        $('html, body').stop().animate({
+            scrollTop: target
+        }, 2000);
+    };
 
-		        default: return; // exit this handler for other keys
-		    }
-		    //e.preventDefault(); // prevent the default action (scroll / move caret)
-		});
+    var init = function () {
+        $(document).keydown(function (e) {
+            currentPosition = whereAreYou();
+            switch (e.which) {
+                case 38: // up
+                    gotoPreviousMenu();
+                    break;
 
-		//Keep Track of where I am
-		$(window).scroll(whereAreYou);
-	};
+                case 40: // down
+                    gotoNextMenu();
+                    break;
 
-	var whereAreYou = function(event) {
-		var location = $(window).scrollTop();
-		
-		if (location < positionArray[1]) {
-			arrowScroll.currentPosition = 0;
-		} else if (location < positionArray[2]) {
-			arrowScroll.currentPosition = 1;
-		} else if (location < $(positionArray[3]).offset().top) {
-			arrowScroll.currentPosition = 2;
-		} else if (location < $(positionArray[4]).offset().top) {
-			arrowScroll.currentPosition = 3;
-		}  else if (location < $(positionArray[5]).offset().top) {
-			arrowScroll.currentPosition = 4;
-		} else if (location < $(positionArray[6]).offset().top) {
-			arrowScroll.currentPosition = 5;
-		} else {
-			arrowScroll.currentPosition = 6;
-		}
+                default:
+                    return; // exit this handler for other keys
+            }
+            //e.preventDefault(); // prevent the default action (scroll / move caret)
+        });
 
-		if (event) {
-			//event.preventDefault();
-		}
+        //Keep Track of where I am
+        $(window).scroll(whereAreYou);
+    };
 
-		livingSys.refreshBackgrounds('.section5');
+    var whereAreYou = function (event) {
+        var location = $(window).scrollTop();
 
-	};
+        if (location < positionArray[1]) {
+            arrowScroll.currentPosition = 0;
+        } else if (location < positionArray[2]) {
+            arrowScroll.currentPosition = 1;
+        } else if (location < $(positionArray[3]).offset().top) {
+            arrowScroll.currentPosition = 2;
+        } else if (location < $(positionArray[4]).offset().top) {
+            arrowScroll.currentPosition = 3;
+        } else if (location < $(positionArray[5]).offset().top) {
+            arrowScroll.currentPosition = 4;
+        } else if (location < $(positionArray[6]).offset().top) {
+            arrowScroll.currentPosition = 5;
+        } else {
+            arrowScroll.currentPosition = 6;
+        }
 
-	return {
-		init:init,
-		positionArray:positionArray,
-		whereAreYou:whereAreYou,
-		currentPosition:currentPosition
-	};
+        if (event) {
+            //event.preventDefault();
+        }
+
+        livingSys.refreshBackgrounds('.section5');
+
+    };
+
+    return {
+        init: init,
+        positionArray: positionArray,
+        whereAreYou: whereAreYou,
+        currentPosition: currentPosition
+    };
 }());
-forms = (function() {
-	
-	/**Private**/
-	var buttons;
+
+forms = (function () {
+
+    /**Private**/
+    var buttons;
 
 
-	/**public**/
-	var init = function() {
-		buttons = $('.button');
-		//change height on mouse over?
-		buttons.each(function() {
-			$(this).prepend('<span class="helper"/>');
-			$(this).attr('data-title', $(this).text());
-		});
+    /**public**/
+    var init = function () {
+        buttons = $('.button');
+        //change height on mouse over?
+        buttons.each(function () {
+            $(this).prepend('<span class="helper"/>');
+            $(this).attr('data-title', $(this).text());
+        });
 
-		buttons.on('mouseenter mousedown mouseup mouseleave', function(e) {
-			var event = e.type,
-				btn = $(this),
-				helper = btn.children('.helper'),
-				height;
-			if (event == 'mouseenter' || event == 'mouseup') {
-				height = btn.outerWidth() * 1;
-			} else if (event == 'mousedown') {
-				height = btn.outerWidth() * 1;
-			} else if (event == 'mouseleave') {
-				height = 0;
-			}
-			helper.height(height);
-		});
+        buttons.on('mouseenter mousedown mouseup mouseleave', function (e) {
+            var event = e.type,
+                btn = $(this),
+                helper = btn.children('.helper'),
+                height;
+            if (event == 'mouseenter' || event == 'mouseup') {
+                height = btn.outerWidth() * 1;
+            } else if (event == 'mousedown') {
+                height = btn.outerWidth() * 1;
+            } else if (event == 'mouseleave') {
+                height = 0;
+            }
+            helper.height(height);
+        });
 
-		$('.form-input#message').focus(function(){
-		   $(this).data('placeholder',$(this).attr('placeholder'))
-		   $(this).attr('placeholder','');
-		});
-		$('.form-input#message').blur(function(){
-		   $(this).attr('placeholder',$(this).data('placeholder'));
-		});
-	};
+        $('.form-input#message').focus(function () {
+            $(this).data('placeholder', $(this).attr('placeholder'))
+            $(this).attr('placeholder', '');
+        });
+        $('.form-input#message').blur(function () {
+            $(this).attr('placeholder', $(this).data('placeholder'));
+        });
+    };
 
-	var send = function() {
+    var send = function () {
 
-	};
+    };
 
-	return {
-		init:init
-	}
+    return {
+        init: init
+    }
 }());
-var imageScraper = (function() {
-	//Lets use Promises.
-	var scrape = function(stringToSeartchThrough) {
 
-		var regex_for_twitter_links = /https?:\/\/t.co\/\w*/;
-		var twitter_links = regex_for_twitter_links.exec(stringToSeartchThrough);
-		var promise;
+var imageScraper = (function () {
+    //Lets use Promises.
+    var scrape = function (stringToSeartchThrough) {
 
-		if (twitter_links != undefined) {
-			console.log("twitter_links", twitter_links[0]);
-			promise =
-				firstAjax(twitter_links[0])
-				.then(parseURLresults, failure)
-				.then(secondScrape, failure)
-				.then(returnImage, failure)
-				.catch(failure);
-		} else {
-			console.log("nothing to scrape");
-			promise = Promise.resolve("build/resources/images/blank_1x1.png");
-		}
+        var regex_for_twitter_links = /https?:\/\/t.co\/\w*/;
+        var twitter_links = regex_for_twitter_links.exec(stringToSeartchThrough);
+        var promise;
 
-		return promise;
-	};
+        if (twitter_links != undefined) {
+            console.log("twitter_links", twitter_links[0]);
+            promise =
+                firstAjax(twitter_links[0])
+                .then(parseURLresults, failure)
+                .then(secondScrape, failure)
+                .then(returnImage, failure)
+                .catch(failure);
+        } else {
+            console.log("nothing to scrape");
+            promise = Promise.resolve("build/resources/images/blank_1x1.png");
+        }
 
-	var returnImage = function(result) {
+        return promise;
+    };
 
-		var promise = new Promise(function(resolve, reject) {
-			if (result === null || typeof result == undefined) {
-				reject("Bad Result!");
-			} else {
-				resolve(result);
-				console.log("returnImage", result);
-			}
-		});
+    var returnImage = function (result) {
 
-		return promise;
-	};
+        var promise = new Promise(function (resolve, reject) {
+            if (result === null || typeof result == undefined) {
+                reject("Bad Result!");
+            } else {
+                resolve(result);
+                console.log("returnImage", result);
+            }
+        });
 
-	var failure = function(error) {
-		console.log("At image scraper:", error);
-	};
+        return promise;
+    };
+
+    var failure = function (error) {
+        console.log("At image scraper:", error);
+    };
 
 
-	var parseURLresults = function(data) {
-		
-		//lets check if this has a instagram link
-		var instagramRegex = /https?:\/\/instagram.com\/.*\/.*(?=")/;
-		var instagramLink = instagramRegex.exec(data);
-		if (instagramLink !== null) {
-			console.log("instagramLink", instagramLink)
-			return instagramLink + "media";
-		}
+    var parseURLresults = function (data) {
 
-		var noScriptLink;
-		//Else this is from twitter
-		if (data.indexOf("<noscript>") > -1) {
-			noScriptLink = /https?:\/\/twitter.com\/.+\/.+\/.+\/.+\/[0-9]+(?="><)/;
-		} else {
-			noScriptLink = /https?:\/\/pbs.twimg.com\/media\/.*(.jpg)/;
-		}
+        //lets check if this has a instagram link
+        var instagramRegex = /https?:\/\/instagram.com\/.*\/.*(?=")/;
+        var instagramLink = instagramRegex.exec(data);
+        if (instagramLink !== null) {
+            console.log("instagramLink", instagramLink)
+            return instagramLink + "media";
+        }
 
-		var noScriptLinkUrl = noScriptLink.exec(data);
+        var noScriptLink;
+        //Else this is from twitter
+        if (data.indexOf("<noscript>") > -1) {
+            noScriptLink = /https?:\/\/twitter.com\/.+\/.+\/.+\/.+\/[0-9]+(?="><)/;
+        } else {
+            noScriptLink = /https?:\/\/pbs.twimg.com\/media\/.*(.jpg)/;
+        }
 
-		if (noScriptLinkUrl === null) {
-			return null;
-		} else {
-			if (Array.isArray(noScriptLinkUrl)) {
-				return noScriptLinkUrl[0];
-			} else {
-				return noScriptLinkUrl;
-			}
+        var noScriptLinkUrl = noScriptLink.exec(data);
 
-		}
-	};
+        if (noScriptLinkUrl === null) {
+            return null;
+        } else {
+            if (Array.isArray(noScriptLinkUrl)) {
+                return noScriptLinkUrl[0];
+            } else {
+                return noScriptLinkUrl;
+            }
 
-	var firstAjax = function(stringToSeartchThrough) {
-		var promise = new Promise(function(resolve, reject) {
-			console.log(stringToSeartchThrough);
-			if (stringToSeartchThrough !== null) {
-				$.ajax({
-					url: stringToSeartchThrough,
-					dataType: 'text',
-					success: function(data) {
-						console.log('firstSuccess', data);
-						resolve(data);
-					},
-					error: function(e) {
-						console.log("at first scrape err");
-						reject(e);
-					}
-				});
-			} else {
-				reject(new Error("No twitter Image links in: " + stringToSeartchThrough));
-			}
-		});
+        }
+    };
 
-		return promise;
-	};
+    var firstAjax = function (stringToSeartchThrough) {
+        var promise = new Promise(function (resolve, reject) {
+            console.log(stringToSeartchThrough);
+            if (stringToSeartchThrough !== null) {
+                $.ajax({
+                    url: stringToSeartchThrough,
+                    dataType: 'text',
+                    success: function (data) {
+                        console.log('firstSuccess', data);
+                        resolve(data);
+                    },
+                    error: function (e) {
+                        console.log("at first scrape err");
+                        reject(e);
+                    }
+                });
+            } else {
+                reject(new Error("No twitter Image links in: " + stringToSeartchThrough));
+            }
+        });
 
-	var secondScrape = function(secondURL) {
-		var promise = new Promise(function(resolve, reject) {
-			if (secondURL == null) {
-				console.log("no second URL", secondURL)
-				resolve("build/resources/images/blank_1x1.png");
-			} else if (secondURL.indexOf("media") > 0) {
-				console.log("secondURL is a media", secondURL)
-				resolve(secondURL);
-			} else {
-				$.ajax({
-					url: secondURL,
-					dataType: 'text',
-					success: function(data) {
-						var imageRegEx = /https?:\/\/pbs.twimg.com\/.*\.jpg/;
-						var imageLink = imageRegEx.exec(data);
-						console.log("2ndSuccess?", imageLink[0], secondURL);
-						resolve(imageLink[0]);
-					},
-					error: function(e) {
-						console.log("at 2nd scrape err");
-						reject(e);
-					}
-				});
-			}
-		});
+        return promise;
+    };
 
-		return promise;
-	}
+    var secondScrape = function (secondURL) {
+        var promise = new Promise(function (resolve, reject) {
+            if (secondURL == null) {
+                console.log("no second URL", secondURL)
+                resolve("build/resources/images/blank_1x1.png");
+            } else if (secondURL.indexOf("media") > 0) {
+                console.log("secondURL is a media", secondURL)
+                resolve(secondURL);
+            } else {
+                $.ajax({
+                    url: secondURL,
+                    dataType: 'text',
+                    success: function (data) {
+                        var imageRegEx = /https?:\/\/pbs.twimg.com\/.*\.jpg/;
+                        var imageLink = imageRegEx.exec(data);
+                        console.log("2ndSuccess?", imageLink[0], secondURL);
+                        resolve(imageLink[0]);
+                    },
+                    error: function (e) {
+                        console.log("at 2nd scrape err");
+                        reject(e);
+                    }
+                });
+            }
+        });
 
-	var init = function() {
-		$.ajaxPrefilter(function(options) {
-			if (options.crossDomain && jQuery.support.cors) {
-				var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
-				options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
-				//options.url = "http://crossorigin.me/" + options.url;
-			}
-		});
-	};
+        return promise;
+    }
 
-	return {
-		scrape: scrape,
-		init: init
-	};
+    var init = function () {
+        $.ajaxPrefilter(function (options) {
+            if (options.crossDomain && jQuery.support.cors) {
+                var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+                options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+                //options.url = "http://crossorigin.me/" + options.url;
+            }
+        });
+    };
+
+    return {
+        scrape: scrape,
+        init: init
+    };
 }());
+
 /*
  jQuery AJAX Cross Origin v1.3 (http://www.ajax-cross-origin.com) 
  jQuery plugin to bypass Same-origin_policy using Google Apps Script. 
@@ -661,11 +667,11 @@ var imageScraper = (function() {
 var proxyJsonp="https://script.google.com/macros/s/AKfycbwmqG55tt2d2FcT_WQ3WjCSKmtyFpkOcdprSITn45-4UgVJnzp9/exec";
 jQuery.ajaxOrig=jQuery.ajax;jQuery.ajax=function(a,b){function d(a){a=encodeURI(a).replace(/&/g,"%26");return proxyJsonp+"?url="+a+"&callback=?"}var c="object"===typeof a?a:b||{};c.url=c.url||("string"===typeof a?a:"");var c=jQuery.ajaxSetup({},c),e=function(a,c){var b=document.createElement("a");b.href=a;return c.crossOrigin&&"http"==a.substr(0,4).toLowerCase()&&"localhost"!=b.hostname&&"127.0.0.1"!=b.hostname&&b.hostname!=window.location.hostname}(c.url,c);c.proxy&&0<c.proxy.length&&(proxyJsonp=c.proxy,"object"===typeof a?
 a.crossDomain=!0:"object"===typeof b&&(b.crossDomain=!0));e&&("object"===typeof a?a.url&&(a.url=d(a.url),a.charset&&(a.url+="&charset="+a.charset),a.dataType="json"):"string"===typeof a&&"object"===typeof b&&(a=d(a),b.charset&&(a+="&charset="+b.charset),b.dataType="json"));return jQuery.ajaxOrig.apply(this,arguments)};jQuery.ajax.prototype=new jQuery.ajaxOrig;jQuery.ajax.prototype.constructor=jQuery.ajax;
-livingSys = (function() {
+livingSys = (function () {
 
     var controller = new ScrollMagic.Controller();
 
-    var setupAnimation = function() {
+    var setupAnimation = function () {
         //Pin the first set of text
         var PinText1 = new ScrollMagic.Scene({})
             .setPin("#section1")
@@ -785,7 +791,7 @@ livingSys = (function() {
 
     }
 
-    var onSection4MouseOver = function(event) {
+    var onSection4MouseOver = function (event) {
         if ($("#Section4Description_next").css("opacity") == 1) {
             previous = $("#Section4Description_next");
             next = $("#Section4Description");
@@ -810,14 +816,14 @@ livingSys = (function() {
         });
     }
 
-    var onResize = function() {
+    var onResize = function () {
 
         redraw();
         realign();
         refreshBackgrounds('.section5');
     }
 
-    var realign = function() {
+    var realign = function () {
 
         $('#section4').offset({
             top: 12900
@@ -838,7 +844,7 @@ livingSys = (function() {
 
     }
 
-    var redraw = function() {
+    var redraw = function () {
         //This whole section is a bit hacky
 
         //for works section
@@ -853,12 +859,12 @@ livingSys = (function() {
 
     }
 
-    var initQuotes = function() {
+    var initQuotes = function () {
         var quotes = $('.quote');
         var clientList = $('.client-list li');
 
-        clientList.each(function() {
-            $(this).on('mouseenter touchend', function(e) {
+        clientList.each(function () {
+            $(this).on('mouseenter touchend', function (e) {
 
                 var index = $(this).index();
                 if (index === 2) {
@@ -888,33 +894,33 @@ livingSys = (function() {
     }
 
     var refreshBackgrounds = function (selector) {
-      // Chrome shim to fix http://groups.google.com/a/chromium.org/group/chromium-bugs/browse_thread/thread/1b6a86d6d4cb8b04/739e937fa945a921
-      // Remove this once Chrome fixes its bug.
-      if (/chrome/.test(navigator.userAgent.toLowerCase())) {
-        $(selector).each(function() {
-          var $this = $(this);
-          if ($this.css("background-image")) {
-            var oldBackgroundImage = $this.css("background-image");
-            setTimeout(function() {
-              $this.css("background-image", oldBackgroundImage);
-            }, 1);
-          }
-        });
-      }
+        // Chrome shim to fix http://groups.google.com/a/chromium.org/group/chromium-bugs/browse_thread/thread/1b6a86d6d4cb8b04/739e937fa945a921
+        // Remove this once Chrome fixes its bug.
+        if (/chrome/.test(navigator.userAgent.toLowerCase())) {
+            $(selector).each(function () {
+                var $this = $(this);
+                if ($this.css("background-image")) {
+                    var oldBackgroundImage = $this.css("background-image");
+                    setTimeout(function () {
+                        $this.css("background-image", oldBackgroundImage);
+                    }, 1);
+                }
+            });
+        }
     };
 
-    var handleWorkClick = function() {
-        $('.works-effect').click(function(e) {
+    var handleWorkClick = function () {
+        $('.works-effect').click(function (e) {
             if ($(e.target.childNodes[1]).text() == "Hudson") {
-                window.open ('sub/hudson.html');
+                window.open('sub/edge.html');
             } else {
-                window.open ('sub/edge.html');
+                window.open('sub/hudson.html');
             }
         });
     };
 
     /******public functions *****/
-    var init = function() {
+    var init = function () {
         setupAnimation()
 
         initQuotes();
@@ -924,7 +930,7 @@ livingSys = (function() {
         setTimeout(onResize, 250);
         //Hack!! Fix this later
         setTimeout(redraw, 500);
-        setTimeout(function() {
+        setTimeout(function () {
             window.scrollTo(0, 0)
         }, 501);
 
@@ -934,88 +940,123 @@ livingSys = (function() {
     return {
         init: init,
         controller: controller,
-        refreshBackgrounds:refreshBackgrounds
+        refreshBackgrounds: refreshBackgrounds
     };
 }());
-menuSystem = (function() {
-	var stickyRibbonTop;
 
-	var init = function() {
-		//For Hidden menu
-		stickyRibbonTop = $('#page-header').offset().top; 
+menuSystem = (function () {
+    var stickyRibbonTop;
 
-		$('#hiddenMenu').css("top", "-40px");
-		$("#menu-icon").click(open);
-		$("#closeMenu").click(close);
+    var init = function () {
+        //For Hidden menu
+        stickyRibbonTop = $('#page-header').offset().top;
 
-	    $(window).scroll(handleScroll);
+        $('#hiddenMenu').css("top", "-40px");
+        $("#menu-icon").click(open);
+        $("#closeMenu").click(open);
 
-	    $('#clients_menu').click(clicked);
-	    $('#work_menu').click(clicked);
-	    $('#services_menu').click(clicked);
-	    $('#contact_menu').click(clicked);
-	    $('#social_menu').click(clicked);
-	}
+        $(window).scroll(handleScroll);
 
-	var open = function() {
-			TweenLite.to($('#hiddenMenu') , 1, {autoAlpha: 1, ease: Bounce.easeOut, top: "20px", display:'block'});
-			TweenLite.to($('#menu-icon') , 1, {autoAlpha: 0, ease: Bounce.easeOut, right: "-100px", display:'none'});
-			//$("#hiddenMenu").css({'display':'block'});
-			//$("#menu-icon").css({'display':'none'});
-	}
+        $('#clients_menu').click(clicked);
+        $('#work_menu').click(clicked);
+        $('#services_menu').click(clicked);
+        $('#contact_menu').click(clicked);
+        $('#social_menu').click(clicked);
+    }
 
-	var close = function() {
-			TweenLite.to($('#hiddenMenu') , 1, {autoAlpha: 0, ease: Bounce.easeOut, top: "-40px", display:'none'});
-			TweenLite.to($('#menu-icon') , 1, {right: "70px", ease: Bounce.easeOut, autoAlpha: 1, display:'block'});
-			//$("#hiddenMenu").css({'display':'none'});
-			//$("#menu-icon").css({'display':'block'});
-	}
-
-	var clicked = function(event) {
-		switch (event.target.id) {
-			case "clients_menu":
-				scrollTo(arrowScroll.positionArray[3]);
-				break;
-			case "work_menu":
-				scrollTo(arrowScroll.positionArray[4]);
-				break;
-			case "services_menu":
-				scrollTo(arrowScroll.positionArray[5]);
-				break;
-			case "contact_menu":
-				scrollTo(arrowScroll.positionArray[6]);
-				break;
-			case "social_menu":
-				scrollTo(arrowScroll.positionArray[7]);
-				break;
-		}
-	}
-
-	var scrollTo = function(target) {
-		targetPos = $(target).offset().top;
-		if (arrowScroll.currentPosition == 4) {
-			targetPos= targetPos+40;
-		} else if (arrowScroll.currentPosition == 5) {
-			targetPos= targetPos + 100;
-		}
-		
-		$('html, body').stop().animate({ scrollTop: targetPos }, 2000);
-	}
-
-	var handleScroll = function() {
-		if( $(window).scrollTop() > stickyRibbonTop ) {
-        	$('#page-header').css({position: 'fixed', top: '0px'});
+    var open = function () {
+        if ($("#hiddenMenu").css('display') == 'none') {
+            //open
+            TweenLite.to($('#hiddenMenu'), 1, {
+                autoAlpha: 1,
+                ease: Bounce.easeOut,
+                top: "20px",
+                display: 'block'
+            });
+            $("#menu-icon").addClass('rotate');
+            $("#menu-icon").removeClass('rotate_open');
         } else {
-        	$('#page-header').css({position: 'static', top: '0px'});
+            //close
+            TweenLite.to($('#hiddenMenu'), 1, {
+                autoAlpha: 0,
+                ease: Bounce.easeOut,
+                top: "-40px",
+                display: 'none'
+            });
+            $("#menu-icon").addClass('rotate_open');
+            $("#menu-icon").removeClass('rotate');
         }
-	}
+        //TweenLite.to($('#menu-icon') , 1, {autoAlpha: 0, ease: Bounce.easeOut, right: "-100px", display:'none'});
+        //$("#hiddenMenu").css({'display':'block'});
+        //$("#menu-icon").css({'display':'none'});
+    }
 
-	return {
-		init:init,
-		open:open,
-		close:close
-	}
+    var close = function () {
+        TweenLite.to($('#hiddenMenu'), 1, {
+            autoAlpha: 0,
+            ease: Bounce.easeOut,
+            top: "-40px",
+            display: 'none'
+        });
+        //TweenLite.to($('#menu-icon') , 1, {right: "70px", ease: Bounce.easeOut, autoAlpha: 1, display:'block'});
+        //$("#hiddenMenu").css({'display':'none'});
+        //$("#menu-icon").css({'display':'block'});
+    }
+
+    var clicked = function (event) {
+        switch (event.target.id) {
+            case "clients_menu":
+                scrollTo(arrowScroll.positionArray[3]);
+                break;
+            case "work_menu":
+                scrollTo(arrowScroll.positionArray[4]);
+                break;
+            case "services_menu":
+                scrollTo(arrowScroll.positionArray[5]);
+                break;
+            case "contact_menu":
+                scrollTo(arrowScroll.positionArray[6]);
+                break;
+            case "social_menu":
+                scrollTo(arrowScroll.positionArray[7]);
+                break;
+        }
+    }
+
+    var scrollTo = function (target) {
+        targetPos = $(target).offset().top;
+        if (arrowScroll.currentPosition == 4) {
+            targetPos = targetPos + 40;
+        } else if (arrowScroll.currentPosition == 5) {
+            targetPos = targetPos + 100;
+        }
+
+        $('html, body').stop().animate({
+            scrollTop: targetPos
+        }, 2000);
+    }
+
+    var handleScroll = function () {
+        if ($(window).scrollTop() > stickyRibbonTop) {
+            $('#page-header').css({
+                position: 'fixed',
+                top: '0px'
+            });
+        } else {
+            $('#page-header').css({
+                position: 'static',
+                top: '0px'
+            });
+        }
+    }
+
+    return {
+        init: init,
+        open: open,
+        close: close
+    }
 }());
+
 var preLoader = (function() {
 	var itemsToLoad = [
 		'build/resources/images/back1.jpg',
@@ -1131,20 +1172,7 @@ var preLoader = (function() {
 		onComplete: onComplete
 	};
 }());
-social = (function() {
-	var hashtag = "#machinesforliving";
-	var instagram = "@livingsystems";
-
-	var init = function() {
-		//initialize Social, and pull stuff.. gonna need some API intergration
-		//We have to hit twitter too
-	}
-
-	return {
-		init:init
-	}
-}());
-spotify = (function() {
+var twitter = (function () {
     /*************************************************************
     	Dependencies
     *************************************************************/
@@ -1152,113 +1180,85 @@ spotify = (function() {
     /*************************************************************
     	Private
     *************************************************************/
-    var _id = "1c7cda79c2d41559568af011418c5a1";
-    var _secret = "d160ab20a20f41038fe8c6dac3ba30e5";
+    var _widget = "594215394350649344"; //Matthew
 
-    var _authorize = function() {
-        var authroizeURL = "https://accounts.spotify.com/authorize/?client_id=" + _id + "&response_type=code&redirect_uri=google.com&scope=user-read-private%20user-read-email"
+    var tweetsArray = [];
+    var imagesArray = [];
+    var counter = 0;
+
+    var handleTweets = function (tweets) {
+        var x = tweets.length;
+        var n = 0;
+        var promiseArray = [];
+
+        while (n < x) {
+            tweetsArray.push(tweets[n]);
+            promiseArray.push(imageScraper.scrape(tweets[n]));
+            n++;
+        }
+
+        Promise.all(promiseArray).then(returnCall);
+    };
+
+    var returnCall = function (images) {
+        console.log("returnCall", images);
+        imagesArray = images;
+
+        build();
+    };
+
+    var build = function () {
+        var element = document.getElementById('TweetContainer');
+        var html = '<ul class="tweets">';
+        var i;
+
+        //Now we add Spotify
+        html +=
+            '<li class="tweets">' +
+            '<div>' +
+            '<iframe src="https://embed.spotify.com/?uri=spotify:user:ticamide:playlist:4bAWPT1xAb0jRqHDupCCsj&theme=white&view=coverart" width="280" height="360" frameborder="0" allowtransparency="true"></iframe>' +
+            '</div></li>';
+
+        //Now add twitter
+        for (i = 0; i < tweetsArray.length; i++) {
+            html +=
+                '<li class="tweets">' +
+                '<div>' +
+                '<div class="image_holder">' +
+                '<img width=280 height=240 src="' + imagesArray[i] + '"></div>' +
+                '<div class="tweetHolder">' + tweetsArray[i] + '</div>' +
+                '</div></li>';
+        }
+        html += '</ul>';
+        element.innerHTML = html;
+    };
+
+    var onErr = function (error) {
+        console.log("Error in twitter.js", error);
     }
 
     /*************************************************************
     	Public
     *************************************************************/
 
-    var songSearch = function(query, successReturn) {
-        console.log("Searching: " + query);
-        if (query != "") {
-            $.ajax({
-                url: 'https://api.spotify.com/v1/search',
-                data: {
-                    q: query,
-                    type: 'track'
-                },
-                success: function(response) {
-                    successReturn(response);
-                }
-            });
-        }
+
+    var getSomeTweets = function () {
+        var config = {
+            "id": _widget,
+            "maxTweets": 2,
+            "enableLinks": true,
+            "showUser": true,
+            "showImage": false,
+            "showTime": false,
+            "lang": 'en',
+            "customCallback": handleTweets,
+            "showInteraction": false
+        };
+
+        twitterFetcher.fetch(config);
     };
 
-
-
-
     return {
-        songSearch: songSearch
-    }
-}())
-var twitter = (function() {
-/*************************************************************
-	Dependencies
-*************************************************************/
-	var jquery = $;
-/*************************************************************
-	Private
-*************************************************************/
-	var _widget = "594215394350649344"; //Matthew
-
-	var tweetsArray = [];
-	var imagesArray = [];
-	var counter = 0;
-
-	var handleTweets = function(tweets) {
-	    var x = tweets.length;
-	    var n = 0;
-		var promiseArray = [];
-	    
-	    while(n < x) {
-	    	tweetsArray.push(tweets[n]);
-	    	promiseArray.push(imageScraper.scrape(tweets[n]));
-			n++;
-	    }
-	    
-	    Promise.all(promiseArray).then(returnCall);
-	};
-
-	var returnCall = function (images) {
-		console.log("returnCall", images);
-		imagesArray = images;
-	
-		build();
-	};
-
-	var build = function() {
-		var element = document.getElementById('TweetContainer');
-	    var html = '<ul class="tweets">';
-	    var i;
-	    for (i = 0; i < tweetsArray.length; i++) {
-	    	html += '<li class="tweets"><div>'+
-			'<div class="image_holder"><img width=285 height=260 src="' + imagesArray[i] + '"></div><div class="tweetHolder">' + tweetsArray[i] + '</div></div></li>';
-	    }
-	    html += '</ul>';
-	    element.innerHTML = html;
-	};
-
-	var onErr = function(error) {
-		console.log("Error in twitter.js", error);
-	}
-
-/*************************************************************
-	Public
-*************************************************************/
-
-
-	var getSomeTweets = function() {
-		var config = {
-			"id": _widget,
-			"maxTweets": 3,
-			"enableLinks": true,
-			"showUser": true,
-			"showImage": false,
-			"showTime": false,
-			"lang": 'en',
-			"customCallback": handleTweets,
-			"showInteraction": false
-		};
-		
-		twitterFetcher.fetch(config);		
-	};
-
-	return {
-		getSomeTweets:getSomeTweets
-	};
+        getSomeTweets: getSomeTweets
+    };
 }());

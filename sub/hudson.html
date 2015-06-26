@@ -1,90 +1,103 @@
 <html>
-	<head>
-		<link rel="stylesheet" href="resources/css/slippry.css">
-		<link rel="stylesheet" href="resources/css/sub.css">
 
-		<script src="http://use.typekit.net/uja3max.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
+<head>
+    <link rel="stylesheet" href="resources/css/slippry.css">
+    <link rel="stylesheet" href="resources/css/sub.css">
 
-		<script src="../js/lib/jquery.min.js"></script>
-		<script src="resources/js/slippry.min.js"></script>
-	</head>
-	<body>
-		<div id="left">
-			<ul id="slippery">
-			  <li>
-			    <a href="#slide1">
-			      <img src="build/resources/images/hudson/0.jpg">
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#slide2">
-			      <img src="build/resources/images/hudson/1.jpg">
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#slide3">
-			      <img src="build/resources/images/hudson/2.jpg">
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#slide4">
-			      <img src="build/resources/images/hudson/3.jpg">
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#slide5">
-			      <img src="build/resources/images/hudson/4.jpg">
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#slide6">
-			      <img src="build/resources/images/hudson/5.jpg">
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#slide7">
-			      <img src="build/resources/images/hudson/6.jpg">
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#slide8">
-			      <img src="build/resources/images/hudson/7.jpg">
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#slide9">
-			      <img src="build/resources/images/hudson/8.jpg">
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#slide10">
-			      <img src="build/resources/images/hudson/9.jpg">
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#slid11">
-			      <img src="build/resources/images/hudson/10.jpg">
-			    </a>
-			  </li>
-			</ul>
-		</div>
-		<div id="right" class="vertical-align">
-			<h1>Hudson Table</h1>
-			<p class="description">A culinary studio. An event space. A commercial kitchen.  Melding these programs are fun for the architects, but a challenge for the mechanical engineers. By utilizing a series of VRV air handlers and some ingenuity, this space stays as fresh during Texas Steak Night as it does during birthday parties.<br/><br/>A design/build project.<br/><br/>Teammates included Urban Design Workshop,Design Compendium, and Brian Trematore.</p>
-			<p class="italic"><a class="link" href="www.hudsontable.com">www.hudsontable.com</a></p>
-		</div>
-	</body>
-	<script>
-		$(document).ready(function() {
-			$("#slippery").slippry({
-				transition: 'horizontal',
-				useCSS: true,
-				auto: false,
-				nextClass: 'controls-left',
-				prevClass: 'controls-right',
-				preload: 'all'
-				});
-		});
-	</script>
+    <script src="http://use.typekit.net/uja3max.js"></script>
+    <script>
+        try {
+            Typekit.load();
+        } catch (e) {}
+
+    </script>
+
+    <script src="../js/lib/jquery.min.js"></script>
+    <script src="resources/js/slippry.min.js"></script>
+</head>
+
+<body>
+    <div id="left">
+        <ul id="slippery">
+            <li>
+                <a href="#slide1">
+                    <img src="build/resources/images/hudson/0.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#slide2">
+                    <img src="build/resources/images/hudson/1.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#slide3">
+                    <img src="build/resources/images/hudson/2.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#slide4">
+                    <img src="build/resources/images/hudson/3.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#slide5">
+                    <img src="build/resources/images/hudson/4.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#slide6">
+                    <img src="build/resources/images/hudson/5.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#slide7">
+                    <img src="build/resources/images/hudson/6.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#slide8">
+                    <img src="build/resources/images/hudson/7.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#slide9">
+                    <img src="build/resources/images/hudson/8.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#slide10">
+                    <img src="build/resources/images/hudson/9.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#slid11">
+                    <img src="build/resources/images/hudson/10.jpg">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="right" class="vertical-align">
+        <h1>Hudson Table</h1>
+        <p class="description">A culinary studio. An event space. A commercial kitchen. Melding these programs are fun for the architects, but a challenge for the mechanical engineers. By utilizing a series of VRV air handlers and some ingenuity, this space stays as fresh during Texas Steak Night as it does during birthday parties.
+            <br/>
+            <br/>A design/build project.
+            <br/>
+            <br/>Teammates included Urban Design Workshop,Design Compendium, and Brian Trematore.</p>
+        <p class="italic"><a class="link" href="www.hudsontable.com">www.hudsontable.com</a></p>
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+        $("#slippery").slippry({
+            transition: 'horizontal',
+            useCSS: true,
+            auto: false,
+            nextClass: 'controls-left',
+            prevClass: 'controls-right',
+            preload: 'all'
+        });
+    });
+
+</script>
+
 </html>

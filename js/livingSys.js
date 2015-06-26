@@ -1,8 +1,8 @@
-livingSys = (function() {
+livingSys = (function () {
 
     var controller = new ScrollMagic.Controller();
 
-    var setupAnimation = function() {
+    var setupAnimation = function () {
         //Pin the first set of text
         var PinText1 = new ScrollMagic.Scene({})
             .setPin("#section1")
@@ -122,7 +122,7 @@ livingSys = (function() {
 
     }
 
-    var onSection4MouseOver = function(event) {
+    var onSection4MouseOver = function (event) {
         if ($("#Section4Description_next").css("opacity") == 1) {
             previous = $("#Section4Description_next");
             next = $("#Section4Description");
@@ -147,14 +147,14 @@ livingSys = (function() {
         });
     }
 
-    var onResize = function() {
+    var onResize = function () {
 
         redraw();
         realign();
         refreshBackgrounds('.section5');
     }
 
-    var realign = function() {
+    var realign = function () {
 
         $('#section4').offset({
             top: 12900
@@ -175,7 +175,7 @@ livingSys = (function() {
 
     }
 
-    var redraw = function() {
+    var redraw = function () {
         //This whole section is a bit hacky
 
         //for works section
@@ -190,12 +190,12 @@ livingSys = (function() {
 
     }
 
-    var initQuotes = function() {
+    var initQuotes = function () {
         var quotes = $('.quote');
         var clientList = $('.client-list li');
 
-        clientList.each(function() {
-            $(this).on('mouseenter touchend', function(e) {
+        clientList.each(function () {
+            $(this).on('mouseenter touchend', function (e) {
 
                 var index = $(this).index();
                 if (index === 2) {
@@ -225,33 +225,33 @@ livingSys = (function() {
     }
 
     var refreshBackgrounds = function (selector) {
-      // Chrome shim to fix http://groups.google.com/a/chromium.org/group/chromium-bugs/browse_thread/thread/1b6a86d6d4cb8b04/739e937fa945a921
-      // Remove this once Chrome fixes its bug.
-      if (/chrome/.test(navigator.userAgent.toLowerCase())) {
-        $(selector).each(function() {
-          var $this = $(this);
-          if ($this.css("background-image")) {
-            var oldBackgroundImage = $this.css("background-image");
-            setTimeout(function() {
-              $this.css("background-image", oldBackgroundImage);
-            }, 1);
-          }
-        });
-      }
+        // Chrome shim to fix http://groups.google.com/a/chromium.org/group/chromium-bugs/browse_thread/thread/1b6a86d6d4cb8b04/739e937fa945a921
+        // Remove this once Chrome fixes its bug.
+        if (/chrome/.test(navigator.userAgent.toLowerCase())) {
+            $(selector).each(function () {
+                var $this = $(this);
+                if ($this.css("background-image")) {
+                    var oldBackgroundImage = $this.css("background-image");
+                    setTimeout(function () {
+                        $this.css("background-image", oldBackgroundImage);
+                    }, 1);
+                }
+            });
+        }
     };
 
-    var handleWorkClick = function() {
-        $('.works-effect').click(function(e) {
+    var handleWorkClick = function () {
+        $('.works-effect').click(function (e) {
             if ($(e.target.childNodes[1]).text() == "Hudson") {
-                window.open ('sub/hudson.html');
+                window.open('sub/edge.html');
             } else {
-                window.open ('sub/edge.html');
+                window.open('sub/hudson.html');
             }
         });
     };
 
     /******public functions *****/
-    var init = function() {
+    var init = function () {
         setupAnimation()
 
         initQuotes();
@@ -261,7 +261,7 @@ livingSys = (function() {
         setTimeout(onResize, 250);
         //Hack!! Fix this later
         setTimeout(redraw, 500);
-        setTimeout(function() {
+        setTimeout(function () {
             window.scrollTo(0, 0)
         }, 501);
 
@@ -271,6 +271,6 @@ livingSys = (function() {
     return {
         init: init,
         controller: controller,
-        refreshBackgrounds:refreshBackgrounds
+        refreshBackgrounds: refreshBackgrounds
     };
 }());
