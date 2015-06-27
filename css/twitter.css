@@ -1,5 +1,5 @@
 .tweetHolder {
-    height: 90px;
+    height: 92px;
 }
 ul.tweets {
     position: relative;
@@ -80,6 +80,7 @@ li.tweets div div:nth-child(1) {
 }
 li.tweets div div:nth-child(2) {
     margin: 15px;
+    margin-left: 8px;
 }
 .tweets .interact a {
     float: left;
