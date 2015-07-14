@@ -75,13 +75,12 @@ var imageScraper = (function () {
 
     var firstAjax = function (stringToSeartchThrough) {
         var promise = new Promise(function (resolve, reject) {
-            console.log(stringToSeartchThrough);
             if (stringToSeartchThrough !== null) {
                 $.ajax({
                     url: stringToSeartchThrough,
                     dataType: 'text',
                     success: function (data) {
-                        console.log('firstSuccess', data);
+                        console.log('firstSuccess');
                         resolve(data);
                     },
                     error: function (e) {

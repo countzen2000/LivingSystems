@@ -242,10 +242,11 @@ livingSys = (function () {
 
     var handleWorkClick = function () {
         $('.works-effect').click(function (e) {
-            if ($(e.target.childNodes[1]).text() == "Hudson") {
-                window.open('sub/edge.html');
-            } else {
+            console.log(e.target.src.indexOf('hudson'));
+            if (e.target.src.indexOf('hudson') > 0) {
                 window.open('sub/hudson.html');
+            } else {
+                window.open('sub/edge.html');
             }
         });
     };

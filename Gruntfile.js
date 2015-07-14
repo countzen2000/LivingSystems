@@ -10,7 +10,8 @@ module.exports = function(grunt) {
 		        	'js/lib/greensock/TweenMax.min.js',
 		        	'js/ScrollMagic.min.js',
 		        	'js/twitterFetcher.js',
-		            "js/lib/iscroll-probe.js", // All JS in the libs folder
+		            "js/lib/iscroll-probe.js",
+                    'js/lib/instafeed.js',
 		        	'scrollmagic/minified/plugins/animation.gsap.min.js',
 		        	'!js/preLoader.js',
 		        	'js/*.js'		        
