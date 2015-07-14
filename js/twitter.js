@@ -39,12 +39,12 @@ var twitter = (function () {
         var i;
 
         var userData =
-            '<div class="user" style="margin:10px;width:calc(100% - 20px);">'+
-                '<a href="https://instagram.com/livingsystems/" target="_blank">' +
-                '<img alt="" src="https://pbs.twimg.com/profile_images/582852448429031424/FtSsFpYY_normal.png">' +
-                '<span><span>livingsystems</span></span>'+
-                '<span >#machinesforliving</span>'+
-                '</a>'+
+            '<div class="user" style="margin:10px;width:calc(100% - 20px);">' +
+            '<a href="https://instagram.com/livingsystems/" target="_blank">' +
+            '<img alt="" src="https://pbs.twimg.com/profile_images/582852448429031424/FtSsFpYY_normal.png">' +
+            '<span><span>livingsystems</span></span>' +
+            '<span >#machinesforliving</span>' +
+            '</a>' +
             '</div>';
         //Now we add Spotify
         html +=
@@ -63,15 +63,15 @@ var twitter = (function () {
                 '<div class="tweetHolder">' + tweetsArray[i] + '</div>' +
                 '</div></li>';
         }
-        html += '<li class="tweets"><div id="instagram_feed" style="width:99.5%;padding:1px;"></div>'+userData+'</li></ul>';
+        html += '<li class="tweets"><div id="instagram_feed" style="width:99.5%;padding:1px;"></div>' + userData + '</li></ul>';
         element.innerHTML = html;
-        
+
         if ($('.tweet').text().length > 130) {
             $('.tweets').css("font-size", "10px");
         }
-        
-        $('.tweets').last().css('flex-direction','column');
-                
+
+        $('.tweets').last().css('flex-direction', 'column');
+
         //I guess we run the instagram here.
         setTimeout(instagram.init(), 1);
     };

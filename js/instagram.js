@@ -1,6 +1,6 @@
-var instagram = (function() {
+var instagram = (function () {
     var feed;
-    var init = function() {
+    var init = function () {
         feed = new Instafeed({
             clientId: 'c376a60eb0ae432dba6453fffd22da3c',
             target: 'instagram_feed',
@@ -12,8 +12,8 @@ var instagram = (function() {
         });
         feed.run();
     };
-    
+
     return {
-        init:init    
+        init: init
     };
 }());

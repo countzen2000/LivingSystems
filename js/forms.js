@@ -1,4 +1,4 @@
-forms = (function () {
+var forms = (function () {
 
     /**Private**/
     var buttons;

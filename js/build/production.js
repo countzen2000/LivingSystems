@@ -787,7 +787,7 @@ var arrowScroll = (function () {
     };
 }());
 
-forms = (function () {
+var forms = (function () {
 
     /**Private**/
     var buttons;
@@ -834,7 +834,6 @@ forms = (function () {
         init: init
     }
 }());
-
 var imageScraper = (function () {
     //Lets use Promises.
     var scrape = function (stringToSeartchThrough) {
@@ -978,9 +977,9 @@ var imageScraper = (function () {
     };
 }());
 
-var instagram = (function() {
+var instagram = (function () {
     var feed;
-    var init = function() {
+    var init = function () {
         feed = new Instafeed({
             clientId: 'c376a60eb0ae432dba6453fffd22da3c',
             target: 'instagram_feed',
@@ -992,11 +991,12 @@ var instagram = (function() {
         });
         feed.run();
     };
-    
+
     return {
-        init:init    
+        init: init
     };
 }());
+
 /*
  jQuery AJAX Cross Origin v1.3 (http://www.ajax-cross-origin.com) 
  jQuery plugin to bypass Same-origin_policy using Google Apps Script. 
@@ -1405,8 +1405,8 @@ menuSystem = (function () {
     }
 }());
 
-var preLoader = (function() {
-	var itemsToLoad = [
+var preLoader = (function () {
+    var itemsToLoad = [
 		'build/resources/images/back1.jpg',
 		'build/resources/images/back2.jpg',
 		'build/resources/images/back3.jpg',
@@ -1437,89 +1437,90 @@ var preLoader = (function() {
 		//Script
 		'js/build/production.js'
 	];
-	var total = itemsToLoad.length;
-	var promiseContainer = [];
-	var startCounter = 0;
+    var total = itemsToLoad.length;
+    var promiseContainer = [];
+    var startCounter = 0;
 
-	//array promises! promises.all and promise.reduce
+    //array promises! promises.all and promise.reduce
 
-	var startLoading = function() {
-		$('#scrollContent').hide();
-		var i;
+    var startLoading = function () {
+        $('#scrollContent').hide();
+        var i;
 
-		for (i = 0; i < total; i++) {
-			promiseContainer.push(getter(itemsToLoad[i]).then(onEachLoad, errorLoading));
-		}
-	};
+        for (i = 0; i < total; i++) {
+            promiseContainer.push(getter(itemsToLoad[i]).then(onEachLoad, errorLoading));
+        }
+    };
 
-	var onEachLoad = function() {
-		startCounter++;
-		console.log(startCounter);
-		var percent = (startCounter / total) * 100;
-		$('#barFront').css('width', percent + "%");
-		if (startCounter >= total) {
-			setTimeout(onComplete, 200);
-		}
-	}
+    var onEachLoad = function () {
+        startCounter++;
+        console.log(startCounter);
+        var percent = (startCounter / total) * 100;
+        $('#barFront').css('width', percent + "%");
+        if (startCounter >= total) {
+            setTimeout(onComplete, 200);
+        }
+    }
 
-	var getter = function(image) {
-		var promise = new Promise(function(resolve, fail) {
-			if (image.indexOf('js') >= 0) {
-				$.ajax({
-					url: image,
-					dataType: "script",
-					success: resolve,
-					error: fail
-				});
-			} else if (image.indexOf('css') >= 0) {
-				$.ajax({
-					url: image,
-					success: function(data) {
-						$('<style type="text/css"></style>')
-							.html(data)
-							.appendTo("head");
-						resolve();
-					},
-					error: function(e) {
-						console.log(e);
-						fail();
-					}
-				});
-			} else {
-				$.ajax({
-					url: image,
-					success: resolve,
-					error: fail
-				});
-			}
-		});
+    var getter = function (image) {
+        var promise = new Promise(function (resolve, fail) {
+            if (image.indexOf('js') >= 0) {
+                $.ajax({
+                    url: image,
+                    dataType: "script",
+                    success: resolve,
+                    error: fail
+                });
+            } else if (image.indexOf('css') >= 0) {
+                $.ajax({
+                    url: image,
+                    success: function (data) {
+                        $('<style type="text/css"></style>')
+                            .html(data)
+                            .appendTo("head");
+                        resolve();
+                    },
+                    error: function (e) {
+                        console.log(e);
+                        fail();
+                    }
+                });
+            } else {
+                $.ajax({
+                    url: image,
+                    success: resolve,
+                    error: fail
+                });
+            }
+        });
 
-		return promise;
-	};
+        return promise;
+    };
 
-	var errorLoading = function(what) {
-		console.log("error with preloader: ", what);
-	};
+    var errorLoading = function (what) {
+        console.log("error with preloader: ", what);
+    };
 
-	var onComplete = function() {
-		$('#loader_screen').hide(1000);
-		$('#scrollContent').fadeTo(0, 0);
-		$('#scrollContent').css('display', 'block');
-		$('#scrollContent').fadeTo(1000, 1);
+    var onComplete = function () {
+        $('#loader_screen').hide(1000);
+        $('#scrollContent').fadeTo(0, 0);
+        $('#scrollContent').css('display', 'block');
+        $('#scrollContent').fadeTo(1000, 1);
 
-		forms.init();
-		livingSys.init();
-		arrowScroll.init();
-		setTimeout(menuSystem.init, 500);
-		imageScraper.init();
-		twitter.getSomeTweets();
-	};
+        forms.init();
+        livingSys.init();
+        arrowScroll.init();
+        setTimeout(menuSystem.init, 500);
+        imageScraper.init();
+        twitter.getSomeTweets();
+    };
 
-	return {
-		startLoading: startLoading,
-		onComplete: onComplete
-	};
+    return {
+        startLoading: startLoading,
+        onComplete: onComplete
+    };
 }());
+
 var twitter = (function () {
     /*************************************************************
     	Dependencies
@@ -1561,12 +1562,12 @@ var twitter = (function () {
         var i;
 
         var userData =
-            '<div class="user" style="margin:10px;width:calc(100% - 20px);">'+
-                '<a href="https://instagram.com/livingsystems/" target="_blank">' +
-                '<img alt="" src="https://pbs.twimg.com/profile_images/582852448429031424/FtSsFpYY_normal.png">' +
-                '<span><span>livingsystems</span></span>'+
-                '<span >#machinesforliving</span>'+
-                '</a>'+
+            '<div class="user" style="margin:10px;width:calc(100% - 20px);">' +
+            '<a href="https://instagram.com/livingsystems/" target="_blank">' +
+            '<img alt="" src="https://pbs.twimg.com/profile_images/582852448429031424/FtSsFpYY_normal.png">' +
+            '<span><span>livingsystems</span></span>' +
+            '<span >#machinesforliving</span>' +
+            '</a>' +
             '</div>';
         //Now we add Spotify
         html +=
@@ -1585,15 +1586,15 @@ var twitter = (function () {
                 '<div class="tweetHolder">' + tweetsArray[i] + '</div>' +
                 '</div></li>';
         }
-        html += '<li class="tweets"><div id="instagram_feed" style="width:99.5%;padding:1px;"></div>'+userData+'</li></ul>';
+        html += '<li class="tweets"><div id="instagram_feed" style="width:99.5%;padding:1px;"></div>' + userData + '</li></ul>';
         element.innerHTML = html;
-        
+
         if ($('.tweet').text().length > 130) {
             $('.tweets').css("font-size", "10px");
         }
-        
-        $('.tweets').last().css('flex-direction','column');
-                
+
+        $('.tweets').last().css('flex-direction', 'column');
+
         //I guess we run the instagram here.
         setTimeout(instagram.init(), 1);
     };

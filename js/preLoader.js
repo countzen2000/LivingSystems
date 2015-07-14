@@ -1,5 +1,5 @@
-var preLoader = (function() {
-	var itemsToLoad = [
+var preLoader = (function () {
+    var itemsToLoad = [
 		'build/resources/images/back1.jpg',
 		'build/resources/images/back2.jpg',
 		'build/resources/images/back3.jpg',
@@ -30,86 +30,86 @@ var preLoader = (function() {
 		//Script
 		'js/build/production.js'
 	];
-	var total = itemsToLoad.length;
-	var promiseContainer = [];
-	var startCounter = 0;
+    var total = itemsToLoad.length;
+    var promiseContainer = [];
+    var startCounter = 0;
 
-	//array promises! promises.all and promise.reduce
+    //array promises! promises.all and promise.reduce
 
-	var startLoading = function() {
-		$('#scrollContent').hide();
-		var i;
+    var startLoading = function () {
+        $('#scrollContent').hide();
+        var i;
 
-		for (i = 0; i < total; i++) {
-			promiseContainer.push(getter(itemsToLoad[i]).then(onEachLoad, errorLoading));
-		}
-	};
+        for (i = 0; i < total; i++) {
+            promiseContainer.push(getter(itemsToLoad[i]).then(onEachLoad, errorLoading));
+        }
+    };
 
-	var onEachLoad = function() {
-		startCounter++;
-		console.log(startCounter);
-		var percent = (startCounter / total) * 100;
-		$('#barFront').css('width', percent + "%");
-		if (startCounter >= total) {
-			setTimeout(onComplete, 200);
-		}
-	}
+    var onEachLoad = function () {
+        startCounter++;
+        console.log(startCounter);
+        var percent = (startCounter / total) * 100;
+        $('#barFront').css('width', percent + "%");
+        if (startCounter >= total) {
+            setTimeout(onComplete, 200);
+        }
+    }
 
-	var getter = function(image) {
-		var promise = new Promise(function(resolve, fail) {
-			if (image.indexOf('js') >= 0) {
-				$.ajax({
-					url: image,
-					dataType: "script",
-					success: resolve,
-					error: fail
-				});
-			} else if (image.indexOf('css') >= 0) {
-				$.ajax({
-					url: image,
-					success: function(data) {
-						$('<style type="text/css"></style>')
-							.html(data)
-							.appendTo("head");
-						resolve();
-					},
-					error: function(e) {
-						console.log(e);
-						fail();
-					}
-				});
-			} else {
-				$.ajax({
-					url: image,
-					success: resolve,
-					error: fail
-				});
-			}
-		});
+    var getter = function (image) {
+        var promise = new Promise(function (resolve, fail) {
+            if (image.indexOf('js') >= 0) {
+                $.ajax({
+                    url: image,
+                    dataType: "script",
+                    success: resolve,
+                    error: fail
+                });
+            } else if (image.indexOf('css') >= 0) {
+                $.ajax({
+                    url: image,
+                    success: function (data) {
+                        $('<style type="text/css"></style>')
+                            .html(data)
+                            .appendTo("head");
+                        resolve();
+                    },
+                    error: function (e) {
+                        console.log(e);
+                        fail();
+                    }
+                });
+            } else {
+                $.ajax({
+                    url: image,
+                    success: resolve,
+                    error: fail
+                });
+            }
+        });
 
-		return promise;
-	};
+        return promise;
+    };
 
-	var errorLoading = function(what) {
-		console.log("error with preloader: ", what);
-	};
+    var errorLoading = function (what) {
+        console.log("error with preloader: ", what);
+    };
 
-	var onComplete = function() {
-		$('#loader_screen').hide(1000);
-		$('#scrollContent').fadeTo(0, 0);
-		$('#scrollContent').css('display', 'block');
-		$('#scrollContent').fadeTo(1000, 1);
+    var onComplete = function () {
+        $('#loader_screen').hide(1000);
+        $('#scrollContent').fadeTo(0, 0);
+        $('#scrollContent').css('display', 'block');
+        $('#scrollContent').fadeTo(1000, 1);
 
-		forms.init();
-		livingSys.init();
-		arrowScroll.init();
-		setTimeout(menuSystem.init, 500);
-		imageScraper.init();
-		twitter.getSomeTweets();
-	};
+        forms.init();
+        livingSys.init();
+        arrowScroll.init();
+        setTimeout(menuSystem.init, 500);
+        imageScraper.init();
+        twitter.getSomeTweets();
+    };
 
-	return {
-		startLoading: startLoading,
-		onComplete: onComplete
-	};
+    return {
+        startLoading: startLoading,
+        onComplete: onComplete
+    };
 }());
