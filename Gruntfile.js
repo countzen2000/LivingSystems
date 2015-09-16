@@ -5,19 +5,19 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         concat: {
-            dist: {
-                src: [
-		        	'js/lib/greensock/TweenMax.min.js',
-		        	'js/ScrollMagic.min.js',
-		        	'js/twitterFetcher.js',
-		            "js/lib/iscroll-probe.js",
-                    'js/lib/instafeed.js',
-		        	'scrollmagic/minified/plugins/animation.gsap.min.js',
-		        	'!js/preLoader.js',
-		        	'js/*.js'
-		        ],
-                dest: 'js/build/production.js',
-            }
+          options: {
+            stripBanners: {block: true, line: true}
+          },
+          dist: {
+            src: [
+                'js/lib/greensock/TweenMax.min.js',
+                "js/lib/iscroll-probe.js",
+                'js/lib/instafeed.js',
+                'scrollmagic/minified/plugins/animation.gsap.min.js',
+                'js/*.js'
+            ],
+            dest: 'js/build/production.js',
+          }
         },
         uglify: {
             build: {

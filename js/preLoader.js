@@ -1,8 +1,5 @@
 var preLoader = (function () {
     var itemsToLoad = [
-		'build/resources/images/back1.jpg',
-		'build/resources/images/back2.jpg',
-		'build/resources/images/back3.jpg',
 		'build/resources/images/blank_1x1.png',
 		'build/resources/images/footer.png',
 		'build/resources/images/background/works_5.png',
@@ -20,6 +17,7 @@ var preLoader = (function () {
 		'build/resources/images/works/hudson2.jpg',
 		'build/resources/images/works/hudson3.jpg',
 		'build/resources/images/works/hudson4.jpg',
+      
 		//css
 		'css/main.css',
 		'css/effects.css',
@@ -35,7 +33,6 @@ var preLoader = (function () {
     var startCounter = 0;
 
     //array promises! promises.all and promise.reduce
-
     var startLoading = function () {
         $('#scrollContent').hide();
         var i;
@@ -45,9 +42,9 @@ var preLoader = (function () {
         }
     };
 
-    var onEachLoad = function () {
+    var onEachLoad = function (item) {
         startCounter++;
-        console.log(startCounter);
+        console.log(startCounter + ": ");
         var percent = (startCounter / total) * 100;
         $('#barFront').css('width', percent + "%");
         if (startCounter >= total) {
@@ -58,8 +55,10 @@ var preLoader = (function () {
     var getter = function (image) {
         var promise = new Promise(function (resolve, fail) {
             if (image.indexOf('js') >= 0) {
+              console.log(image);
                 $.ajax({
                     url: image,
+                    type: "get",
                     dataType: "script",
                     success: resolve,
                     error: fail

@@ -52,13 +52,7 @@ div.text-wrap {
     font-weight: 100;
     line-height: 100px;
 }
-.section1 div.text-wrap {
-    width: 500px;
-}
-.section2 div.text-wrap,
-.section3 div.text-wrap {
-    width: 800px;
-}
+
 div.text-wrap p {
     width: 100%;
     margin: 0;
@@ -76,42 +70,11 @@ section {
 .section_titles {
     font-size: 40px;
 }
+
 .section1 {
     z-index: 999;
     background-color: #000;
     background-image: url(build/resources/images/back1.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-.section2 {
-    position: relative;
-    z-index: 888;
-    bottom: 100vh;
-    left: 0;
-    width: 100%;
-    background-color: #000;
-    background-image: url(build/resources/images/back2.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-.section3 {
-    position: relative;
-    z-index: 777;
-    bottom: 200vh;
-    left: 0;
-    width: 100%;
-    background-color: #000;
-    background-image: url(build/resources/images/back3.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
