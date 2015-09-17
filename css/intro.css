@@ -16,12 +16,16 @@
   left: 0;
   width: 100%;
   height: 100%;
+
 }
 
 .little-header {
 }
-.main-body {
+.main-body-text {
   font-size: 68px;
+  text-align: center;
+    padding: 0;
+  margin: 0;
 }
 .bottom {
 }
