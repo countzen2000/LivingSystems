@@ -4,6 +4,8 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
+  
+  color: white;
 }
 
 .full-screen-bg {
@@ -32,23 +34,41 @@
   width: 100%;
 }
 
-.little-header {
+.title-container {
   width: 100%;
+  font-size: 36px;
 }
 
+.main-body-container {
+  width: 80%;
+  margin: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .main-body-text {
-  font-size: 68px;
+  position: relative;
+  font-size: 75px;
   text-align: center;
   padding: 0;
   margin: 0;
+  line-height: 75px;
 }
 
-.bottom {}
+.bottom-container {
+  width: 100%;
+  font-size: 20px;
+}
 
 
 /* word-cycling */
-
+.word {
+  position:absolute;
+  left:0;
+  width: 100vw;
+}
 .letters {
   position: relative;
   display: inline-block;
+  float: left;
+  overflow: hidden;
 }
