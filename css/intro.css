@@ -1,0 +1,39 @@
+#intro-container {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+  
+}
+
+#video_background {
+  width: 100%;
+  z-index: -999;
+}
+
+#intro-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.little-header {
+}
+
+.main-body-text {
+  font-size: 68px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.bottom {
+}
+
+/* word-cycling */
+.letters {
+  position:relative;
+  display: inline-block;
+}

@@ -1,323 +1,315 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="livingApp">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Living Systems</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Living Systems</title>
 
-    <LINK href="css/preloader.css" rel="stylesheet" type="text/css">
+  <LINK href="css/preloader.css" rel="stylesheet" type="text/css">
 
-    <script src="http://use.typekit.net/uja3max.js"></script>
-    <script>
-        try {
-            Typekit.load();
-        } catch (e) {}
+  <script src="http://use.typekit.net/uja3max.js"></script>
+  <script>
+    try {
+      Typekit.load();
+    } catch (e) {}
+  </script>
 
-    </script>
+  <script src='js/lib/jquery.min.js'></script>
+  <script src="js/preLoader.js"></script>
 
-    <script src='js/lib/jquery.min.js'></script>
-    <script src="js/preLoader.js"></script>
+  <LINK href="css/intro.css" rel="stylesheet" type="text/css"></LINK>
+  <script src="/node_modules/angular/angular.js"></script>
+  <script src="/js/angular/app.js"></script>
 </head>
 
 <script type="text/javascript">
-    //<![CDATA[
-    $(window).load(function() {
-        preLoader.startLoading();
-    });
-    //]]>
-
+  //<![CDATA[
+  $(window).load(function () {
+    preLoader.startLoading();
+  });
+  //]]>
 </script>
 
 <body style="background-color:black;">
-    <div id="loader_screen">
-        <div id="barFront"></div>
-        <div id="barBack"></div>
-    </div>
+  <div id="loader_screen">
+    <div id="barFront"></div>
+    <div id="barBack"></div>
+  </div>
 
-    <div id="scrollContent" style="display:none">
-        <section id="section1" class="section1">
-            <div id="pin1" class="text-wrap vertical-align section_text">
-                <img class="animation_logo" src="build/resources/images/system/logo_animation.png">
-                <p id="text_1">Creativity, Technology & Teamwork.</p>
+  <div id="scrollContent" style="display:none">
+    <section id="intro-container" class="" ng-controller="wordSpinController">
+      <video id="video_background" autoplay="true" loop="true" muted="true">
+        <source src="build/resources/images/background/small.mp4" type="video/mp4">
+      </video>
+
+      <content id="intro-content">
+        <span class="main-body-text vertical-align">
+          <span word-container ng-repeat="characterList in words"></span>
+        </span>
+      </content>
+    </section>
+
+    <section id="section4" class="section4">
+      <div id="page-header" class="page-header" style="z-index:9999;">
+        <div id="logo">
+          <img class="logo" src="build/resources/images/system/logo_menu.png">
+        </div>
+        <nav id="hiddenMenu">
+          <ul>
+            <li><span id="clients_menu">CLIENTS</span></li>
+            <li><span id="work_menu">WORK</span></li>
+            <li><span id="services_menu">SERVICES</span></li>
+            <li><span id="contact_menu">CONTACT</span></li>
+            <li><span id="social_menu">SOCIAL</span></li>
+          </ul>
+        </nav>
+        <span id="menu-icon" class="rotate_open">
+          <ul id="openMenu" style="padding: 0px">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </span>
+      </div>
+      <div class="container">
+        <p class="section_titles">
+          Our Clients
+        </p>
+        <div class="horizontalDividerSpan"></div>
+        <div class="quotes_wrapper">
+          <div class="quotes">
+            <p class="quote">
+              "By now, we should all know that green is the future of building. The goal with each of our new development projects is to introduce buildings that not only provide premium, sustainable living residences, but also significantly benefit the community-at-large,"
+              <br>-Larry Bijou
+            </p>
+            <p class="quote">
+              "Hudson Table was conceived with the local community in mind and a philosophy built around inspiring the inner-chef in all of us. Our charming culinary studio serves to foster an inviting and memorable experience shaped by an ongoing feedback loop between our team and our customers"
+              <br>-Allen Bari
+            </p>
+            <p class="quote">
+              “From the age of 10, I knew that I would be a chef. I’ve prepared myself to become today’s chef…applying all the knowledge I’ve gathered throughout my life. We bring the same level of attention to the food I serve at my 10-seat Chef’s Counter at Anthony David’s, as to a gala for 1,000 guests"
+              <br>-Anthony Pino
+            </p>
+          </div>
+        </div>
+        <ul class="client-list">
+          <li>
+            <div class="clippy">
+              <img id="Bijou" class="slide-effect" src="build/resources/images/clients/bijou.png" alt="Bijou">
             </div>
-        </section>
-
-        <section id="section2" class="section2">
-            <div id="pin2" class="text-wrap vertical-align section_text">
-                <img class="animation_logo" src="build/resources/images/system/logo_animation.png">
-                <p id="text_2">We are a space where designers, engineers, architects & craftsmen</p>
+          </li>
+          <li class="vertical-spacer">
+          </li>
+          <li>
+            <div class="clippy">
+              <img id="Hudson" class="slide-effect" src="build/resources/images/clients/hudson.png" alt="Hudson">
             </div>
-
-        </section>
-
-        <section id="section3" class="section3">
-            <div id="pin3" class="text-wrap vertical-align section_text">
-                <img class="animation_logo" src="build/resources/images/system/logo_animation.png">
-                <p id="text_3">collaborate to create #machinesforliving</p>
+          </li>
+          <li class="vertical-spacer">
+          </li>
+          <li>
+            <div class="clippy">
+              <img id="pino" class="slide-effect" src="build/resources/images/clients/pino.png" alt="Pino">
             </div>
-        </section>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-        <section id="section4" class="section4">
-            <div id="page-header" class="page-header" style="z-index:9999;">
-                <div id="logo">
-                    <img class="logo" src="build/resources/images/system/logo_menu.png">
-                </div>
-                <nav id="hiddenMenu">
-                    <ul>
-                        <li><span id="clients_menu">CLIENTS</span></li>
-                        <li><span id="work_menu">WORK</span></li>
-                        <li><span id="services_menu">SERVICES</span></li>
-                        <li><span id="contact_menu">CONTACT</span></li>
-                        <li><span id="social_menu">SOCIAL</span></li>
-                    </ul>
-                </nav>
-                <span id="menu-icon" class="rotate_open">
-                    <ul id="openMenu" style="padding: 0px">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </span>
+    <section id="section5" class="section5">
+      <div id="section5_top" class="container">
+        <p class="section_titles">
+          Our Work
+        </p>
+        <div class="horizontalDividerSpan" style="background-color: gray;">
+        </div>
+        <p id="Section5Description">
+          We’ve partnered with the most notable designers, tradesmen, and technicians in the industry. With collaboration and teamwork, our focus is to develop high performance and elegant spaces for tomorrow.
+        </p>
+      </div>
+      <div id="work-list-container" style="width: 100%;">
+        <ul class="work-list" id="work-flex-container" style="width: 100%;">
+          <li class="works-effect work-flex">
+            <div class="overlay">
+              <span><img src="build/resources/images/logos/clients/hudson.svg"/></span>
             </div>
-            <div class="container">
-                <p class="section_titles">
-                    Our Clients
-                </p>
-                <div class="horizontalDividerSpan"></div>
-                <div class="quotes_wrapper">
-                    <div class="quotes">
-                        <p class="quote">
-                            "By now, we should all know that green is the future of building. The goal with each of our new development projects is to introduce buildings that not only provide premium, sustainable living residences, but also significantly benefit the community-at-large,"
-                            <br>-Larry Bijou
-                        </p>
-                        <p class="quote">
-                            "Hudson Table was conceived with the local community in mind and a philosophy built around inspiring the inner-chef in all of us. Our charming culinary studio serves to foster an inviting and memorable experience shaped by an ongoing feedback loop between our team and our customers"
-                            <br>-Allen Bari
-                        </p>
-                        <p class="quote">
-                            “From the age of 10, I knew that I would be a chef. I’ve prepared myself to become today’s chef…applying all the knowledge I’ve gathered throughout my life. We bring the same level of attention to the food I serve at my 10-seat Chef’s Counter at Anthony David’s, as to a gala for 1,000 guests"
-                            <br>-Anthony Pino
-                        </p>
-                    </div>
-                </div>
-                <ul class="client-list">
-                    <li>
-                        <div class="clippy">
-                            <img id="Bijou" class="slide-effect" src="build/resources/images/clients/bijou.png" alt="Bijou">
-                        </div>
-                    </li>
-                    <li class="vertical-spacer">
-                    </li>
-                    <li>
-                        <div class="clippy">
-                            <img id="Hudson" class="slide-effect" src="build/resources/images/clients/hudson.png" alt="Hudson">
-                        </div>
-                    </li>
-                    <li class="vertical-spacer">
-                    </li>
-                    <li>
-                        <div class="clippy">
-                            <img id="pino" class="slide-effect" src="build/resources/images/clients/pino.png" alt="Pino">
-                        </div>
-                    </li>
-                </ul>
+            <img src="build/resources/images/works/hudson1.jpg" alt="Phone" />
+          </li>
+          <li class="works-effect work-flex">
+            <div class="overlay">
+              <span><img src="build/resources/images/logos/clients/hudson.svg"/></span>
             </div>
-        </section>
-
-        <section id="section5" class="section5">
-            <div id="section5_top" class="container">
-                <p class="section_titles">
-                    Our Work
-                </p>
-                <div class="horizontalDividerSpan" style="background-color: gray;">
-                </div>
-                <p id="Section5Description">
-                    We’ve partnered with the most notable designers, tradesmen, and technicians in the industry. With collaboration and teamwork, our focus is to develop high performance and elegant spaces for tomorrow.
-                </p>
+            <img src="build/resources/images/works/hudson2.jpg" alt="Phone" />
+          </li>
+          <li class="works-effect work-flex">
+            <div class="overlay">
+              <span><img src="build/resources/images/logos/clients/hudson.svg"/></span>
             </div>
-            <div id="work-list-container" style="width: 100%;">
-                <ul class="work-list" id="work-flex-container" style="width: 100%;">
-                    <li class="works-effect work-flex">
-                        <div class="overlay">
-                            <span><img src="build/resources/images/logos/clients/hudson.svg"/></span>
-                        </div>
-                        <img src="build/resources/images/works/hudson1.jpg" alt="Phone" />
-                    </li>
-                    <li class="works-effect work-flex">
-                        <div class="overlay">
-                            <span><img src="build/resources/images/logos/clients/hudson.svg"/></span>
-                        </div>
-                        <img src="build/resources/images/works/hudson2.jpg" alt="Phone" />
-                    </li>
-                    <li class="works-effect work-flex">
-                        <div class="overlay">
-                            <span><img src="build/resources/images/logos/clients/hudson.svg"/></span>
-                        </div>
-                        <img src="build/resources/images/works/hudson3.jpg" alt="Phone" />
-                    </li>
-                    <li class="works-effect work-flex">
+            <img src="build/resources/images/works/hudson3.jpg" alt="Phone" />
+          </li>
+          <li class="works-effect work-flex">
 
-                        <div class="overlay">
-                            <span><img src="build/resources/images/logos/clients/hudson.svg"/></span>
-                        </div>
-                        <img src="build/resources/images/works/hudson4.jpg" alt="Phone" />
-
-                    </li>
-                    <li class="works-effect work-flex">
-
-                        <div class="overlay center_align">
-                            <span style="top: 25% !important;"><img style="width: 50%; height: 50%;" src="build/resources/images/logos/clients/edge.svg"/></span>
-                        </div>
-                        <img src="build/resources/images/works/edge1.jpg" alt="Phone" />
-
-                    </li>
-                    <li class="works-effect work-flex">
-
-                        <div class="overlay center_align">
-                            <span style="top: 25% !important; text-align: center;"><img style="width: 50%; height: 50%;" src="build/resources/images/logos/clients/edge.svg"/></span>
-                        </div>
-                        <img src="build/resources/images/works/edge2.jpg" alt="Phone" />
-
-                    </li>
-                    <li class="works-effect work-flex">
-
-                        <div class="overlay center_align">
-                            <span style="top: 25% !important;"><img style="width: 50%; height: 50%;" src="build/resources/images/logos/clients/edge.svg"/></span>
-                        </div>
-                        <img src="build/resources/images/works/edge3.jpg" alt="Phone" />
-
-                    </li>
-                    <li class="works-effect work-flex">
-
-                        <div class="overlay center_align">
-                            <span style="top: 25% !important;"><img style="width: 50%; height: 50%;" src="build/resources/images/logos/clients/edge.svg"/></span>
-                        </div>
-                        <img src="build/resources/images/works/edge4.jpg" alt="Phone" />
-
-                    </li>
-                </ul>
+            <div class="overlay">
+              <span><img src="build/resources/images/logos/clients/hudson.svg"/></span>
             </div>
+            <img src="build/resources/images/works/hudson4.jpg" alt="Phone" />
 
-        </section>
-        <section id="section6" class="section6">
-            <div class="container">
-                <p class="section_titles">
-                    What We Offer
-                </p>
-                <div class="horizontalDividerSpan"></div>
-                <p id="Section6Description">
-                    We offer our clients a unique suite of Design/Build/Development Services to cultivate modern, high performance spaces from concept through completion
-                </p>
-                <ul class="service-list center-align">
-                    <li>
-                        <div class="clippy ">
-                            <img id="architecture" class="slide-effect" src="build/resources/images/logos/icons/architecture.svg" alt="architecture">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="clippy">
-                            <img class="slide-effect" id="branding" width="120" src="build/resources/images/logos/icons/branding.svg" alt="brandind">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="clippy">
-                            <img id="consulting" class="slide-effect" src="build/resources/images/logos/icons/consulting.svg" alt="Consulting">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="clippy">
-                            <img id="contracting" class="slide-effect" src="build/resources/images/logos/icons/contracting.svg" width="120" alt="Contracting">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="clippy">
-                            <img width="120" id="marketing" class="slide-effect" src="build/resources/images/logos/icons/marketing.svg" alt="marketing">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="clippy">
-                            <img width="120" id="engineering" class="slide-effect" src="build/resources/images/logos/icons/engineering.svg" alt="Engineer">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="clippy">
-                            <img id="sales" class="slide-effect" src="build/resources/images/logos/icons/sales.svg" alt="sales">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="clippy">
-                            <img id="design" class="slide-effect" src="build/resources/images/logos/icons/design.svg" alt="design">
-                        </div>
-                    </li>
-                </ul>
+          </li>
+          <li class="works-effect work-flex">
+
+            <div class="overlay center_align">
+              <span style="top: 25% !important;"><img style="width: 50%; height: 50%;" src="build/resources/images/logos/clients/edge.svg"/></span>
             </div>
-        </section>
+            <img src="build/resources/images/works/edge1.jpg" alt="Phone" />
 
-        <section id="section7" class="section7">
-            <div class="container">
-                <p class="section_titles">
-                    Say Hello
-                </p>
-                <div class="form-container">
-                    <form action="/" class="contact-form" data-finish-message="We got it!" method="post" novalidate="">
-                        <p class="field name">
-                            <input id="name" class="form-input" name="name" placeholder="name" required="" type="text">
-                        </p>
-                        <p class="field email">
-                            <input id="email" class="form-input" name="email" placeholder="email" required="" type="email">
-                        </p>
-                        <p class="field message">
-                            <textarea id="message" class="form-input" name="message" placeholder="message" required=""></textarea>
-                        </p>
+          </li>
+          <li class="works-effect work-flex">
 
-                        <div class="end">
-                            <p class="action">
-                                <button class="button" type="submit" data-title="Send">
-                                    Send
-                                </button>
-                            </p>
-                        </div>
-                    </form>
-                    <div>
-                        <p><a href="mailto:info@livingsystems.com?Subject=Hello%20again" target="_top">or email at info@livingsystems.com</a></p>
-                    </div>
-                </div>
-
+            <div class="overlay center_align">
+              <span style="top: 25% !important; text-align: center;"><img style="width: 50%; height: 50%;" src="build/resources/images/logos/clients/edge.svg"/></span>
             </div>
-        </section>
+            <img src="build/resources/images/works/edge2.jpg" alt="Phone" />
 
-        <section id="section8" class="section8">
-            <div id="back"></div>
-            <div class="container">
-                <p class="section_titles">
-                    Lately on Social
-                </p>
-                <div class="horizontalDividerSpan"></div>
-                <div class="center-align" style="top: 00px; position: relative;">
-                    <div id="TweetContainer">...</div>
-                </div>
+          </li>
+          <li class="works-effect work-flex">
 
-                <div style="height: 50px; width: 100%;"></div>
-
-                <div class="center-align">
-                    <img class="footer_container" src="build/resources/images/system/footer_top.png">
-                    <div class="center_align">
-                        <a href="https://www.facebook.com/pages/livingsystems/149414081867134?sk=info&tab=page_info">
-                            <img class="footer-icons" src="build/resources/images/system/facebook.png">
-                        </a>
-                        <a href="https://twitter.com/livingsystems">
-                            <img class="footer-icons" src="build/resources/images/system/twitter.png">
-                        </a>
-                        <a href="https://instagram.com/livingsystems/">
-                            <img class="footer-icons" src="build/resources/images/system/instagram.png">
-                        </a>
-                    </div>
-                </div>
-
+            <div class="overlay center_align">
+              <span style="top: 25% !important;"><img style="width: 50%; height: 50%;" src="build/resources/images/logos/clients/edge.svg"/></span>
             </div>
-        </section>
-    </div>
+            <img src="build/resources/images/works/edge3.jpg" alt="Phone" />
+
+          </li>
+          <li class="works-effect work-flex">
+
+            <div class="overlay center_align">
+              <span style="top: 25% !important;"><img style="width: 50%; height: 50%;" src="build/resources/images/logos/clients/edge.svg"/></span>
+            </div>
+            <img src="build/resources/images/works/edge4.jpg" alt="Phone" />
+
+          </li>
+        </ul>
+      </div>
+
+    </section>
+    <section id="section6" class="section6">
+      <div class="container">
+        <p class="section_titles">
+          What We Offer
+        </p>
+        <div class="horizontalDividerSpan"></div>
+        <p id="Section6Description">
+          We offer our clients a unique suite of Design/Build/Development Services to cultivate modern, high performance spaces from concept through completion
+        </p>
+        <ul class="service-list center-align">
+          <li>
+            <div class="clippy ">
+              <img id="architecture" class="slide-effect" src="build/resources/images/logos/icons/architecture.svg" alt="architecture">
+            </div>
+          </li>
+          <li>
+            <div class="clippy">
+              <img class="slide-effect" id="branding" width="120" src="build/resources/images/logos/icons/branding.svg" alt="brandind">
+            </div>
+          </li>
+          <li>
+            <div class="clippy">
+              <img id="consulting" class="slide-effect" src="build/resources/images/logos/icons/consulting.svg" alt="Consulting">
+            </div>
+          </li>
+          <li>
+            <div class="clippy">
+              <img id="contracting" class="slide-effect" src="build/resources/images/logos/icons/contracting.svg" width="120" alt="Contracting">
+            </div>
+          </li>
+          <li>
+            <div class="clippy">
+              <img width="120" id="marketing" class="slide-effect" src="build/resources/images/logos/icons/marketing.svg" alt="marketing">
+            </div>
+          </li>
+          <li>
+            <div class="clippy">
+              <img width="120" id="engineering" class="slide-effect" src="build/resources/images/logos/icons/engineering.svg" alt="Engineer">
+            </div>
+          </li>
+          <li>
+            <div class="clippy">
+              <img id="sales" class="slide-effect" src="build/resources/images/logos/icons/sales.svg" alt="sales">
+            </div>
+          </li>
+          <li>
+            <div class="clippy">
+              <img id="design" class="slide-effect" src="build/resources/images/logos/icons/design.svg" alt="design">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="section7" class="section7">
+      <div class="container">
+        <p class="section_titles">
+          Say Hello
+        </p>
+        <div class="form-container">
+          <form action="/" class="contact-form" data-finish-message="We got it!" method="post" novalidate="">
+            <p class="field name">
+              <input id="name" class="form-input" name="name" placeholder="name" required="" type="text">
+            </p>
+            <p class="field email">
+              <input id="email" class="form-input" name="email" placeholder="email" required="" type="email">
+            </p>
+            <p class="field message">
+              <textarea id="message" class="form-input" name="message" placeholder="message" required=""></textarea>
+            </p>
+
+            <div class="end">
+              <p class="action">
+                <button class="button" type="submit" data-title="Send">
+                  Send
+                </button>
+              </p>
+            </div>
+          </form>
+          <div>
+            <p><a href="mailto:info@livingsystems.com?Subject=Hello%20again" target="_top">or email at info@livingsystems.com</a></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="section8" class="section8">
+      <div id="back"></div>
+      <div class="container">
+        <p class="section_titles">
+          Lately on Social
+        </p>
+        <div class="horizontalDividerSpan"></div>
+        <div class="center-align" style="top: 00px; position: relative;">
+          <div id="TweetContainer">...</div>
+        </div>
+
+        <div style="height: 50px; width: 100%;"></div>
+
+        <div class="center-align">
+          <img class="footer_container" src="build/resources/images/system/footer_top.png">
+          <div class="center_align">
+            <a href="https://www.facebook.com/pages/livingsystems/149414081867134?sk=info&tab=page_info">
+              <img class="footer-icons" src="build/resources/images/system/facebook.png">
+            </a>
+            <a href="https://twitter.com/livingsystems">
+              <img class="footer-icons" src="build/resources/images/system/twitter.png">
+            </a>
+            <a href="https://instagram.com/livingsystems/">
+              <img class="footer-icons" src="build/resources/images/system/instagram.png">
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
 </body>
 
 </html>
