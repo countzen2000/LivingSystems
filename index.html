@@ -39,14 +39,20 @@
 
   <div id="scrollContent" style="display:none">
     <section id="intro-container" class="" ng-controller="wordSpinController">
-      <video id="video_background" autoplay="true" loop="true" muted="true">
-        <source src="build/resources/images/background/small.mp4" type="video/mp4">
-      </video>
-
-      <content id="intro-content">
-        <span class="main-body-text vertical-align">
-          <span word-container ng-repeat="characterList in words"></span>
-        </span>
+      <div class="full-screen-bg">
+        <video id="video_background" autoplay="true" loop="true" muted="true">
+          <source src="build/resources/images/background/small.mp4" type="video/mp4">
+        </video>
+      </div>
+      <content id="intro-content" class="center_align vertical-align">
+        <div class="title-container"><span class="center_align">#machinesforliving</span></div>
+        <div class="main-body-container">
+          <span class="main-body-text">A Collection of </span>
+          <span class="main-body-text">
+            <span word-container ng-repeat="characterList in words"></span>
+          </span>
+        </div>
+        <div class="bottom-container"><span class="center_align">We create high end, sustainable living spaces for a better and cleaner waty of life.</span></div>
       </content>
     </section>
 

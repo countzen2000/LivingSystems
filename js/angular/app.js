@@ -1,65 +1,124 @@
 var app = angular.module('livingApp', []);
 
-app.controller('wordSpinController', ['$scope', function($scope) {
+app.controller('wordSpinController', ['$scope', '$interval', function ($scope, $interval) {
   $scope.words = [
-    ['w','o','r','d','1'],
-    ['a','b','c','d','e'],
-    ['w','k','r','d','1','@','e','g'],
+    ['A', 'r', 'c', 'h', 'i', 'e', 'c', 't', 's'],
+    ['D', 'e', 's', 'i', 'g', 'n', 'e', 'r', 's'],
+    ['C', 'r', 'a', 'f', 't', 's', 'm', 'a', 'n'],
+    ['E', 'n', 'g', 'i', 'n', 'e', 'e', 'r', 's']
   ];
-  
-  $scope.timeline;
+
+  $scope.wordContainers = [];
   $scope.currentWordIndex = 0;
-  
-  $scope.rotateWords = function() {    
-    //tells currently active word to rotate.
-      //The Active word--is a directive with information about next word, which is another directive.
-      //The Active word animtes out while telling next work for animte in
-    //The currently active word gets updated.
+
+  $scope.rotateWords = function () {
+    var index = $scope.currentWordIndex;
+    var current = $scope.wordContainers[index];
+    index = (index + 1 >= $scope.wordContainers.length) ? 0 : index + 1
+    var next = $scope.wordContainers[index];
+
+    current.rotateOut();
+    next.rotateIn();
+
+    $scope.currentWordIndex = index;
   };
+
+  $scope.registerWord = function (wordElement) {
+    $scope.wordContainers.push(wordElement);
+  };
+
+  $scope.intervalID = $interval($scope.rotateWords, 1000);
 }]);
 
-app.directive("wordContainer", [function() {
-  var templateString = '<span class="word" id={{$index}}><span letters ng-repeat="letter in characterList"></span></span>';
-  var controllerFunction = function($scope, $element, $attrs) {
+app.directive("wordContainer", [function () {
+  var templateString = '<span class="word" style="visibility: {{hiddenProperty}}" id={{$index}}><span letters ng-repeat="letter in characterList track by $index"></span></span>';
+  var controllerFunction = function ($scope, $element, $attrs) {
     var allChildren = $scope.allChildren = [];
-    
-    var rotateChildren = function($scope) {
-      console.log(allChildren);
-      angular.forEach(allChildren, function(childScope) {
-        childScope.rotateOut();
+    $scope.hiddenProperty = "hidden";
+
+    $scope.rotateOut = function () {
+      var stagger = .03;
+      angular.forEach(allChildren, function (childScope) {
+        childScope.rotateOut(stagger);
+        stagger += .03;
       });
     };
-    
-    this.registerChildren = function(child) {
+
+    $scope.rotateIn = function () {
+      $scope.hiddenProperty = "visible";
+      var stagger = .03;
+      angular.forEach(allChildren, function (childScope) {
+        childScope.rotateIn(stagger);
+        stagger += .03;
+      });
+    };
+
+    this.registerChildren = function (child) {
       $scope.allChildren.push(child);
     };
+
+    $scope.registerWord($scope);
     
-    //for testing
-    $element.bind("click", rotateChildren);
-    
+    if ($scope.$index == 0) {
+      $scope.hiddenProperty = "visible";
+    }
   };
-  
+
+  var linkFunction = function (scope, element) {
+
+  }
+
   return {
-    controller : controllerFunction,
+    link: linkFunction,
+    controller: controllerFunction,
     template: templateString,
     transclude: true,
-    replace: true
+    replace: true,
+    scope: true
   };
 }]);
 
-app.directive("letters", [function() {
+app.directive("letters", [function () {
   var templateString = '<span class="letters" id={{$index}}>{{letter}}</span>';
-  
-  var linkFunction = function(scope, element, attrs, wordCtrl) {
-    scope.rotateOut = function() {
-      TweenLite.set(element[0], {perspective: 400, transformStyle: "preserve-3d"});
-      TweenLite.set(element[0],  {transformOrigin: "0% 50% 50"});
-      TweenLite.to(element[0], 1, {rotationX:-90});
+
+  var linkFunction = function (scope, element, attrs, wordCtrl) {
+    scope.rotateOut = function (stagger) {
+      TweenLite.set(element[0], {
+        perspective: 400,
+        transformStyle: "preserve-3d"
+      });
+      TweenLite.set(element[0], {
+        transformOrigin: "0% 50% 30"
+      });
+      TweenLite.to(element[0], .3, {
+        rotationX: -90,
+        opacity: 0,
+        delay: stagger
+      });
     };
-    
+
+    scope.rotateIn = function (stagger) {
+      TweenLite.set(element[0], {
+        perspective: 400,
+        transformStyle: "preserve-3d"
+      });
+      TweenLite.set(element[0], {
+        transformOrigin: "0% 50% 30"
+      });
+      TweenLite.fromTo(element[0], .3, {
+        rotationX: 90,
+        opacity: 0,
+        delay: stagger
+      }, {
+        rotationX: 0,
+        opacity: 1,
+        delay: stagger
+      });
+    };
+
     wordCtrl.registerChildren(scope);
   };
-  
+
   return {
     require: '^wordContainer',
     template: templateString,

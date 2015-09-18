@@ -44,7 +44,6 @@ var preLoader = (function () {
 
     var onEachLoad = function (item) {
         startCounter++;
-        console.log(startCounter + ": ");
         var percent = (startCounter / total) * 100;
         $('#barFront').css('width', percent + "%");
         if (startCounter >= total) {
@@ -55,7 +54,6 @@ var preLoader = (function () {
     var getter = function (image) {
         var promise = new Promise(function (resolve, fail) {
             if (image.indexOf('js') >= 0) {
-              console.log(image);
                 $.ajax({
                     url: image,
                     type: "get",
