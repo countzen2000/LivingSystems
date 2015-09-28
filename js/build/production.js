@@ -657,279 +657,231 @@ var proxyJsonp="https://script.google.com/macros/s/AKfycbwmqG55tt2d2FcT_WQ3WjCSK
 jQuery.ajaxOrig=jQuery.ajax;jQuery.ajax=function(a,b){function d(a){a=encodeURI(a).replace(/&/g,"%26");return proxyJsonp+"?url="+a+"&callback=?"}var c="object"===typeof a?a:b||{};c.url=c.url||("string"===typeof a?a:"");var c=jQuery.ajaxSetup({},c),e=function(a,c){var b=document.createElement("a");b.href=a;return c.crossOrigin&&"http"==a.substr(0,4).toLowerCase()&&"localhost"!=b.hostname&&"127.0.0.1"!=b.hostname&&b.hostname!=window.location.hostname}(c.url,c);c.proxy&&0<c.proxy.length&&(proxyJsonp=c.proxy,"object"===typeof a?
 a.crossDomain=!0:"object"===typeof b&&(b.crossDomain=!0));e&&("object"===typeof a?a.url&&(a.url=d(a.url),a.charset&&(a.url+="&charset="+a.charset),a.dataType="json"):"string"===typeof a&&"object"===typeof b&&(a=d(a),b.charset&&(a+="&charset="+b.charset),b.dataType="json"));return jQuery.ajaxOrig.apply(this,arguments)};jQuery.ajax.prototype=new jQuery.ajaxOrig;jQuery.ajax.prototype.constructor=jQuery.ajax;
 var livingSys = (function () {
-    var setupIntro = function () {
-        //Setup video in the back
-        //And text animations
-        //using CSS
-        
-    };
-    
-    var onSection4MouseOver = function (event) {
-        if ($("#Section4Description_next").css("opacity") == 1) {
-            previous = $("#Section4Description_next");
-            next = $("#Section4Description");
-        } else {
-            next = $("#Section4Description_next");
-            previous = $("#Section4Description");
+
+  var onSection4MouseOver = function (event) {
+    if ($("#Section4Description_next").css("opacity") == 1) {
+      previous = $("#Section4Description_next");
+      next = $("#Section4Description");
+    } else {
+      next = $("#Section4Description_next");
+      previous = $("#Section4Description");
+    }
+
+    target = previous.offset().top;
+    TweenMax.to(previous, 1, {
+      top: -100,
+      alpha: 0
+    });
+    next.offset({
+      top: next.offset().top + next.height()
+    });
+    next.css("display", "block");
+    next.css("opacity", "0");
+    TweenMax.to(next, 1, {
+      top: 0,
+      alpha: 1
+    });
+  }
+
+  var onResize = function () {
+
+    redraw();
+    realign();
+    refreshBackgrounds('.section5');
+  }
+
+  var realign = function () {
+
+    $('#section4').offset({
+      top: $('#section1').height()
+    });
+    $('#section5').offset({
+      top: $('#section4').offset().top + $('#section5').height()
+    });
+    $('#section6').offset({
+      top: $('#section5').offset().top + $('#section6').height()
+    });
+    $('#section7').offset({
+      top: $('#section6').offset().top + $('#section7').height()
+    });
+
+    $('#section8').offset({
+      top: $('#section7').offset().top + $('#section8').height()
+    });
+
+  }
+
+  var redraw = function () {
+    //This whole section is a bit hacky
+
+    //for works section
+    source = $('.work-list > li');
+
+    source.height(source.height() * .99);
+
+    target = $('.works-effect > .overlay');
+
+    target.height(source.height() * .99);
+    target.width(source.width());
+
+  }
+
+  var initQuotes = function () {
+    var quotes = $('.quote');
+    var clientList = $('.client-list li');
+
+    clientList.each(function () {
+      $(this).on('mouseenter touchend', function (e) {
+
+        var index = $(this).index();
+        if (index === 2) {
+          index = 1;
         }
-
-        target = previous.offset().top;
-        TweenMax.to(previous, 1, {
-            top: -100,
-            alpha: 0
-        });
-        next.offset({
-            top: next.offset().top + next.height()
-        });
-        next.css("display", "block");
-        next.css("opacity", "0");
-        TweenMax.to(next, 1, {
-            top: 0,
-            alpha: 1
-        });
-    }
-
-    var onResize = function () {
-
-        redraw();
-        realign();
-        refreshBackgrounds('.section5');
-    }
-
-    var realign = function () {
-
-        $('#section4').offset({
-            top: $('#section1').height()
-        });
-        $('#section5').offset({
-            top: $('#section4').offset().top + $('#section5').height()
-        });
-        $('#section6').offset({
-            top: $('#section5').offset().top + $('#section6').height()
-        });
-        $('#section7').offset({
-            top: $('#section6').offset().top + $('#section7').height()
-        });
-
-        $('#section8').offset({
-            top: $('#section7').offset().top + $('#section8').height()
-        });
-
-    }
-
-    var redraw = function () {
-        //This whole section is a bit hacky
-
-        //for works section
-        source = $('.work-list > li');
-
-        source.height(source.height() * .99);
-
-        target = $('.works-effect > .overlay');
-
-        target.height(source.height() * .99);
-        target.width(source.width());
-
-    }
-
-    var initQuotes = function () {
-        var quotes = $('.quote');
-        var clientList = $('.client-list li');
-
-        clientList.each(function () {
-            $(this).on('mouseenter touchend', function (e) {
-
-                var index = $(this).index();
-                if (index === 2) {
-                    index = 1;
-                }
-                if (index === 4) {
-                    index = 2;
-                }
-                var incomingQuote = quotes.eq(index);
-                if (incomingQuote.css("opacity") == 0) {
-                    TweenMax.fromTo(incomingQuote, 0.35, {
-                        opacity: 0,
-                        top: 100
-                    }, {
-                        opacity: 1,
-                        top: 0
-                    });
-                    TweenMax.to(incomingQuote.siblings(), 0.35, {
-                        opacity: 0,
-                        top: -30
-                    });
-                }
-            });
-        });
-
-        quotes.first().css("opacity", 1);
-    }
-
-    var refreshBackgrounds = function (selector) {
-        // Chrome shim to fix http://groups.google.com/a/chromium.org/group/chromium-bugs/browse_thread/thread/1b6a86d6d4cb8b04/739e937fa945a921
-        // Remove this once Chrome fixes its bug.
-        if (/chrome/.test(navigator.userAgent.toLowerCase())) {
-            $(selector).each(function () {
-                var $this = $(this);
-                if ($this.css("background-image")) {
-                    var oldBackgroundImage = $this.css("background-image");
-                    setTimeout(function () {
-                        $this.css("background-image", oldBackgroundImage);
-                    }, 1);
-                }
-            });
+        if (index === 4) {
+          index = 2;
         }
-    };
+        var incomingQuote = quotes.eq(index);
+        if (incomingQuote.css("opacity") == 0) {
+          TweenMax.fromTo(incomingQuote, 0.35, {
+            opacity: 0,
+            top: 100
+          }, {
+            opacity: 1,
+            top: 0
+          });
+          TweenMax.to(incomingQuote.siblings(), 0.35, {
+            opacity: 0,
+            top: -30
+          });
+        }
+      });
+    });
 
-    var handleWorkClick = function () {
-        $('.works-effect').click(function (e) {
-            console.log(e.target.src.indexOf('hudson'));
-            if (e.target.src.indexOf('hudson') > 0) {
-                window.open('sub/hudson.html');
-            } else {
-                window.open('sub/edge.html');
-            }
-        });
-    };
+    quotes.first().css("opacity", 1);
+  }
 
-    /******public functions *****/
-    var init = function () {
-        setupIntro();
-        
-        initQuotes();
-
-        /*** resizing stuff **/
-        $(window).resize(onResize);
-        setTimeout(onResize, 250);
-        //Hack!! Fix this later
-        setTimeout(redraw, 500);
-        setTimeout(function () {
-            window.scrollTo(0, 0)
-        }, 501);
-
-        handleWorkClick();
+  var refreshBackgrounds = function (selector) {
+    // Chrome shim to fix http://groups.google.com/a/chromium.org/group/chromium-bugs/browse_thread/thread/1b6a86d6d4cb8b04/739e937fa945a921
+    // Remove this once Chrome fixes its bug.
+    if (/chrome/.test(navigator.userAgent.toLowerCase())) {
+      $(selector).each(function () {
+        var $this = $(this);
+        if ($this.css("background-image")) {
+          var oldBackgroundImage = $this.css("background-image");
+          setTimeout(function () {
+            $this.css("background-image", oldBackgroundImage);
+          }, 1);
+        }
+      });
     }
+  };
 
-    return {
-        init: init,
-        refreshBackgrounds: refreshBackgrounds
-    };
+  var handleWorkClick = function () {
+    $('.works-effect').click(function (e) {
+      console.log(e.target.src.indexOf('hudson'));
+      if (e.target.src.indexOf('hudson') > 0) {
+        window.open('sub/hudson.html');
+      } else {
+        window.open('sub/edge.html');
+      }
+    });
+  };
+
+  /******public functions *****/
+  var init = function () {
+    initQuotes();
+
+    /*** resizing stuff **/
+    $(window).resize(onResize);
+    setTimeout(onResize, 250);
+    //Hack!! Fix this later
+    setTimeout(redraw, 500);
+    setTimeout(function () {
+      window.scrollTo(0, 0)
+    }, 501);
+
+    handleWorkClick();
+  };
+
+  return {
+    init: init,
+    refreshBackgrounds: refreshBackgrounds
+  };
 }());
+var menuSystem = (function () {
+  var init = function () {
+    $('#hiddenMenu').css("top", "-40px");
+    $("#open_close_menu").click(open);
 
-menuSystem = (function () {
-    var stickyRibbonTop;
+    $('#clients_menu').click(clicked);
+    $('#work_menu').click(clicked);
+    $('#services_menu').click(clicked);
+    $('#contact_menu').click(clicked);
+    $('#social_menu').click(clicked);
+  }
 
-    var init = function () {
-        //For Hidden menu
-        stickyRibbonTop = $('#page-header').offset().top;
+  var open = function () {
+    if ($("#hiddenMenu").css('display') == 'none') {
+      //open
+      TweenLite.to($('#hiddenMenu'), 1, {
+        autoAlpha: 1,
+        ease: Bounce.easeOut,
+        top: "20px",
+        display: 'block'
+      });
+      $("#menu-icon").addClass('rotate');
+      $("#menu-icon").removeClass('rotate_open');
+    } else {
+      //close
+      TweenLite.to($('#hiddenMenu'), 1, {
+        autoAlpha: 0,
+        ease: Bounce.easeOut,
+        top: "-40px",
+        display: 'none'
+      });
+      $("#menu-icon").addClass('rotate_open');
+      $("#menu-icon").removeClass('rotate');
+    }
+  }
 
-        $('#hiddenMenu').css("top", "-40px");
-        $("#menu-icon").click(open);
-        $("#closeMenu").click(open);
+  var clicked = function (event) {
+    switch (event.target.id) {
+    case "clients_menu":
+      scrollTo(arrowScroll.positionArray[3]);
+      break;
+    case "work_menu":
+      scrollTo(arrowScroll.positionArray[4]);
+      break;
+    case "services_menu":
+      scrollTo(arrowScroll.positionArray[5]);
+      break;
+    case "contact_menu":
+      scrollTo(arrowScroll.positionArray[6]);
+      break;
+    case "social_menu":
+      scrollTo(arrowScroll.positionArray[7]);
+      break;
+    }
+  }
 
-        $(window).scroll(handleScroll);
-
-        $('#clients_menu').click(clicked);
-        $('#work_menu').click(clicked);
-        $('#services_menu').click(clicked);
-        $('#contact_menu').click(clicked);
-        $('#social_menu').click(clicked);
+  var scrollTo = function (target) {
+    targetPos = $(target).offset().top;
+    if (arrowScroll.currentPosition == 4) {
+      targetPos = targetPos + 40;
+    } else if (arrowScroll.currentPosition == 5) {
+      targetPos = targetPos + 100;
     }
 
-    var open = function () {
-        if ($("#hiddenMenu").css('display') == 'none') {
-            //open
-            TweenLite.to($('#hiddenMenu'), 1, {
-                autoAlpha: 1,
-                ease: Bounce.easeOut,
-                top: "20px",
-                display: 'block'
-            });
-            $("#menu-icon").addClass('rotate');
-            $("#menu-icon").removeClass('rotate_open');
-        } else {
-            //close
-            TweenLite.to($('#hiddenMenu'), 1, {
-                autoAlpha: 0,
-                ease: Bounce.easeOut,
-                top: "-40px",
-                display: 'none'
-            });
-            $("#menu-icon").addClass('rotate_open');
-            $("#menu-icon").removeClass('rotate');
-        }
-        //TweenLite.to($('#menu-icon') , 1, {autoAlpha: 0, ease: Bounce.easeOut, right: "-100px", display:'none'});
-        //$("#hiddenMenu").css({'display':'block'});
-        //$("#menu-icon").css({'display':'none'});
-    }
+    $('html, body').stop().animate({
+      scrollTop: targetPos
+    }, 2000);
+  }
 
-    var close = function () {
-        TweenLite.to($('#hiddenMenu'), 1, {
-            autoAlpha: 0,
-            ease: Bounce.easeOut,
-            top: "-40px",
-            display: 'none'
-        });
-        //TweenLite.to($('#menu-icon') , 1, {right: "70px", ease: Bounce.easeOut, autoAlpha: 1, display:'block'});
-        //$("#hiddenMenu").css({'display':'none'});
-        //$("#menu-icon").css({'display':'block'});
-    }
-
-    var clicked = function (event) {
-        switch (event.target.id) {
-            case "clients_menu":
-                scrollTo(arrowScroll.positionArray[3]);
-                break;
-            case "work_menu":
-                scrollTo(arrowScroll.positionArray[4]);
-                break;
-            case "services_menu":
-                scrollTo(arrowScroll.positionArray[5]);
-                break;
-            case "contact_menu":
-                scrollTo(arrowScroll.positionArray[6]);
-                break;
-            case "social_menu":
-                scrollTo(arrowScroll.positionArray[7]);
-                break;
-        }
-    }
-
-    var scrollTo = function (target) {
-        targetPos = $(target).offset().top;
-        if (arrowScroll.currentPosition == 4) {
-            targetPos = targetPos + 40;
-        } else if (arrowScroll.currentPosition == 5) {
-            targetPos = targetPos + 100;
-        }
-
-        $('html, body').stop().animate({
-            scrollTop: targetPos
-        }, 2000);
-    }
-
-    var handleScroll = function () {
-        if ($(window).scrollTop() > stickyRibbonTop) {
-            $('#page-header').css({
-                position: 'fixed',
-                top: '0px'
-            });
-        } else {
-            $('#page-header').css({
-                position: 'static',
-                top: '0px'
-            });
-        }
-    }
-
-    return {
-        init: init,
-        open: open,
-        close: close
-    }
+  return {
+    init: init,
+    open: open
+  }
 }());
-
 var preLoader = (function () {
     var itemsToLoad = [
 		'build/resources/images/blank_1x1.png',
@@ -1033,8 +985,8 @@ var preLoader = (function () {
         livingSys.init();
         arrowScroll.init();
         setTimeout(menuSystem.init, 500);
-        imageScraper.init();
-        twitter.getSomeTweets();
+        //imageScraper.init();
+        //twitter.getSomeTweets();
     };
 
     return {

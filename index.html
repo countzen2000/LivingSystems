@@ -37,8 +37,31 @@
     <div id="barBack"></div>
   </div>
 
-  <div id="scrollContent" style="display:none">
+  <div id="scrollContent" style="display:none">    
     <section id="intro-container" class="" ng-controller="wordSpinController">
+       <div id="page-header" class="page-header" style="z-index:99999;">
+        <div id="logo">
+          <img class="logo" src="build/resources/images/system/logo_menu.png">
+        </div>
+        <nav id="hiddenMenu">
+          <ul>
+            <li><span id="clients_menu">CLIENTS</span></li>
+            <li><span id="work_menu">WORK</span></li>
+            <li><span id="services_menu">SERVICES</span></li>
+            <li><span id="contact_menu">CONTACT</span></li>
+            <li><span id="social_menu">SOCIAL</span></li>
+          </ul>
+        </nav>
+        <a href='' id="open_close_menu">
+          <span id="menu-icon" class="rotate_open">
+            <ul id="openMenu">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </span>
+        </a>
+      </div>
       <div class="full-screen-bg">
         <video id="video_background" autoplay="true" loop="true" muted="true">
           <source src="build/resources/images/background/small.mp4" type="video/mp4">
@@ -57,27 +80,6 @@
     </section>
 
     <section id="section4" class="section4">
-      <div id="page-header" class="page-header" style="z-index:9999;">
-        <div id="logo">
-          <img class="logo" src="build/resources/images/system/logo_menu.png">
-        </div>
-        <nav id="hiddenMenu">
-          <ul>
-            <li><span id="clients_menu">CLIENTS</span></li>
-            <li><span id="work_menu">WORK</span></li>
-            <li><span id="services_menu">SERVICES</span></li>
-            <li><span id="contact_menu">CONTACT</span></li>
-            <li><span id="social_menu">SOCIAL</span></li>
-          </ul>
-        </nav>
-        <span id="menu-icon" class="rotate_open">
-          <ul id="openMenu" style="padding: 0px">
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </span>
-      </div>
       <div class="container">
         <p class="section_titles">
           Our Clients
