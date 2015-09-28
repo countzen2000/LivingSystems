@@ -101,8 +101,8 @@ var preLoader = (function () {
         livingSys.init();
         arrowScroll.init();
         setTimeout(menuSystem.init, 500);
-        imageScraper.init();
-        twitter.getSomeTweets();
+        //imageScraper.init();
+        //twitter.getSomeTweets();
     };
 
     return {

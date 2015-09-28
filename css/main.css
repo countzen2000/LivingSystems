@@ -81,21 +81,8 @@ section {
   font-size: 40px;
 }
 
-.section1 {
-  z-index: 999;
-  background-color: #000;
-  background-image: url(build/resources/images/back1.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 .section4 {
-  z-index: 999999;
+  z-index: 99;
   text-align: center;
   color: black;
   background-color: white;
@@ -127,7 +114,7 @@ section {
 }
 
 .section5 {
-  z-index: 9999;
+  z-index: 999;
   height: 101vh !important;
   margin: 0;
   text-align: center;
