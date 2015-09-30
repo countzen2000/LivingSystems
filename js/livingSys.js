@@ -1,5 +1,4 @@
 var livingSys = (function () {
-
   var onSection4MouseOver = function (event) {
     if ($("#Section4Description_next").css("opacity") == 1) {
       previous = $("#Section4Description_next");

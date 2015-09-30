@@ -4,7 +4,7 @@ var instagram = (function () {
         feed = new Instafeed({
             clientId: 'c376a60eb0ae432dba6453fffd22da3c',
             target: 'instagram_feed',
-            limit: 1,
+            limit: 3,
             resolution: "low_resolution",
             sortBy: "most-recent",
             get: 'tagged',
