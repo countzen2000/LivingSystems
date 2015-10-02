@@ -13,7 +13,7 @@ var menuSystem = (function () {
   var open = function () {
     if ($("#hiddenMenu").css('display') == 'none') {
       //open
-      TweenLite.to($('#hiddenMenu'), 1, {
+      TweenMax.to($('#hiddenMenu'), 1, {
         autoAlpha: 1,
         ease: Bounce.easeOut,
         top: "20px",
@@ -23,7 +23,7 @@ var menuSystem = (function () {
       $("#menu-icon").removeClass('rotate_open');
     } else {
       //close
-      TweenLite.to($('#hiddenMenu'), 1, {
+      TweenMax.to($('#hiddenMenu'), 1, {
         autoAlpha: 0,
         ease: Bounce.easeOut,
         top: "-40px",
