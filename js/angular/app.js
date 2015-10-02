@@ -83,14 +83,14 @@ app.directive("letters", [function () {
 
   var linkFunction = function (scope, element, attrs, wordCtrl) {
     scope.rotateOut = function (stagger) {
-      TweenLite.set(element[0], {
+      TweenMax.set(element[0], {
         perspective: 400,
         transformStyle: "preserve-3d"
       });
-      TweenLite.set(element[0], {
+      TweenMax.set(element[0], {
         transformOrigin: "0% 50% 30"
       });
-      TweenLite.to(element[0], .3, {
+      TweenMax.to(element[0], .3, {
         rotationX: -90,
         opacity: 0,
         delay: stagger
@@ -98,14 +98,14 @@ app.directive("letters", [function () {
     };
 
     scope.rotateIn = function (stagger) {
-      TweenLite.set(element[0], {
+      TweenMax.set(element[0], {
         perspective: 400,
         transformStyle: "preserve-3d"
       });
-      TweenLite.set(element[0], {
+      TweenMax.set(element[0], {
         transformOrigin: "0% 50% 30"
       });
-      TweenLite.fromTo(element[0], .3, {
+      TweenMax.fromTo(element[0], .3, {
         rotationX: 90,
         opacity: 0,
         delay: stagger

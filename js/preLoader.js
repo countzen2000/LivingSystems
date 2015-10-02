@@ -1,32 +1,34 @@
 var preLoader = (function () {
   var itemsToLoad = [
-		'build/resources/images/blank_1x1.png',
-		'build/resources/images/footer.png',
-		'build/resources/images/background/works_5.png',
-		'build/resources/images/clients/bijou.png',
-		'build/resources/images/clients/hudson.png',
-		'build/resources/images/clients/pino.png',
-		'build/resources/images/forms/asterik.png',
-		'build/resources/images/system/logo_animation.png',
-		'build/resources/images/system/logo_menu.png',
-		'build/resources/images/works/edge1.jpg',
-		'build/resources/images/works/edge2.jpg',
-		'build/resources/images/works/edge3.jpg',
-		'build/resources/images/works/edge4.jpg',
-		'build/resources/images/works/hudson1.jpg',
-		'build/resources/images/works/hudson2.jpg',
-		'build/resources/images/works/hudson3.jpg',
-		'build/resources/images/works/hudson4.jpg',
+    'build/resources/images/blank_1x1.png',
+    'build/resources/images/footer.png',
+    'build/resources/images/background/works_5.png',
+    'build/resources/images/clients/bijou.png',
+    'build/resources/images/clients/hudson.png',
+    'build/resources/images/clients/pino.png',
+    'build/resources/images/forms/asterik.png',
+    'build/resources/images/system/logo_animation.png',
+    'build/resources/images/system/logo_menu.png',
+    'build/resources/images/works/edge1.jpg',
+    'build/resources/images/works/edge2.jpg',
+    'build/resources/images/works/edge3.jpg',
+    'build/resources/images/works/edge4.jpg',
+    'build/resources/images/works/hudson1.jpg',
+    'build/resources/images/works/hudson2.jpg',
+    'build/resources/images/works/hudson3.jpg',
+    'build/resources/images/works/hudson4.jpg',
+    'build/resources/images/system/instagram_title.png',
 
-		//css
-		'css/main.css',
-		'css/effects.css',
-		'css/form.css',
-		'css/menu.css',
+    //css
+    'css/main.css',
+    'css/effects.css',
+    'css/form.css',
+    'css/menu.css',
+    'css/twitter.css',
 
-		//Script
-		'js/build/production.js'
-	],
+    //Script
+    'js/build/production.js'
+  ],
     total = itemsToLoad.length,
     promiseContainer = [],
     startCounter = 0;
