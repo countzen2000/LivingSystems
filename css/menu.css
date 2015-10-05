@@ -1,6 +1,7 @@
 /**** Header/Menu ****/
 
 .page-header {
+  background-color: rgba(255, 255, 255, .4);
   position: fixed;
   display: static;
   width: 100%;
@@ -15,11 +16,11 @@
   left: 0;
   margin-right: auto;
   margin-left: 30px;
-  color: gray;
+  color: #8dc53e;
 }
 
 .page-header #hiddenMenu {
-  color: gray;
+  color: #8dc53e;
   z-index: 9999;
   position: absolute;
   right: 55px;
@@ -128,7 +129,7 @@ Menu icon
   height: 2px;
   margin: 0 0 5px 0;
   list-style-type: none;
-  background-color: black;
+  background-color: #8dc53e;
 }
 
 #openMenu ul {
