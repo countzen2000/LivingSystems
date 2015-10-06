@@ -24,6 +24,7 @@ var preLoader = (function () {
     'css/effects.css',
     'css/form.css',
     'css/menu.css',
+    'css/intro.css',
     'css/twitter.css',
 
     //Script
@@ -54,6 +55,7 @@ var preLoader = (function () {
 
   var getter = function (image) {
     var promise = new Promise(function (resolve, fail) {
+      console.log(image);
       if (image.indexOf('js') >= 0) {
         $.ajax({
           url: image,
