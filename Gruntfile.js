@@ -14,7 +14,10 @@ module.exports = function (grunt) {
                 "js/lib/iscroll-probe.js",
                 'js/lib/instafeed.js',
                 'scrollmagic/minified/plugins/animation.gsap.min.js',
-                'js/*.js'
+                'js/*.js',
+                'node_modules/angular/angular.js',
+                'js/angular/app.js',
+                '!js/preloader.js'
             ],
             dest: 'js/build/production.js',
           }

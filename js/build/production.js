@@ -911,6 +911,7 @@ var preLoader = (function () {
     'css/effects.css',
     'css/form.css',
     'css/menu.css',
+    'css/intro.css',
     'css/twitter.css',
 
     //Script
