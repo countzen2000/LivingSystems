@@ -55,6 +55,7 @@ var preLoader = (function () {
 
   var getter = function (image) {
     var promise = new Promise(function (resolve, fail) {
+      console.log(image);
       if (image.indexOf('js') >= 0) {
         $.ajax({
           url: image,
