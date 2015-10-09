@@ -28,16 +28,19 @@ var livingSys = (function () {
 
     redraw();
     realign();
+    refreshBackgrounds('.section4');
     refreshBackgrounds('.section5');
+    refreshBackgrounds('.section6');
+    refreshBackgrounds('.section7');
+    refreshBackgrounds('.section8');
   }
 
   var realign = function () {
-
     $('#section4').offset({
-      top: $('#section1').height()
+      top: $('#intro-container').height() - 0
     });
     $('#section5').offset({
-      top: $('#section4').offset().top + $('#section5').height()
+      top: $('#section4').offset().top + $('#section5').height() - 10 //Taht's a little hacky
     });
     $('#section6').offset({
       top: $('#section5').offset().top + $('#section6').height()
@@ -73,15 +76,22 @@ var livingSys = (function () {
 
     clientList.each(function () {
       $(this).on('mouseenter touchend', function (e) {
-
         var index = $(this).index();
+        console.log(index);
+        //I should probably put this away somewhere
+        //and 0 = 0
         if (index === 2) {
           index = 1;
         }
         if (index === 4) {
           index = 2;
         }
+        
+        if (index === 6) {
+          index = 3;
+        }
         var incomingQuote = quotes.eq(index);
+        console.log(incomingQuote);
         if (incomingQuote.css("opacity") == 0) {
           TweenMax.fromTo(incomingQuote, 0.35, {
             opacity: 0,
@@ -136,7 +146,7 @@ var livingSys = (function () {
     $(window).resize(onResize);
     setTimeout(onResize, 250);
     //Hack!! Fix this later
-    setTimeout(redraw, 500);
+    //setTimeout(redraw, 500);
     setTimeout(function () {
       window.scrollTo(0, 0)
     }, 501);

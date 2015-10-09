@@ -194,10 +194,15 @@ ul.client-list
 {
     float: left;
 
-    width: 28%;
+    width: 19%;
     margin: 10px 10px 10px 20px;
 
     list-style-type: none;
+}
+
+.client-list li:first-child
+{
+  margin-left: -12px;
 }
 .client-list figure
 {

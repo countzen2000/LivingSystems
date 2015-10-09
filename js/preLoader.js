@@ -1,3 +1,7 @@
+/*
+Only suppoerted by firefox 29 or higher. I should find a way around this-- actually the latst is version 41. I think we can ignore.
+*/
+
 var preLoader = (function () {
   var itemsToLoad = [
     'build/resources/images/blank_1x1.png',
