@@ -2,7 +2,7 @@ var app = angular.module('livingApp', []);
 
 app.controller('wordSpinController', ['$scope', '$interval', function ($scope, $interval) {
   $scope.words = [
-    ['A', 'r', 'c', 'h', 'i', 'e', 'c', 't', 's'],
+    ['A', 'r', 'c', 'h', 'i', 't', 'e', 'c', 't', 's'],
     ['D', 'e', 's', 'i', 'g', 'n', 'e', 'r', 's'],
     ['C', 'r', 'a', 'f', 't', 's', 'm', 'a', 'n'],
     ['E', 'n', 'g', 'i', 'n', 'e', 'e', 'r', 's']
