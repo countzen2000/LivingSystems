@@ -114,6 +114,7 @@ section {
 }
 
 .section5 {
+  
   z-index: 999;
   height: 101vh !important;
   margin: 0;
@@ -121,7 +122,7 @@ section {
   color: gray;
   background-image: url(build/resources/images/background/works_5.png);
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -141,13 +142,6 @@ section {
 
 .section5 #section5_top {
   top: 40vh;
-  /*
-    -webkit-transform: translateY(-webkit-calc(-50% - 300px));
-       -moz-transform: translateY(-moz-calc(-50% - 300px));
-        -ms-transform: translateY(c-ms-alc(-50% - 300px));
-         -o-transform: translateY(-o-calc(-50% - 300px));
-            transform: translateY(calc(-50% - 300px));
-            */
 }
 
 .section5 #work-list-container {
