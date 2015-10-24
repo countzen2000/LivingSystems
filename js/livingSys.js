@@ -152,6 +152,9 @@ var livingSys = (function () {
     }, 501);
 
     handleWorkClick();
+    
+    //Video stuff
+    $("#video_background").prop("volume", 0.2);
   };
 
   return {
