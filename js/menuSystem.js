@@ -35,33 +35,39 @@ var menuSystem = (function () {
   }
 
   var clicked = function (event) {
+    console.log(event.target.id)
     switch (event.target.id) {
-    case "clients_menu":
-      scrollTo(arrowScroll.positionArray[3]);
-      break;
-    case "work_menu":
-      scrollTo(arrowScroll.positionArray[4]);
-      break;
-    case "services_menu":
-      scrollTo(arrowScroll.positionArray[5]);
-      break;
-    case "contact_menu":
-      scrollTo(arrowScroll.positionArray[6]);
-      break;
-    case "social_menu":
-      scrollTo(arrowScroll.positionArray[7]);
-      break;
+      case "clients_menu":
+        scrollTo(arrowScroll.positionArray[3]);
+        break;
+      case "work_menu":
+        scrollTo(arrowScroll.positionArray[4]);
+        break;
+      case "services_menu":
+        scrollTo(arrowScroll.positionArray[5]);
+        break;
+      case "contact_menu":
+        scrollTo(arrowScroll.positionArray[6]);
+        break;
+      case "social_menu":
+        scrollTo(arrowScroll.positionArray[7]);
+        break;
     }
   }
 
   var scrollTo = function (target) {
     targetPos = $(target).offset().top;
+    
     if (arrowScroll.currentPosition == 4) {
       targetPos = targetPos + 40;
     } else if (arrowScroll.currentPosition == 5) {
       targetPos = targetPos + 100;
-    }
-
+    };
+    
+    if (target == "#section8") {
+      targetPos = targetPos - (window.innerHeight * .06);
+    };
+    
     $('html, body').stop().animate({
       scrollTop: targetPos
     }, 2000);
