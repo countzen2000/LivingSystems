@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/mobile_main.css" />
     <script src="js/vendor/modernizr.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css"/>
+
+    
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick-theme.css"/>
   </head>
   <body>
     
@@ -50,22 +54,37 @@
           </div>
         </div>
       </div>
-    </div>     
-
-    <div class="row sections">
-      <div class="large-12 columns">
-        <div class="row">
-          <div class="large-12 columns">
-            <h1>Hudson</h1>
+      <div class="row sections">
+        <div class="large-12 columns">
+          <div class="row">
+            <div class="large-12 columns">
+              <h1>Hudson</h1>
+            </div>
+            <div id="hudson_images" class="large-12 columns slick_carousel">
+              <div><h3>1</h3></div>
+              <div><h3>2</h3></div>
+              <div><h3>3</h3></div>
+              <div><h3>4</h3></div>
+              <div><h3>5</h3></div>
+              <div><h3>6</h3></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <h1>Edge</h1>
+            </div>
+            <div id="edge_images" class="large-12 columns slick_carousel">
+              <div><h3>1</h3></div>
+              <div><h3>2</h3></div>
+              <div><h3>3</h3></div>
+              <div><h3>4</h3></div>
+              <div><h3>5</h3></div>
+              <div><h3>6</h3></div>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="large-12 columns">
-            <h1>Edge</h1>
-          </div>
-        </div>
-      </div>
-    </div> 
+      </div> 
+    </div>
   
     <div class="row sections">
       <div class="large-12 columns">
@@ -96,8 +115,15 @@
   
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js"></script>
     <script>
       $(document).foundation();
+      $("#hudson_images").slick({
+        dots: true
+      });
+      $("#edge_images").slick({
+        dots: true
+      });
     </script>
   </body>
 </html>

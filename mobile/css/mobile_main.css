@@ -1,6 +1,6 @@
 body {
   background-color: white;
-  color: black;
+  color: white !important;
 }
 
 .sections {
@@ -12,6 +12,10 @@ body {
 .vertical-align {
   position: relative;
   top: calc(50vh - 10em);
+}
+
+.slick-dots  {
+  margin-left: 0 !important;
 }
 
 /*********
@@ -51,4 +55,21 @@ Our Work
   background-image: url("../img/section3/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  color: white;
+}
+
+h1 {
+  color: white !important;
+}
+
+h2 {
+  color: white !important;
+}
+
+h3 {
+  color: white !important;
+}
+
+p {
+  color: white !important;
 }
