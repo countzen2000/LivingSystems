@@ -1,0 +1,54 @@
+body {
+  background-color: white;
+  color: black;
+}
+
+.sections {
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+
+.vertical-align {
+  position: relative;
+  top: calc(50vh - 10em);
+}
+
+/*********
+SECTION 1
+INTRO
+*********/
+
+#section1 {
+  background-image: url("../img/section1/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#setion1-header {
+  width: 90vw;
+  margin: 0;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+#section1 h1 h2 p {
+  color: white;
+}
+
+/*********
+SECTION 2
+Clients!
+*********/
+#section2 {
+}
+
+/*********
+SECTION 3
+Our Work
+*********/
+#section3 {
+  background-image: url("../img/section3/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
