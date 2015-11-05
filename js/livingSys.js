@@ -28,29 +28,30 @@ var livingSys = (function () {
 
     redraw();
     realign();
-    refreshBackgrounds('.section4');
-    refreshBackgrounds('.section5');
-    refreshBackgrounds('.section6');
-    refreshBackgrounds('.section7');
-    refreshBackgrounds('.section8');
+    refreshBackgrounds(".section4");
+    refreshBackgrounds(".section5");
+    refreshBackgrounds(".section6");
+    refreshBackgrounds(".section7");
+    refreshBackgrounds(".section8");
   }
 
   var realign = function () {
-    $('#section4').offset({
-      top: $('#intro-container').height() - 0
+    $("#section4").offset({
+      top: $("#intro-container").height() - 0
     });
-    $('#section5').offset({
-      top: $('#section4').offset().top + $('#section5').height() - 10 //Taht's a little hacky
+    $("#section5").offset({
+       //That's a little hacky
+      top: $("#section4").offset().top + $("#section5").height() - 10
     });
-    $('#section6').offset({
-      top: $('#section5').offset().top + $('#section6').height()
+    $("#section6").offset({
+      top: $("#section5").offset().top + $("#section6").height()
     });
-    $('#section7').offset({
-      top: $('#section6').offset().top + $('#section7').height()
+    $("#section7").offset({
+      top: $("#section6").offset().top + $("#section7").height()
     });
 
-    $('#section8').offset({
-      top: $('#section7').offset().top + $('#section8').height()
+    $("#section8").offset({
+      top: $("#section7").offset().top + $("#section8").height() + 300
     });
 
   }
@@ -59,11 +60,11 @@ var livingSys = (function () {
     //This whole section is a bit hacky
 
     //for works section
-    source = $('.work-list > li');
+    var source = $(".work-list > li");
 
     source.height(source.height() * .99);
 
-    target = $('.works-effect > .overlay');
+    var target = $(".works-effect > .overlay");
 
     target.height(source.height() * .99);
     target.width(source.width());
@@ -71,13 +72,13 @@ var livingSys = (function () {
   }
 
   var initQuotes = function () {
-    var quotes = $('.quote');
-    var clientList = $('.client-list li');
+    var quotes = $(".quote");
+    var clientList = $(".client-list li");
 
     clientList.each(function () {
-      $(this).on('mouseenter touchend', function (e) {
+      $(this).on("mouseenter touchend", function (e) {
         var index = $(this).index();
-        console.log(index);
+        console.log(e + " : " +index);
         //I should probably put this away somewhere
         //and 0 = 0
         if (index === 2) {
@@ -128,12 +129,12 @@ var livingSys = (function () {
   };
 
   var handleWorkClick = function () {
-    $('.works-effect').click(function (e) {
-      console.log(e.target.src.indexOf('hudson'));
-      if (e.target.src.indexOf('hudson') > 0) {
-        window.open('sub/hudson.html');
+    $(".works-effect").click(function (e) {
+      console.log(e.target.src.indexOf("hudson"));
+      if (e.target.src.indexOf("hudson") > 0) {
+        window.open("sub/hudson.html");
       } else {
-        window.open('sub/edge.html');
+        window.open("sub/edge.html");
       }
     });
   };
