@@ -712,7 +712,7 @@ var livingSys = (function () {
     });
 
     $('#section8').offset({
-      top: $('#section7').offset().top + $('#section8').height()
+      top: $('#section7').offset().top + $('#section8').height() + 300
     });
 
   }
