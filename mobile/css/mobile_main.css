@@ -3,6 +3,12 @@ body {
   color: white !important;
 }
 
+.font {
+  font-family: 'proxima-nova', sans-serif !important;
+  font-weight: 100 !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
 .sections {
   height: 100vh;
   width: 100vw;
@@ -10,13 +16,15 @@ body {
 }
 
 .vertical-align {
-  position: relative;
-  top: calc(50% - 200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.slick-dots  {
+.slick-dots {
   margin-left: 0 !important;
 }
+
 
 /*********
 SECTION 1
@@ -29,50 +37,149 @@ INTRO
   background-size: cover;
 }
 
-#setion1-header {
+#section1-header {
   width: 90vw;
   margin: 0;
   margin-left: 5vw;
   margin-right: 5vw;
 }
 
-#section1 h1 h2 p {
+#section1-header h1 {
   color: white;
+  font-size: 25px;
 }
+
+#section1-header p {
+  color: white;
+  font-size: 14px;
+}
+
+#section1-header h2 {
+  color: white;
+  font-size: 50px;
+  line-height: 50px;
+}
+
+.logo {
+  padding-left: 10px;
+}
+
 
 /*********
 SECTION 2
 Clients!
 *********/
-#section2 {
+
+#section2 {}
+
+#section2-header {
+  width: 90vw;
+  margin: 0;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+#section2-header h1 {
+  color: black;
+  font-size: 35px;
+}
+
+#section2-header p {
+  color: black;
+  font-size: 14px;
 }
 
 /*********
 SECTION 3
 Our Work
 *********/
+
 #section3 {
   background-image: url("../img/section3/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  height: 40vh;
+}
+
+#section3-header {
+  width: 90vw;
+  margin: 0;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+#section3-header h1 {
+  color: white;
+  font-size: 35px;
+}
+
+#section3-header p {
+  color: white;
+  font-size: 14px;
 }
 
 /*********
-SECTION 4
+section 4 
+works carousel
+**********/
+
+#section4 {}
+
+
+/*********
+SECTION 5
 What we Offer
 *********/
-#section4 {
+
+#section5 {
   color: black;
 }
 
 
 /*********
-SECTION 5
+SECTION 6
 Social
 *********/
-#section5 {
+
+#section6 {
   height: 50vh;
   background-color: black;
-  color: lightgrey;
+}
+
+#section6-header {
+  width: 90vw;
+  margin: 0;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+#section6-header h4 {
+  color: lightgray;
+}
+
+#section6-header p {
+  color: lightgray;
+  font-size: 14px;
+}
+
+#section6-header h2 {
+  color: lightgray;
+  font-size: 50px;
+  line-height: 50px;
+}
+
+/********
+MENU OVERRIDES!
+*********/
+
+#m_menu {
+  background: none;
+  background-color: transparent!important;
+  text-align: -webkit-auto;
+  height: 38px;
+}
+
+.top-bar.expanded {
+  height: auto !important;
 }
