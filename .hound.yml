@@ -1,2 +1,5 @@
 javascript:
   config_file: .javascript-style.json
+javascript:
+  ignore_file: mobile/js/foundation/foundation.topbar.js
+  ignore_file: mobile/js/vendor/jquery.js
