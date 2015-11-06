@@ -11,7 +11,7 @@ body {
 
 .vertical-align {
   position: relative;
-  top: calc(50vh - 10em);
+  top: calc(50% - 200px);
 }
 
 .slick-dots  {
@@ -58,18 +58,21 @@ Our Work
   color: white;
 }
 
-h1 {
-  color: white !important;
+/*********
+SECTION 4
+What we Offer
+*********/
+#section4 {
+  color: black;
 }
 
-h2 {
-  color: white !important;
-}
 
-h3 {
-  color: white !important;
-}
-
-p {
-  color: white !important;
+/*********
+SECTION 5
+Social
+*********/
+#section5 {
+  height: 50vh;
+  background-color: black;
+  color: lightgrey;
 }
