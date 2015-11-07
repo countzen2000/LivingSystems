@@ -30,10 +30,10 @@
 
         <section class="top-bar-section">
           <ul class="right">
-            <li ><a href="#" class="font">Home</a></li>
-            <li ><a href="#" class="font">Client</a></li>
-            <li ><a href="#" class="font">Work</a></li>
-            <li ><a href="#" class="font">What we do</a></li>
+            <li><a href="#" class="font">Home</a></li>
+            <li><a href="#" class="font">Client</a></li>
+            <li><a href="#" class="font">Work</a></li>
+            <li><a href="#" class="font">What we do</a></li>
           </ul>
         </section>
       </nav>
@@ -85,47 +85,46 @@
     </div>
   </div>
 
-  <div id="section4" class="row sections">
-    <div class="large-12 columns">
-      <div id="hudson_images" class="large-12 columns slick_carousel">
-        <div><img src="../build/resources/images/works/hudson1.jpg"></div>
-        <div><img src="../build/resources/images/works/hudson2.jpg"></div>
-        <div><img src="../build/resources/images/works/hudson3.jpg"></div>
-        <div><img src="../build/resources/images/works/hudson4.jpg"></div>
-      </div>
-      <div class="large-12 columns">
-        <h1>Hudson</h1>
-      </div>
-      <div id="edge_images" class="large-12 columns slick_carousel">
-        <div><img src="../build/resources/images/works/edge1.jpg"></div>
-        <div><img src="../build/resources/images/works/edge2.jpg"></div>
-        <div><img src="../build/resources/images/works/edge3.jpg"></div>
-        <div><img src="../build/resources/images/works/edge4.jpg"></div>
-      </div>
-      <div class="large-12 columns">
-        <h1>Edge</h1>
-      </div>
+  <div id="section4" class="row sections collapse">
+    <div id="hudson_images" class="large-12 columns slick_carousel">
+      <div><img src="../build/resources/images/works/hudson1.jpg"></div>
+      <div><img src="../build/resources/images/works/hudson2.jpg"></div>
+      <div><img src="../build/resources/images/works/hudson3.jpg"></div>
+      <div><img src="../build/resources/images/works/hudson4.jpg"></div>
     </div>
-  </div>
-  </div>
+    <div class="large-12 columns">
+      <h1>Hudson</h1>
+    </div>
+    <div id="edge_images" class="large-12 columns slick_carousel">
+      <div><img src="../build/resources/images/works/edge1.jpg"></div>
+      <div><img src="../build/resources/images/works/edge2.jpg"></div>
+      <div><img src="../build/resources/images/works/edge3.jpg"></div>
+      <div><img src="../build/resources/images/works/edge4.jpg"></div>
+    </div>
+    <div class="large-12 columns">
+      <h1>Edge</h1>
+    </div>
   </div>
 
   <div id="section5" class="row sections">
     <div class="large-12 columns">
       <div class="row">
         <div class="large-12 columns">
-          <h1 class="font">What we Offer</h1>
+          <span id="section5-header">
+            <h1 class="font">What We Offer</h1>
+            <p class="font">We offer our clients a unique suite of Design/Build/Development Services to cultivate modern, high performance spaces from concept through completion</p>
+          </span>
         </div>
       </div>
       <div class="row">
-        <div class="large-4 columns">
-          <h1 class="font">Stuff</h1>
+        <div class="small-4 columns">
+          <h1 class="font">Images</h1>
         </div>
-        <div class="large-4 columns">
-          <h1 class="font">Stuff</h1>
+        <div class="small-4 columns">
+          <h1 class="font">Images</h1>
         </div>
-        <div class="large-4 columns">
-          <h1 class="font">Stuff</h1>
+        <div class="small-4 columns">
+          <h1 class="font">Images</h1>
         </div>
       </div>
     </div>
@@ -150,11 +149,17 @@
     $(document).foundation();
     $("#hudson_images").slick({
       dots: true,
-      adaptiveHeight: true
+      adaptiveHeight: true,
+      centerMode: true,
+      variableWidth: true,
+      infinite: true,
     });
     $("#edge_images").slick({
       dots: true,
-      adaptiveHeight: true
+      adaptiveHeight: true,
+      centerMode: true,
+      variableWidth: true,
+      infinite: true,
     });
   </script>
 </body>

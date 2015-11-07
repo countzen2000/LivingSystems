@@ -65,7 +65,7 @@ var menuSystem = (function () {
     };
     
     if (target == "#section8") {
-      targetPos = targetPos - (window.innerHeight * .06);
+      targetPos = targetPos - (window.innerHeight * .5);
     };
     
     $('html, body').stop().animate({

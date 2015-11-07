@@ -1,6 +1,14 @@
-body {
+body,
+html {
   background-color: white;
   color: white !important;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  html, body {
+    width: 100vw;
+    overflow-x: hidden;
+  }
 }
 
 .font {
@@ -89,6 +97,7 @@ Clients!
   font-size: 14px;
 }
 
+
 /*********
 SECTION 3
 Our Work
@@ -115,9 +124,10 @@ Our Work
 }
 
 #section3-header p {
-  color: white;
+  color: lightgray;
   font-size: 14px;
 }
+
 
 /*********
 section 4 
@@ -134,6 +144,16 @@ What we Offer
 
 #section5 {
   color: black;
+}
+
+#section5-header h1 {
+  color: black;
+  font-size: 35px;
+}
+
+#section5-header p {
+  color: darkgray;
+  font-size: 14px;
 }
 
 
@@ -168,6 +188,7 @@ Social
   font-size: 50px;
   line-height: 50px;
 }
+
 
 /********
 MENU OVERRIDES!
