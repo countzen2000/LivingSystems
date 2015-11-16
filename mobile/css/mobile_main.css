@@ -106,7 +106,9 @@ SECTION 2
 Clients!
 *********/
 
-#section2 {}
+#section2 {
+  height: 160vh !important;
+}
 
 #section2-header {
   width: 90vw;
@@ -125,6 +127,11 @@ Clients!
   font-size: 14px;
 }
 
+.client-image {
+  height: 35vh;
+  width: auto;
+  padding-bottom: 20vh;
+}
 
 /*********
 SECTION 3
@@ -142,8 +149,6 @@ Our Work
 #section3-header {
   width: 90vw;
   margin: 0;
-  margin-left: 5vw;
-  margin-right: 5vw;
 }
 
 #section3-header h1 {
