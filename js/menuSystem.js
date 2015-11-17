@@ -64,8 +64,16 @@ var menuSystem = (function () {
       targetPos = targetPos + 100;
     };
     
+    if (target == "#section4") {
+      targetPos = targetPos - (window.innerHeight * .09);
+    };
+    
+    if (target == "#section5") {
+      targetPos = targetPos - (window.innerHeight * .1);
+    };
+    
     if (target == "#section8") {
-      targetPos = targetPos - (window.innerHeight * .5);
+      targetPos = targetPos - (window.innerHeight * .3);
     };
     
     $('html, body').stop().animate({
