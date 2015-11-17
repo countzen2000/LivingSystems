@@ -56,7 +56,7 @@ var menuSystem = (function () {
   }
 
   var scrollTo = function (target) {
-    targetPos = $(target).offset().top;
+    var targetPos = $(target).offset().top;
     
     if (arrowScroll.currentPosition == 4) {
       targetPos = targetPos + 40;
