@@ -3,3 +3,5 @@ javascript:
 javascript:
   ignore_file: mobile/js/foundation/foundation.topbar.js
   ignore_file: mobile/js/vendor/jquery.js
+  ignore_file: mobile/js/vendor/jquery.cookie.js
+  ignore_file: mobile/js/vendor/fastclick.js
