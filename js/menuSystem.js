@@ -62,19 +62,19 @@ var menuSystem = (function () {
       targetPos = targetPos + 40;
     } else if (arrowScroll.currentPosition == 5) {
       targetPos = targetPos + 100;
-    };
+    }
     
     if (target == "#section4") {
-      targetPos = targetPos - (window.innerHeight * .09);
-    };
+      targetPos = targetPos - (window.innerHeight * 0.09);
+    }
     
     if (target == "#section5") {
-      targetPos = targetPos - (window.innerHeight * .1);
-    };
+      targetPos = targetPos - (window.innerHeight * 0.1);
+    }
     
     if (target == "#section8") {
-      targetPos = targetPos - (window.innerHeight * .3);
-    };
+      targetPos = targetPos - (window.innerHeight * 0.3);
+    }
     
     $('html, body').stop().animate({
       scrollTop: targetPos
