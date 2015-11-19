@@ -8,6 +8,7 @@ hr {
   width: 20vw;
   margin-left: 35vw;
 }
+
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
 only screen and (-o-min-device-pixel-ratio: 3/2),
 only screen and (min--moz-device-pixel-ratio: 1.5),
@@ -123,12 +124,14 @@ Clients!
 
 #section2-header h1 {
   color: black;
-  font-size: 35px;
+  font-size: 11vw;
+  line-height: 7vw;
 }
 
 #section2-header p {
   color: black;
-  font-size: 14px;
+  font-size: 4vw;
+  line-height: 6vw;
 }
 
 .client-image {
@@ -136,6 +139,7 @@ Clients!
   width: auto;
   padding-bottom: 20vh;
 }
+
 
 /*********
 SECTION 3
@@ -157,12 +161,14 @@ Our Work
 
 #section3-header h1 {
   color: white;
-  font-size: 35px;
+  font-size: 11vw;
+  line-height: 7vw;
 }
 
 #section3-header p {
   color: lightgray;
-  font-size: 14px;
+  font-size: 4vw;
+  line-height: 6vw;
 }
 
 
@@ -171,7 +177,23 @@ section 4
 works carousel
 **********/
 
-#section4 {}
+#section4 {
+  background-color: white;
+}
+
+.section4-image h1 {
+  font-size: 5vw;
+  line-height: 4vw;
+}
+
+.section4-image span {
+  display: block;
+  color: gray;
+  font-size: 4vw;
+  line-height: 6vw;
+  width: 80vw;
+  margin-left: 11vw;
+}
 
 
 /*********
@@ -179,18 +201,26 @@ SECTION 5
 What we Offer
 *********/
 
-#section5 {
-  color: black;
+#section5 {}
+
+#section5 .body {
+  background-color: lightgoldenrodyellow;
 }
 
 #section5-header h1 {
   color: black;
-  font-size: 35px;
+  font-size: 11vw;
+  line-height: 7vw;
 }
 
 #section5-header p {
   color: darkgray;
-  font-size: 14px;
+  font-size: 4vw;
+  line-height: 6vw;
+}
+
+.section5-works {
+  height: 300px;
 }
 
 
@@ -200,7 +230,6 @@ Social
 *********/
 
 #section6 {
-  height: 50vh;
   background-color: black;
 }
 
@@ -217,7 +246,7 @@ Social
 
 #section6-header p {
   color: lightgray;
-  font-size: 14px;
+  font-size: 8vw;
 }
 
 #section6-header h2 {
