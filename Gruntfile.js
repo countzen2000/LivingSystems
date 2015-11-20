@@ -61,6 +61,7 @@ module.exports = function (grunt) {
                   'resources/images/logos/clients/*.svg',
                   'mobile/images/works/*.svg',
                   'mobile/images/*.svg',
+                  'mobile/images/footer/*.svg',
                 ],
                 dest: 'build/'
             }
