@@ -1,5 +1,6 @@
 body,
 html {
+  overflow-x: hidden;
   background-color: white;
   color: white !important;
 }
@@ -67,7 +68,7 @@ SECTION 1
 INTRO
 *********/
 
-#section1 {
+#home {
   background-image: url("../img/section1/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -111,7 +112,7 @@ SECTION 2
 Clients!
 *********/
 
-#section2 {
+#client {
   height: 160vh !important;
 }
 
@@ -146,7 +147,7 @@ SECTION 3
 Our Work
 *********/
 
-#section3 {
+#work {
   background-image: url("../img/section3/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -201,10 +202,10 @@ SECTION 5
 What we Offer
 *********/
 
-#section5 {}
+#what {}
 
-#section5 .body {
-  background-color: lightgoldenrodyellow;
+#what .body {
+  background-color: #FAFAFA;
 }
 
 #section5-header h1 {
