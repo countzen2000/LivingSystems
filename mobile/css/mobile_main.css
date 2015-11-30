@@ -152,12 +152,14 @@ Our Work
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  padding-top: 5vh;
   height: 50vh;
 }
 
 #section3-header {
   width: 90vw;
   margin: 0;
+  padding-top: 6vh;
 }
 
 #section3-header h1 {
@@ -206,6 +208,7 @@ What we Offer
 
 #what .body {
   background-color: #FAFAFA;
+  padding-top: 6vh;
 }
 
 #section5-header h1 {
@@ -266,7 +269,7 @@ MENU OVERRIDES!
   background: none;
   background-color: transparent!important;
   text-align: -webkit-auto;
-  height: 38px;
+  height: 45px;
 }
 
 .top-bar.expanded {
