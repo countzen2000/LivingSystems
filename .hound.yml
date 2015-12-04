@@ -5,3 +5,5 @@ javascript:
   ignore_file: mobile/js/vendor/jquery.js
   ignore_file: mobile/js/vendor/jquery.cookie.js
   ignore_file: mobile/js/vendor/fastclick.js
+  ignore_file: mobile/vender/*.js
+  ignore_file: node_modules/*/*.js
