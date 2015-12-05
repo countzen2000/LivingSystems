@@ -1,12 +1,18 @@
 body,
 html {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
   overflow-x: hidden;
   background-color: white;
   color: white !important;
 }
 
 hr {
+  border-color: #555555;
   width: 20vw;
+  margin-bottom: 5vh;
   margin-left: 35vw;
 }
 
@@ -76,8 +82,8 @@ INTRO
 
 .section1-header {
   width: 90vw;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 10vw;
+  margin-right: auto;
 }
 
 .section1-header h1 {
@@ -124,15 +130,17 @@ Clients!
 }
 
 #section2-header h1 {
-  color: black;
-  font-size: 11vw;
-  line-height: 7vw;
+color: black;
+    font-size: 8vw;
+    line-height: 8vw;
+    margin-top: 10vh;
 }
 
 #section2-header p {
-  color: black;
-  font-size: 4vw;
-  line-height: 6vw;
+  color: #555555;
+    font-size: 3vw;
+    line-height: 5vw;
+
 }
 
 .client-image {
@@ -164,14 +172,15 @@ Our Work
 
 #section3-header h1 {
   color: white;
-  font-size: 11vw;
-  line-height: 7vw;
+font-size: 8vw;
+    line-height: 8vw;
 }
 
 #section3-header p {
   color: lightgray;
-  font-size: 4vw;
-  line-height: 6vw;
+  font-size: 3vw;
+  line-height: 5vw;
+
 }
 
 
@@ -191,11 +200,11 @@ works carousel
 
 .section4-image span {
   display: block;
-  color: gray;
-  font-size: 4vw;
-  line-height: 6vw;
   width: 80vw;
   margin-left: 11vw;
+  color: #555555;
+  font-size: 3vw;
+  line-height: 5vw;
 }
 
 
@@ -213,20 +222,26 @@ What we Offer
 
 #section5-header h1 {
   color: black;
-  font-size: 11vw;
-  line-height: 7vw;
+font-size: 8vw;
+    line-height: 8vw;
 }
 
 #section5-header p {
-  color: darkgray;
-  font-size: 4vw;
-  line-height: 6vw;
+color: #555555;
+    font-size: 3vw;
+    line-height: 5vw;
 }
 
 .section5-works {
   height: 300px;
 }
-
+.svg_image {
+  height: 10vh;
+  /* width: 80px; */
+  /* min-width: 10vw; */
+  padding-left: 2vw;
+  margin-bottom: 7vh;
+}
 
 /*********
 SECTION 6
@@ -235,6 +250,7 @@ Social
 
 #section6 {
   background-color: black;
+  height: 100vh;
 }
 
 #section6-header {
