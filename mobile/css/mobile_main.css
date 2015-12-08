@@ -80,6 +80,23 @@ INTRO
   background-size: cover;
 }
 
+.email {
+    line-height: 9vh;
+    width: 50vw;
+    height: 10vh;
+    border-style: solid;
+    border-width: 4px;
+    margin: 2vh;
+    margin-left: 15vw;
+    margin-top: 16vh;
+    font-size: 3vw;
+    font-weight: bold !important;
+}
+
+.email_link { 
+    color: white;
+}
+
 .section1-header {
   width: 90vw;
   margin-left: 10vw;
