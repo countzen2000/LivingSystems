@@ -4,9 +4,11 @@ html {
   width: 100%;
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: scroll;
   background-color: white;
   color: white !important;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
 }
 
 hr {
@@ -267,7 +269,7 @@ Social
 
 #section6 {
   background-color: black;
-  height: 130vh;
+  height: 200vh;
 }
 
 #section6-header {
