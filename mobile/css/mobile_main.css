@@ -1,0 +1,312 @@
+body,
+html {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: scroll;
+  background-color: white;
+  color: white !important;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
+}
+
+hr {
+  border-color: #555555;
+  width: 20vw;
+  margin-bottom: 5vh;
+  margin-left: 35vw;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+  html,
+  body {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+.font {
+  font-family: 'proxima-nova', sans-serif !important;
+  font-weight: 100 !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+.sections {
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.vertical {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: 24em;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.vertical-item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.slick-dots {
+  margin-left: 0 !important;
+}
+
+
+/*********
+SECTION 1
+INTRO
+*********/
+
+#home {
+  background-image: url("../img/section1/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.email {
+    line-height: 9vh;
+    width: 50vw;
+    height: 10vh;
+    border-style: solid;
+    border-width: 4px;
+    margin: 2vh;
+    margin-left: 15vw;
+    margin-top: 16vh;
+    font-size: 3vw;
+    font-weight: bold !important;
+}
+
+.email_link { 
+    color: white;
+}
+
+.section1-header {
+  width: 90vw;
+  margin-left: 10vw;
+  margin-right: auto;
+}
+
+.section1-header h1 {
+  color: white;
+  font-size: 25px;
+  font-size: 3.5vw;
+}
+
+.section1-header h2 {
+  color: white;
+  font-size: 40px;
+  line-height: 40px;
+  font-size: 12vw;
+  line-height: 12vw;
+}
+
+.section1-header span {
+  color: white;
+  font-size: 10px;
+  line-height: 10px;
+  font-size: 3.5vw;
+  line-height: 3.5vw;
+}
+
+.logo {
+  padding-left: 10px;
+}
+
+
+/*********
+SECTION 2
+Clients!
+*********/
+
+#client {
+  height: 160vh !important;
+}
+
+#section2-header {
+  width: 90vw;
+  margin: 0;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+#section2-header h1 {
+color: black;
+    font-size: 8vw;
+    line-height: 8vw;
+    margin-top: 10vh;
+}
+
+#section2-header p {
+  color: #555555;
+    font-size: 3vw;
+    line-height: 5vw;
+
+}
+
+.client-image {
+  height: 35vh;
+  width: auto;
+  padding-bottom: 20vh;
+}
+
+
+/*********
+SECTION 3
+Our Work
+*********/
+
+#work {
+  background-image: url("../img/section3/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding-top: 5vh;
+  height: 50vh;
+}
+
+#section3-header {
+  width: 90vw;
+  margin: 0;
+  padding-top: 6vh;
+}
+
+#section3-header h1 {
+  color: white;
+font-size: 8vw;
+    line-height: 8vw;
+}
+
+#section3-header p {
+  color: lightgray;
+  font-size: 3vw;
+  line-height: 5vw;
+
+}
+
+
+/*********
+section 4 
+works carousel
+**********/
+
+#section4 {
+  background-color: white;
+}
+
+.section4-image h1 {
+  font-size: 5vw;
+  line-height: 4vw;
+}
+
+.section4-image span {
+  display: block;
+  width: 80vw;
+  margin-left: 11vw;
+  color: #555555;
+  font-size: 3vw;
+  line-height: 5vw;
+}
+
+
+/*********
+SECTION 5
+What we Offer
+*********/
+
+#what {}
+
+#what .body {
+  background-color: #FAFAFA;
+  padding-top: 6vh;
+}
+
+#section5-header h1 {
+  color: black;
+font-size: 8vw;
+    line-height: 8vw;
+}
+
+#section5-header p {
+color: #555555;
+    font-size: 3vw;
+    line-height: 5vw;
+}
+
+.section5-works {
+  height: 300px;
+}
+.svg_image {
+  height: 10vh;
+  /* width: 80px; */
+  /* min-width: 10vw; */
+  padding-left: 2vw;
+  margin-bottom: 7vh;
+}
+
+/*********
+SECTION 6
+Social
+*********/
+
+#section6 {
+  background-color: black;
+  height: 200vh;
+}
+
+#section6-header {
+  width: 90vw;
+  margin: 0;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  padding-top: 20vh;
+}
+
+#section6-header h4 {
+  color: lightgray;
+}
+
+#section6-header p {
+  color: lightgray;
+  font-size: 8vw;
+}
+
+#section6-header h2 {
+  color: lightgray;
+  font-size: 50px;
+  line-height: 50px;
+}
+
+
+/********
+MENU OVERRIDES!
+*********/
+
+#m_menu {
+  background: none;
+  background-color: transparent!important;
+  text-align: -webkit-auto;
+  height: 45px;
+}
+
+.top-bar.expanded {
+  height: auto !important;
+}

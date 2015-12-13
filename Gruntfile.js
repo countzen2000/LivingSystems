@@ -55,7 +55,14 @@ module.exports = function (grunt) {
             },
             dist: {
                 expand: true,
-                src: ['resources/images/logos/icons/*.svg', 'resources/images/logos/clients/*.svg'],
+                src: [
+                  'resource/images/system/*.svg',
+                  'resources/images/logos/icons/*.svg',
+                  'resources/images/logos/clients/*.svg',
+                  'mobile/images/works/*.svg',
+                  'mobile/images/*.svg',
+                  'mobile/images/footer/*.svg',
+                ],
                 dest: 'build/'
             }
         },
