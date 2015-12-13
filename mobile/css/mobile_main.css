@@ -113,8 +113,8 @@ INTRO
   color: white;
   font-size: 40px;
   line-height: 40px;
-  font-size: 12vw;
-  line-height: 12vw;
+  font-size: 10vw;
+  line-height: 10vw;
 }
 
 .section1-header span {
@@ -267,7 +267,7 @@ Social
 
 #section6 {
   background-color: black;
-  height: 100vh;
+  height: 130vh;
 }
 
 #section6-header {
