@@ -138,7 +138,7 @@ Clients!
 *********/
 
 #client {
-  height: 160vh !important;
+  height: 100vh !important;
 }
 
 #section2-header {
@@ -163,9 +163,9 @@ color: black;
 }
 
 .client-image {
-  height: 35vh;
+  height: 18vh;
   width: auto;
-  padding-bottom: 20vh;
+  padding-bottom: 7vh;
 }
 
 
@@ -270,6 +270,7 @@ Social
 #section6 {
   background-color: black;
   height: 200vh;
+  z-index: 1000;
 }
 
 #section6-header {
@@ -305,6 +306,7 @@ MENU OVERRIDES!
   background-color: transparent!important;
   text-align: -webkit-auto;
   height: 45px;
+  z-index: 500;
 }
 
 .top-bar.expanded {
