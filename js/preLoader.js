@@ -99,10 +99,19 @@ var preLoader = (function () {
   };
 
   var onComplete = function () {
+    var isiPad = navigator.userAgent.match(/iPad/i) != null;
+    
     $('#loader_screen').hide(1000);
     $('#scrollContent').fadeTo(0, 0);
     $('#scrollContent').css('display', 'block');
+    if (isiPad) {
+      $('#scrollContent').css('width', '200vw');
+      $('#SocialContainer').css('width', '200vw');
+      $('#intro-content').css('width', '200vw');
+      $('#video_background').css('width', '300vw');
+    }
     $('#scrollContent').fadeTo(1000, 1);
+    
 
     forms.init();
     livingSys.init();
